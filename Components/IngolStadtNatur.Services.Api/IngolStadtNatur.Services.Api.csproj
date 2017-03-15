@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{341605FD-F2E0-4A8C-A8BD-B30A9ADA0928}</ProjectGuid>
+    <ProjectGuid>{C42DC5C6-8D75-4F0C-95B8-E24DD1CA6DCE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IngolStadtNatur.Services.NH</RootNamespace>
-    <AssemblyName>IngolStadtNatur.Services.NH</AssemblyName>
+    <RootNamespace>IngolStadtNatur.Services.Api</RootNamespace>
+    <AssemblyName>IngolStadtNatur.Services.Api</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,27 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\UserStore.cs" />
-    <Compile Include="Objects\NodeManager.cs" />
-    <Compile Include="Observations\ObservationManager.cs" />
+    <Compile Include="Objects\INodeManager.cs" />
+    <Compile Include="Observations\IObservationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IngolStadtNatur.Entities.NH\IngolStadtNatur.Entities.NH.csproj">
       <Project>{9A40306A-7D9A-4AA4-9B7F-AC5C8634CE68}</Project>
       <Name>IngolStadtNatur.Entities.NH</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IngolStadtNatur.Persistence.Api\IngolStadtNatur.Persistence.Api.csproj">
-      <Project>{a04fb8b7-391d-4b31-8226-4ee308c718d7}</Project>
-      <Name>IngolStadtNatur.Persistence.Api</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IngolStadtNatur.Persistence.NH\IngolStadtNatur.Persistence.NH.csproj">
-      <Project>{744DC9F3-98D5-4068-9610-333DF96AEAB4}</Project>
-      <Name>IngolStadtNatur.Persistence.NH</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IngolStadtNatur.Services.Api\IngolStadtNatur.Services.Api.csproj">
-      <Project>{C42DC5C6-8D75-4F0C-95B8-E24DD1CA6DCE}</Project>
-      <Name>IngolStadtNatur.Services.Api</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
