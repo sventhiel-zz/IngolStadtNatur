@@ -10,6 +10,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string CommonName { get; set; }
         public string Description { get; set; }
         public long Id { get; set; }
+        public List<ImageModel> Images { get; set; }
         public long ParentId { get; set; }
         public string Preview { get; set; }
         public string ScientificName { get; set; }
@@ -29,6 +30,7 @@ namespace IngolStadtNatur.Web.Shell.Models
                 CommonName = category.CommonName,
                 Description = category.Description,
                 Id = category.Id,
+                Images = category.Images.Select(ImageModel.Convert).ToList(),
                 ParentId = category.Parent?.Id ?? 0,
                 Preview = category.Preview,
                 ScientificName = category.ScientificName,
@@ -42,6 +44,7 @@ namespace IngolStadtNatur.Web.Shell.Models
     {
         public string Description { get; set; }
         public long Id { get; set; }
+        public List<ImageListGroupItemModel> Images { get; set; }
         public string CommonName { get; set; }
         public string Preview { get; set; }
         public string ScientificName { get; set; }
@@ -52,6 +55,7 @@ namespace IngolStadtNatur.Web.Shell.Models
             {
                 Description = category.Description,
                 Id = category.Id,
+                Images = category.Images.Select(ImageListGroupItemModel.Convert).ToList(),
                 CommonName = category.CommonName,
                 Preview = category.Preview,
                 ScientificName = category.ScientificName
@@ -59,15 +63,12 @@ namespace IngolStadtNatur.Web.Shell.Models
         }
     }
 
-    public class CreateCategoryModel
-    {
-    }
-
     public class CategoryModel
     {
         public string CommonName { get; set; }
         public string Description { get; set; }
         public long Id { get; set; }
+        public List<ImageModel> Images { get; set; }
         public string Reference { get; set; }
         public string ScientificName { get; set; }
 
@@ -78,6 +79,7 @@ namespace IngolStadtNatur.Web.Shell.Models
                 CommonName = category.CommonName,
                 Description = category.Description,
                 Id = category.Id,
+                Images = category.Images.Select(ImageModel.Convert).ToList(),
                 Reference = category.Reference,
                 ScientificName = category.ScientificName,
             };

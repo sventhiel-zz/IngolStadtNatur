@@ -1,19 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using IngolStadtNatur.Entities.NH.Objects;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
-using IngolStadtNatur.Entities.NH.Objects;
 
 namespace IngolStadtNatur.Web.Shell.Models
 {
-    public class CreateSpeciesModel
-    {
-        public string ScientificName { get; set; }
-
-        [Required]
-        public string CommonName { get; set; }
-    }
-
     public class SpeciesListGroupItemModel
     {
         public string Description { get; set; }
@@ -66,36 +57,6 @@ namespace IngolStadtNatur.Web.Shell.Models
                 Reference = species.Reference,
                 ScientificName = species.ScientificName,
                 CommonName = species.CommonName
-            };
-        }
-    }
-
-    public class SpeciesSelectionModel
-    {
-        [Display(Name = "Deutscher Name")]
-        public string CommonName { get; set; }
-
-        public string Description { get; set; }
-        public List<ImageListGroupItemModel> Images { get; set; }
-        public long Id { get; set; }
-
-        [Display(Name = "Wissenschaftlicher Name")]
-        public string ScientificName { get; set; }
-
-        public SpeciesSelectionModel()
-        {
-            Images = new List<ImageListGroupItemModel>();
-        }
-
-        public static SpeciesSelectionModel Convert(Species species)
-        {
-            return new SpeciesSelectionModel()
-            {
-                CommonName = species.CommonName,
-                Description = species.Description,
-                Id = species.Id,
-                Images = species.Images.Select(ImageListGroupItemModel.Convert).ToList(),
-                ScientificName = species.ScientificName
             };
         }
     }
