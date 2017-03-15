@@ -4,7 +4,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.DataProtection;
 using Owin;
 
-namespace IngolStadtNatur.Services.NH.Authentication
+namespace IngolStadtNatur.Services.NH.Utilities
 {
     public static class Auth
     {
