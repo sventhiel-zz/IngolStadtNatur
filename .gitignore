@@ -240,3 +240,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# SPECIFIC
+/Console/IngolStadtNatur.Web.Shell/Connections.config
