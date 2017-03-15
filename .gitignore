@@ -243,3 +243,4 @@ ModelManifest.xml
 
 # SPECIFIC
 /Console/IngolStadtNatur.Web.Shell/Connections.config
+/Console/IngolStadtNatur.Web.Shell/Application.config
