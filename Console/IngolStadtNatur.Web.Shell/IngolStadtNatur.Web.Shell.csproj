@@ -246,6 +246,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap3-typeahead.js" />
     <Content Include="Scripts\bootstrap3-typeahead.min.js" />
+    <Content Include="Scripts\habitats.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -257,8 +258,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\leaflet-0.7.3.js" />
-    <Content Include="Scripts\leaflet-0.7.3.min.js" />
+    <Content Include="Scripts\leaflet-manager.js" />
+    <Content Include="Scripts\leaflet-src.js" />
+    <Content Include="Scripts\leaflet.geojsoncss.js" />
+    <Content Include="Scripts\leaflet.geojsoncss.min.js" />
+    <Content Include="Scripts\leaflet.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
@@ -349,6 +353,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\leaflet-src.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
