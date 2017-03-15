@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Persistence
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Services.Api", "Components\IngolStadtNatur.Services.Api\IngolStadtNatur.Services.Api.csproj", "{C42DC5C6-8D75-4F0C-95B8-E24DD1CA6DCE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{A8790197-37E8-43FF-B6EE-03FA22401347}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Utilities", "Modules\IngolStadtNatur.Utilities\IngolStadtNatur.Utilities.csproj", "{875F5B44-CE48-406B-9B05-0486345B74D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{C42DC5C6-8D75-4F0C-95B8-E24DD1CA6DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C42DC5C6-8D75-4F0C-95B8-E24DD1CA6DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C42DC5C6-8D75-4F0C-95B8-E24DD1CA6DCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{875F5B44-CE48-406B-9B05-0486345B74D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{875F5B44-CE48-406B-9B05-0486345B74D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{875F5B44-CE48-406B-9B05-0486345B74D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{875F5B44-CE48-406B-9B05-0486345B74D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +68,6 @@ Global
 		{A04FB8B7-391D-4B31-8226-4EE308C718D7} = {08B51B40-DF45-43D1-9689-88738A1423EC}
 		{744DC9F3-98D5-4068-9610-333DF96AEAB4} = {08B51B40-DF45-43D1-9689-88738A1423EC}
 		{C42DC5C6-8D75-4F0C-95B8-E24DD1CA6DCE} = {08B51B40-DF45-43D1-9689-88738A1423EC}
+		{875F5B44-CE48-406B-9B05-0486345B74D5} = {A8790197-37E8-43FF-B6EE-03FA22401347}
 	EndGlobalSection
 EndGlobal
