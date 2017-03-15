@@ -3,8 +3,55 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{08B51B40-DF45-43D1-9689-88738A1423EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{192C8ABF-A67F-46F0-A2E5-02139D541AF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Entities.NH", "Components\IngolStadtNatur.Entities.NH\IngolStadtNatur.Entities.NH.csproj", "{9A40306A-7D9A-4AA4-9B7F-AC5C8634CE68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Services.NH", "Components\IngolStadtNatur.Services.NH\IngolStadtNatur.Services.NH.csproj", "{341605FD-F2E0-4A8C-A8BD-B30A9ADA0928}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Web.Shell", "Console\IngolStadtNatur.Web.Shell\IngolStadtNatur.Web.Shell.csproj", "{AA23FFE3-A623-41DF-A8AA-87041BBE9166}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Persistence.Api", "Components\IngolStadtNatur.Persistence.Api\IngolStadtNatur.Persistence.Api.csproj", "{A04FB8B7-391D-4B31-8226-4EE308C718D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Persistence.NH", "Components\IngolStadtNatur.Persistence.NH\IngolStadtNatur.Persistence.NH.csproj", "{744DC9F3-98D5-4068-9610-333DF96AEAB4}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A40306A-7D9A-4AA4-9B7F-AC5C8634CE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A40306A-7D9A-4AA4-9B7F-AC5C8634CE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A40306A-7D9A-4AA4-9B7F-AC5C8634CE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A40306A-7D9A-4AA4-9B7F-AC5C8634CE68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{341605FD-F2E0-4A8C-A8BD-B30A9ADA0928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{341605FD-F2E0-4A8C-A8BD-B30A9ADA0928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{341605FD-F2E0-4A8C-A8BD-B30A9ADA0928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{341605FD-F2E0-4A8C-A8BD-B30A9ADA0928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA23FFE3-A623-41DF-A8AA-87041BBE9166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA23FFE3-A623-41DF-A8AA-87041BBE9166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA23FFE3-A623-41DF-A8AA-87041BBE9166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA23FFE3-A623-41DF-A8AA-87041BBE9166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A04FB8B7-391D-4B31-8226-4EE308C718D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A04FB8B7-391D-4B31-8226-4EE308C718D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A04FB8B7-391D-4B31-8226-4EE308C718D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A04FB8B7-391D-4B31-8226-4EE308C718D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{744DC9F3-98D5-4068-9610-333DF96AEAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{744DC9F3-98D5-4068-9610-333DF96AEAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{744DC9F3-98D5-4068-9610-333DF96AEAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{744DC9F3-98D5-4068-9610-333DF96AEAB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9A40306A-7D9A-4AA4-9B7F-AC5C8634CE68} = {08B51B40-DF45-43D1-9689-88738A1423EC}
+		{341605FD-F2E0-4A8C-A8BD-B30A9ADA0928} = {08B51B40-DF45-43D1-9689-88738A1423EC}
+		{AA23FFE3-A623-41DF-A8AA-87041BBE9166} = {192C8ABF-A67F-46F0-A2E5-02139D541AF0}
+		{A04FB8B7-391D-4B31-8226-4EE308C718D7} = {08B51B40-DF45-43D1-9689-88738A1423EC}
+		{744DC9F3-98D5-4068-9610-333DF96AEAB4} = {08B51B40-DF45-43D1-9689-88738A1423EC}
 	EndGlobalSection
 EndGlobal
