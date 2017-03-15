@@ -88,7 +88,9 @@
     <Compile Include="Authentication\User.cs" />
     <Compile Include="Common\BaseEntity.cs" />
     <Compile Include="Objects\Category.cs" />
+    <Compile Include="Objects\Image.cs" />
     <Compile Include="Objects\Node.cs" />
+    <Compile Include="Objects\Shot.cs" />
     <Compile Include="Objects\Species.cs" />
     <Compile Include="Observations\CategoryObservation.cs" />
     <Compile Include="Observations\Observation.cs" />
