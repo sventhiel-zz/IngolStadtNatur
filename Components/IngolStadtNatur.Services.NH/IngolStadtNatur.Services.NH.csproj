@@ -68,6 +68,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -77,9 +78,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\Auth.cs" />
-    <Compile Include="Authentication\EmailService.cs" />
-    <Compile Include="Authentication\SmsService.cs" />
+    <Compile Include="Authentication\SignInManager.cs" />
+    <Compile Include="Authentication\UserManager.cs" />
+    <Compile Include="Utilities\Auth.cs" />
+    <Compile Include="Utilities\EmailService.cs" />
+    <Compile Include="Utilities\SmsService.cs" />
     <Compile Include="Authentication\UserStore.cs" />
     <Compile Include="Objects\NodeManager.cs" />
     <Compile Include="Observations\ObservationManager.cs" />
@@ -107,6 +110,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
