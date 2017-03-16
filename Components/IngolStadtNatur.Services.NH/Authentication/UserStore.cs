@@ -26,37 +26,19 @@ namespace IngolStadtNatur.Services.NH.Authentication
 
         public Task CreateAsync(User user)
         {
-            using (var uow = this.GetUnitOfWork())
-            {
-                var userRepository = uow.GetRepository<User>();
-                userRepository.Put(user);
-                uow.Commit();
-            }
-
+            UserRepository.Add(user);
             return Task.FromResult(0);
         }
 
         public Task UpdateAsync(User user)
         {
-            using (var uow = this.GetUnitOfWork())
-            {
-                var userRepository = uow.GetRepository<User>();
-                userRepository.Put(user);
-                uow.Commit();
-            }
-
+            UserRepository.Update(user);
             return Task.FromResult(0);
         }
 
         public Task DeleteAsync(User user)
         {
-            using (var uow = this.GetUnitOfWork())
-            {
-                var userRepository = uow.GetRepository<User>();
-                userRepository.Delete(user);
-                uow.Commit();
-            }
-
+            UserRepository.Remove(user);
             return Task.FromResult(0);
         }
 
@@ -67,7 +49,7 @@ namespace IngolStadtNatur.Services.NH.Authentication
 
         public Task<User> FindByNameAsync(string userName)
         {
-            return Task.FromResult(UserRepository.Query().FirstOrDefault(u => u.Name.ToUpperInvariant() == userName.ToUpperInvariant()));
+            return Task.FromResult(UserRepository.Query().FirstOrDefault(u => u.UserName.ToUpperInvariant() == userName.ToUpperInvariant()));
         }
 
         public Task SetEmailAsync(User user, string email)
@@ -83,12 +65,12 @@ namespace IngolStadtNatur.Services.NH.Authentication
 
         public Task<bool> GetEmailConfirmedAsync(User user)
         {
-            return Task.FromResult(user.EmailConfirmed);
+            return Task.FromResult(user.IsEmailConfirmed);
         }
 
         public Task SetEmailConfirmedAsync(User user, bool confirmed)
         {
-            user.EmailConfirmed = confirmed;
+            user.IsEmailConfirmed = confirmed;
             return Task.FromResult(0);
         }
 

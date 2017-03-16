@@ -10,6 +10,8 @@ namespace IngolStadtNatur.Entities.NH.Authentication
     {
         public virtual string Email { get; set; }
         public virtual string FullName { get; set; }
+        public virtual bool IsEmailConfirmed { get; set; }
+        public virtual ICollection<Login> Logins { get; set; }
         public virtual ICollection<Observation> Observations { get; set; }
         public virtual string Password { get; set; }
         public virtual string UserName { get; set; }
@@ -31,6 +33,7 @@ namespace IngolStadtNatur.Entities.NH.Authentication
 
             Map(m => m.Email);
             Map(m => m.FullName);
+            Map(m => m.IsEmailConfirmed);
             HasMany(m => m.Observations)
                 .Cascade.All()
                 .Inverse();
