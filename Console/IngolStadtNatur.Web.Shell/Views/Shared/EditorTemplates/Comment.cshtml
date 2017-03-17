@@ -1,0 +1,28 @@
+﻿@model string
+
+<a id="Header_Comment" href="#Header_Comment" onclick="$('#Content_Comment').toggle();" class="list-group-item list-group-item-action">
+    <div class="media col-xs-2">
+        <img class="media-object aadi-img-responsive" src="~/Content/icons/common/Ausrufezeichen.svg">
+    </div>
+    <div class="col-xs-9">
+        <div class="text-common">
+            Kommentar
+        </div>
+        <div class="text-scientific">
+            Erwünscht
+        </div>
+    </div>
+    <div class="media col-xs-1">
+        <img id="Checkbox_Comment" class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Kästchen.svg">
+    </div>
+    <div class="clearfix"></div>
+</a>
+<div style="padding-left: 15px; padding-right: 15px">
+    <div id="Content_Comment" class="col-xs-9 col-xs-offset-2 observation-content">
+        <div class="form-group">
+            @Html.LabelFor(m => m)
+            @Html.TextAreaFor(m => m, new { @class = "form-control", placeholder = "Kommentar" })
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

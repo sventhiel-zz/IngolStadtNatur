@@ -1,0 +1,26 @@
+﻿@model HttpPostedFileBase
+
+<a id="Header_Shot" href="#Header_Shot" onclick="$('#Content_Shot').toggle();" class="list-group-item list-group-item-action">
+    <div class="media col-xs-2">
+        <img class="media-object aadi-img-responsive" src="~/Content/icons/common/Kamera.svg">
+    </div>
+    <div class="col-xs-9">
+        <div class="text-common">
+            Foto
+        </div>
+        <div class="text-scientific">
+            Erwünscht
+        </div>
+    </div>
+    <div class="media col-xs-1">
+        <img id="Checkbox_Shot" class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Kästchen.svg">
+    </div>
+    <div class="clearfix"></div>
+</a>
+
+<div style="padding-left: 15px; padding-right: 15px">
+    <div id="Content_Shot" class="col-xs-9 col-xs-offset-2 observation-content">
+        @Html.TextBoxFor(m => m, new { type = "file", accept = "image/*;capture=camera", style = "width: 100%" })
+    </div>
+    <div class="clearfix"></div>
+</div>

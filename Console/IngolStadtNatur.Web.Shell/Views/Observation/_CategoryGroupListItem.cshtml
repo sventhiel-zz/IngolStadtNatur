@@ -1,0 +1,26 @@
+﻿@using IngolStadtNatur.Utilities.Extensions
+@model IngolStadtNatur.Web.Shell.Models.CategoryListGroupItemModel
+
+<a href="@Url.Action("Category", "Observation", new {id = @Model.Id}, null)" class="list-group-item list-group-item-action aadi-lgi-node">
+    <div class="media col-xs-2">
+        <img class="media-object aadi-img-responsive" src=@($"/Content/icons/categories/{@Model.CommonName.ToIconName()}.svg")>
+    </div>
+    <div class="col-xs-9">
+        <div class="text-common">
+            @Model.CommonName
+        </div>
+        <div class="text-scientific">
+            @Model.ScientificName
+        </div>
+        <div class="text-description">
+            @Model.Preview
+        </div>
+        <div class="text-description">
+            @Model.Description
+        </div>
+    </div>
+    <div class="media col-xs-1">
+        <img class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Pfeil_Rechts.svg">
+    </div>
+    <div class="clearfix"></div>
+</a>

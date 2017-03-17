@@ -1,0 +1,27 @@
+﻿@model string
+
+<a id="Header_Map" href="#Header_Map" onclick="$('#Content_Map').toggle();" class="list-group-item list-group-item-action">
+    <div class="media col-xs-2">
+        <img class="media-object aadi-img-responsive" src="~/Content/icons/common/Position.svg">
+    </div>
+    <div class="col-xs-9">
+        <div class="text-common">
+            Ort der Sichtung
+        </div>
+        <div class="text-scientific">
+            Erforderlich
+        </div>
+    </div>
+    <div class="media col-xs-1">
+        <img id="Checkbox_Map" class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Kästchen.svg">
+    </div>
+    <div class="clearfix"></div>
+</a>
+
+<div style="padding-left: 15px; padding-right: 15px">
+    <div id="Content_Map" class="col-xs-9 col-xs-offset-2 observation-content">
+        @Html.HiddenFor(m => m, new { @Value = Model })
+        <div id="Leaflet_Map"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model AADI.Models.SpeciesListGroupItemModel
+
+<a href="@Url.Action("CreateSpeciesObservation", "Observation", new {id = @Model.Id}, null)" class="list-group-item list-group-item-action aadi-lgi-node">
+    <div class="media col-xs-2">
+        @foreach (var image in Model.Images)
+        {
+            <picture>
+                <source srcset=@($"{@image.Path}?width=192&quality=90") media="(min-width: 1200px)">
+                <source srcset=@($"{@image.Path}?width=128&quality=90") media="(min-width: 768px) and (max-width: 1199px)">
+                <source srcset=@($"{@image.Path}?width=64&quality=90") media="(max-width: 767px)">
+                <img class="media-object aadi-img-responsive" srcset=@($"{@image.Path}?width=128&quality=90")>
+            </picture>
+        }
+    </div>
+    <div class="col-xs-9">
+        <div class="text-common">
+            @Model.CommonName
+        </div>
+        <div class="text-scientific">
+            <i>@Model.ScientificName</i>
+        </div>
+        <div class="text-description">
+            @Model.Description
+        </div>
+        <div class="text-description">
+            <p>
+                @{
+                    int i = 1;
+                    foreach (var image in Model.Images)
+                    {
+                        <div>
+                            @($"Bild {@i}: {@image.Description}")
+                        </div>
+                        i++;
+                    }
+                }
+            </p>
+
+</div>
+    </div>
+    <div class="media col-xs-1">
+        <img class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Pfeil_Rechts.svg">
+    </div>
+    <div class="clearfix"></div>
+</a>

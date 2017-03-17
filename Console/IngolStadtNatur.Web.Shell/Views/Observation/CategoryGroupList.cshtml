@@ -1,0 +1,91 @@
+﻿@using AADI.Extensions
+@model AADI.Models.CategoryListGroupModel
+
+<div class="row">
+    <div class="list-group">
+        <a href="@(Model.ParentId != 0 ? Url.Action("Category", "Observation", new {id = @Model.ParentId}, null) : Url.Action("Index", "Home"))" class="list-group-item list-group-item-action aadi-lgi-common background-aad">
+            <div class="media col-xs-2">
+                <img class="media-object aadi-img-responsive" src="~/Content/icons/common/Return_AAD.svg">
+            </div>
+            <div class="col-xs-9 text-aad">
+                Zurück
+            </div>
+            <div class="media col-xs-1">
+                <img class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Pfeil_Links_AAD.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
+
+        <a href="@Url.Action("CreateQuickObservation", "Observation")" class="list-group-item list-group-item-action aadi-lgi-common background-aad">
+            <div class="media col-xs-2">
+                <img class="media-object aadi-img-responsive" src="~/Content/icons/common/Ausrufezeichen_AAD.svg">
+            </div>
+            <div class="col-xs-9 text-aad">
+                Soforteingabe
+            </div>
+            <div class="media col-xs-1">
+                <img class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Pfeil_Rechts_AAD.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
+    </div>
+</div>
+
+@if (Model.ParentId != 0)
+{
+    <div class="row">
+        <div class="list-group">
+            <a href="@Url.Action("CreateCategoryObservation", "Observation", new {id = @Model.Id}, null)" class="list-group-item list-group-item-action aadi-lgi-node">
+                <div class="media col-xs-2">
+                    <img class="media-object aadi-img-responsive" src=@($"/Content/icons/categories/{@Model.CommonName.ToIconName()}_AAD.svg")>
+                </div>
+                <div class="col-xs-9">
+                    <div class="text-common">
+                        @Model.CommonName
+                    </div>
+                    <div class="text-scientific">
+                        @Model.ScientificName
+                    </div>
+                    <div class="text-description">
+                        @Model.Preview
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+    </div>
+
+    <span>
+        <hr style="background-color: #00AC9F; height: 2px; border: 0; margin-top: 5px; margin-bottom: 5px" />
+    </span>
+}
+
+<div class="row">
+    <div class="list-group">
+        @foreach (var child in Model.Children)
+        {
+            @Html.Action("GetCategoryChild", new { id = child })
+        }
+
+        <a href="@Url.Action("CreateCategoryObservation", "Observation", new {id = @Model.Id}, null)" class="list-group-item list-group-item-action aadi-lgi-node">
+            <div class="media col-xs-2">
+                <img class="media-object aadi-img-responsive" src=@($"/Content/icons/categories/{@Model.CommonName.ToIconName()}_AAD.svg")>
+            </div>
+            <div class="col-xs-9">
+                <div class="text-common">
+                    Unsicher?
+                </div>
+                <div class="text-scientific">
+                    @Model.UncertaintyHeader
+                </div>
+                <div class="text-description">
+                    @Model.UncertaintyText
+                </div>
+            </div>
+            <div class="media col-xs-1">
+                <img class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Pfeil_Rechts_AAD.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
+    </div>
+</div>

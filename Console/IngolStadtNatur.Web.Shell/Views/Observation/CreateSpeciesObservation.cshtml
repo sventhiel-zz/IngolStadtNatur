@@ -1,0 +1,182 @@
+﻿@model AADI.Models.CreateSpeciesObservationModel
+
+<style>
+    #Leaflet_Map {
+        height: 600px;
+        max-height: 60vh;
+    }
+</style>
+
+@using (Html.BeginForm("CreateSpeciesObservation", "Observation", FormMethod.Post, new { id = "Form_SpeciesObservation", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Species.Id)
+
+    <div class="row">
+        <div class="list-group">
+            <a href="@(Model.Species.ParentId != 0 ? Url.Action("Category", "Observation", new {id = @Model.Species.ParentId}, null) : Url.Action("Index", "Home"))" class="list-group-item list-group-item-action aadi-lgi-common background-aad">
+                <div class="media col-xs-2">
+                    <img class="media-object aadi-img-responsive" src="~/Content/icons/common/Return_AAD.svg">
+                </div>
+                <div class="col-xs-9">
+                    Zurück
+                </div>
+                <div class="media col-xs-1">
+                    <img class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Pfeil_Links_AAD.svg">
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="col-xs-9 col-xs-offset-2">
+                    <div class="text-common">
+                        @Model.Species.CommonName
+                    </div>
+                    <div class="text-scientific">
+                        <i>@Model.Species.ScientificName</i>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="list-group-item">
+                <div class="col-xs-9 col-xs-offset-2">
+                    <ul id="light-slider">
+                        @foreach (var image in @Model.Species.Images)
+                        {
+                            <li>
+                                <picture>
+                                    <source srcset=@($"{@image.Path}?width=900&quality=90") media="(min-width: 1200px)">
+                                    <source srcset=@($"{@image.Path}?width=600&quality=90") media="(min-width: 768px) and (max-width: 1199px)">
+                                    <source srcset=@($"{@image.Path}?width=300&quality=90") media="(max-width: 767px)">
+                                    <img class="media-object aadi-img-responsive" srcset=@($"{@image.Path}?width=600&quality=90")>
+                                </picture>
+                                <div class="text-description text-aad">
+                                    Bildquelle: @image.Source
+                                </div>
+                                <div class="text-description text-aad">
+                                    Autor: @image.Author
+                                </div>
+                                <div class="text-description text-aad">
+                                    Lizenz: @image.License
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                    <div class="text-description">
+                        @Model.Species.Description
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            @if (!string.IsNullOrEmpty(Model.Species.Reference))
+            {
+                <a href="@Model.Species.Reference" target="_blank" class="list-group-item list-group-item-action aadi-item-menu">
+                    <div class="media col-xs-2">
+                        <img class="media-object aadi-img-responsive" src="~/Content/icons/common/Info_AAD.svg">
+                    </div>
+                    <div class="col-xs-9">
+                        Informationen
+                    </div>
+                    <div class="media col-xs-1">
+                        <img class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Pfeil_Rechts_AAD.svg">
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="list-group">
+            <div class="list-group-item" style="padding-top: 0; padding-bottom: 0">
+                <div class="col-xs-9 col-xs-offset-2">
+                    <div class="text-description">
+                        @Html.ValidationSummary(true, "Bitte gib mindestens den Ort der Sichtung an und stimme den Nutzungsbedingungen zu.", new { Style = "padding-top: 15px" })
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="list-group">
+            @(Html.EditorFor(m => m.Coordinates, "Map"))
+        </div>
+        <div class="list-group">
+            @(Html.EditorFor(m => m.Shot, "Shot"))
+        </div>
+        <div class="list-group">
+            @(Html.EditorFor(m => m.Comment, "Comment"))
+        </div>
+        <div class="list-group">
+            @(Html.EditorFor(m => m.TermsAndConditions, "TermsAndConditions"))
+        </div>
+        <div class="list-group">
+            <a href="#" onclick="$('form#Form_SpeciesObservation').submit(); return false;" class="list-group-item list-group-item-action aadi-lgi-common">
+                <div class="media col-xs-2">
+                    <img class="media-object aadi-img-responsive" src="~/Content/icons/common/Ausrufezeichen_AAD.svg">
+                </div>
+                <div class="col-xs-9 text-aad">
+                    Sichtung abschicken!
+                </div>
+                <div class="media col-xs-1">
+                    <img class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Pfeil_Rechts_AAD.svg">
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            if ($("#Comment").val().length > 0) {
+                $("#Checkbox_Comment").attr("src", "/Content/icons/common/Kästchen-mit-Haken.svg");
+            } else {
+                $("#Checkbox_Comment").attr("src", "/Content/icons/common/Kästchen.svg");
+            }
+
+            $("#Comment").change(function () {
+                if ($("#Comment").val().length > 0) {
+                    $("#Checkbox_Comment").attr("src", "/Content/icons/common/Kästchen-mit-Haken.svg");
+                } else {
+                    $("#Checkbox_Comment").attr("src", "/Content/icons/common/Kästchen.svg");
+                }
+            });
+
+            if ($("#Shot").val().length > 0) {
+                $("#Checkbox_Shot").attr("src", "/Content/icons/common/Kästchen-mit-Haken.svg");
+            } else {
+                $("#Checkbox_Shot").attr("src", "/Content/icons/common/Kästchen.svg");
+            }
+
+            $("#Shot").change(function () {
+                if ($("#Shot").val().length > 0) {
+                    $("#Checkbox_Shot").attr("src", "/Content/icons/common/Kästchen-mit-Haken.svg");
+                } else {
+                    $("#Checkbox_Shot").attr("src", "/Content/icons/common/Kästchen.svg");
+                }
+            });
+
+            if ($('#Coordinates').val().length > 0) {
+                var latlng = L.latLng($("#Coordinates").val().split(",").map(parseFloat));
+                leafletManager.createMap('Leaflet_Map', latlng);
+                leafletManager.addMarker(latlng);
+            } else {
+                leafletManager.createMap('Leaflet_Map');
+            }
+
+            $("#light-slider").lightSlider({
+                item: 1
+            });
+
+            $('.observation-content').hide();
+        });
+    </script>
+}

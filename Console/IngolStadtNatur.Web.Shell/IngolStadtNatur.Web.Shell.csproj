@@ -374,12 +374,24 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\leaflet-src.map" />
+    <Content Include="Views\Observation\CategoryGroupList.cshtml" />
+    <Content Include="Views\Observation\CreateCategoryObservation.cshtml" />
+    <Content Include="Views\Observation\CreateQuickObservation.cshtml" />
+    <Content Include="Views\Observation\CreateSpeciesObservation.cshtml" />
+    <Content Include="Views\Observation\Thanks.cshtml" />
+    <Content Include="Views\Observation\_CategoryGroupListItem.cshtml" />
+    <Content Include="Views\Observation\_SpeciesGroupListItem.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Comment.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Map.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Recording.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Shot.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Species.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TermsAndConditions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Help\" />
-    <Folder Include="Views\Observation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -395,6 +407,10 @@
     <ProjectReference Include="..\..\Components\IngolStadtNatur.Persistence.NH\IngolStadtNatur.Persistence.NH.csproj">
       <Project>{744DC9F3-98D5-4068-9610-333DF96AEAB4}</Project>
       <Name>IngolStadtNatur.Persistence.NH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\IngolStadtNatur.Services.Api\IngolStadtNatur.Services.Api.csproj">
+      <Project>{c42dc5c6-8d75-4f0c-95b8-e24dd1ca6dce}</Project>
+      <Name>IngolStadtNatur.Services.Api</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Components\IngolStadtNatur.Services.NH\IngolStadtNatur.Services.NH.csproj">
       <Project>{341605FD-F2E0-4A8C-A8BD-B30A9ADA0928}</Project>
