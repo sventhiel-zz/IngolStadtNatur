@@ -129,48 +129,6 @@ namespace IngolStadtNatur.Services.NH.Authentication
             return Task.FromResult(LoginRepository.Query(m => m.LoginProvider == login.LoginProvider && m.ProviderKey == login.ProviderKey).Select(m => m.User).FirstOrDefault());
         }
 
-        public Task AddToRoleAsync(User user, string roleName)
-        {
-            user.Roles.Add(RoleRepository.Query(m => m.Name.ToLowerInvariant() == roleName.ToLowerInvariant()).FirstOrDefault());
-            UpdateAsync(user);
-
-            return Task.FromResult(0);
-        }
-
-        public Task AddToGroupAsync(User user, string groupName)
-        {
-            user.Groups.Add(GroupRepository.Query(m => m.Name.ToLowerInvariant() == groupName.ToLowerInvariant()).FirstOrDefault());
-            UpdateAsync(user);
-
-            return Task.FromResult(0);
-        }
-
-        public Task RemoveFromRoleAsync(User user, string roleName)
-        {
-            user.Roles.Remove(RoleRepository.Query(m => m.Name.ToLowerInvariant() == roleName.ToLowerInvariant()).FirstOrDefault());
-            UpdateAsync(user);
-
-            return Task.FromResult(0);
-        }
-
-        public Task RemoveFromGroupAsync(User user, string groupName)
-        {
-            user.Groups.Remove(GroupRepository.Query(m => m.Name.ToLowerInvariant() == groupName.ToLowerInvariant()).FirstOrDefault());
-            UpdateAsync(user);
-
-            return Task.FromResult(0);
-        }
-
-        public Task<IList<string>> GetRolesAsync(User user)
-        {
-            return Task.FromResult((IList<string>)user.Roles.Select(m => m.Name).ToList());
-        }
-
-        public Task<bool> IsInRoleAsync(User user, string roleName)
-        {
-            return Task.FromResult(user.Roles.Any(m => m.Name.ToLowerInvariant() == roleName.ToLowerInvariant()));
-        }
-
         public Task SetSecurityStampAsync(User user, string stamp)
         {
             user.SecurityStamp = stamp;
@@ -186,9 +144,9 @@ namespace IngolStadtNatur.Services.NH.Authentication
         {
             DateTimeOffset dateTimeOffset;
 
-            if (user.LockoutEndDate.HasValue)
+            if (user.LockedOutEndDate.HasValue)
             {
-                DateTime? lockoutEndDate = user.LockoutEndDate;
+                DateTime? lockoutEndDate = user.LockedOutEndDate;
                 dateTimeOffset = new DateTimeOffset(DateTime.SpecifyKind(lockoutEndDate.Value, DateTimeKind.Utc));
             }
             else
@@ -210,7 +168,7 @@ namespace IngolStadtNatur.Services.NH.Authentication
             {
                 nullable = lockoutEnd.UtcDateTime;
             }
-            user.LockoutEndDate = nullable;
+            user.LockedOutEndDate = nullable;
             return Task.FromResult(0);
         }
 
@@ -233,12 +191,12 @@ namespace IngolStadtNatur.Services.NH.Authentication
 
         public Task<bool> GetLockoutEnabledAsync(User user)
         {
-            return Task.FromResult(user.LockoutEnabled);
+            return Task.FromResult(user.LockedOutEnabled);
         }
 
         public Task SetLockoutEnabledAsync(User user, bool enabled)
         {
-            user.LockoutEnabled = enabled;
+            user.LockedOutEnabled = enabled;
             return Task.FromResult(0);
         }
 
