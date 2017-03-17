@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Authentication\SignInManager.cs" />
     <Compile Include="Authentication\UserManager.cs" />
+    <Compile Include="Objects\ShotManager.cs" />
     <Compile Include="Utilities\Auth.cs" />
     <Compile Include="Utilities\EmailService.cs" />
     <Compile Include="Utilities\SmsService.cs" />

@@ -8,7 +8,6 @@ namespace IngolStadtNatur.Entities.NH.Objects
     {
         public virtual string Name { get; set; }
         public virtual Observation Observation { get; set; }
-        public virtual string Path { get; set; }
     }
 
     public class ShotMap : ClassMap<Shot>
@@ -24,7 +23,6 @@ namespace IngolStadtNatur.Entities.NH.Objects
             References(m => m.Observation)
                 .Column("ObservationRef")
                 .Cascade.All();
-            Map(m => m.Path);
         }
     }
 }

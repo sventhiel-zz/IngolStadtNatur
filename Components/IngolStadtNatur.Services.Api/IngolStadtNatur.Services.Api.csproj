@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objects\INodeManager.cs" />
+    <Compile Include="Objects\IShotManager.cs" />
     <Compile Include="Observations\IObservationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -23,7 +23,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         [RequiredIfEmpty("Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         [Display(Name = "Foto")]
         public HttpPostedFileBase Shot { get; set; }
@@ -59,7 +59,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         [RequiredIfEmpty("Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         [Display(Name = "Foto")]
         [RequiredIfEmpty("Species")]
@@ -88,7 +88,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         [RequiredIfEmpty("Date")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
 
         [Display(Name = "Foto")]
         public HttpPostedFileBase Shot { get; set; }
