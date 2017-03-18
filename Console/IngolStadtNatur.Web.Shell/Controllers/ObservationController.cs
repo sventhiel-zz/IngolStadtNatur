@@ -194,8 +194,8 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         {
             NodeManager nodeManager = new NodeManager();
 
-            List<string> commonNames = nodeManager.SpeciesRepository.Select(m => m.CommonName).Where(m => m.ToLower().Contains(query.ToLower())).ToList();
-            List<string> scientificNames = nodeManager.GetSpecies().Select(m => m.ScientificName).Where(m => m.ToLower().Contains(query.ToLower())).ToList();
+            List<string> commonNames = nodeManager.SpeciesRepository.Query(m => m.CommonName.ToLower().Contains(query.ToLower())).Select(m => m.CommonName).ToList();
+            List<string> scientificNames = nodeManager.SpeciesRepository.Query(m => m.ScientificName.ToLower().Contains(query.ToLower())).Select(m => m.ScientificName).ToList();
             return this.Json(commonNames.Union(scientificNames), JsonRequestBehavior.AllowGet);
         }
     }

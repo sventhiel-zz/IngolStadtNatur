@@ -404,6 +404,10 @@
       <Project>{9A40306A-7D9A-4AA4-9B7F-AC5C8634CE68}</Project>
       <Name>IngolStadtNatur.Entities.NH</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Components\IngolStadtNatur.Persistence.Api\IngolStadtNatur.Persistence.Api.csproj">
+      <Project>{a04fb8b7-391d-4b31-8226-4ee308c718d7}</Project>
+      <Name>IngolStadtNatur.Persistence.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Components\IngolStadtNatur.Persistence.NH\IngolStadtNatur.Persistence.NH.csproj">
       <Project>{744DC9F3-98D5-4068-9610-333DF96AEAB4}</Project>
       <Name>IngolStadtNatur.Persistence.NH</Name>
