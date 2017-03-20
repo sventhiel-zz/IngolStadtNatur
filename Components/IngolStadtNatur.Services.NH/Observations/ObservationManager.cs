@@ -22,14 +22,14 @@ namespace IngolStadtNatur.Services.NH.Observations
         public IQueryable<Observation> Observations => ObservationRepository.Query();
         public IQueryable<SpeciesObservation> SpeciesObservations => SpeciesObservationRepository.Query();
 
-        public void Create(Observation entity)
+        public void Create(Observation observation)
         {
-            ObservationRepository.Add(entity);
+            ObservationRepository.Add(observation);
         }
 
-        public void Delete(Observation entity)
+        public void Delete(Observation observation)
         {
-            ObservationRepository.Remove(entity);
+            ObservationRepository.Remove(observation);
         }
 
         public CategoryObservation GetCategoryObservation(long id)
@@ -47,9 +47,9 @@ namespace IngolStadtNatur.Services.NH.Observations
             return SpeciesObservationRepository.Get(id);
         }
 
-        public void Update(Observation entity)
+        public void Update(Observation observation)
         {
-            ObservationRepository.Update(entity);
+            ObservationRepository.Update(observation);
         }
     }
 }
