@@ -21,7 +21,7 @@ namespace IngolStadtNatur.Web.Shell
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.min.js",
-                "~/Scripts/bootstrap-datepicker.min.js",
+                "~/Scripts/bootstrap-datetimepicker.min.js",
                 "~/Scripts/locales/bootstrap-datepicker.de.min.js",
                 "~/Scripts/lightslider.min.js",
                 "~/Scripts/bootstrap3-typeahead.min.js",
@@ -40,7 +40,7 @@ namespace IngolStadtNatur.Web.Shell
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.min.css",
                 "~/Content/lightslider.min.css",
-                "~/Content/bootstrap-datepicker.min.css",
+                "~/Content/bootstrap-datetimepicker.min.css",
                 "~/Content/leaflet.css",
                 "~/Content/font-awesome.min.css",
                 "~/Content/Site.css"));
