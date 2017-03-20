@@ -1,5 +1,5 @@
-﻿@using AADI.Extensions
-@model AADI.Models.CreateCategoryObservationModel
+﻿@using IngolStadtNatur.Utilities.Extensions
+@model IngolStadtNatur.Web.Shell.Models.CreateCategoryObservationModel
 
 <style>
     #Leaflet_Map {
@@ -90,6 +90,9 @@
             @(Html.EditorFor(m => m.Coordinates, "Map"))
         </div>
         <div class="list-group">
+            @(Html.EditorFor(m => m.Date, "Date"))
+        </div>
+        <div class="list-group">
             @(Html.EditorFor(m => m.Shot, "Shot"))
         </div>
         <div class="list-group">
@@ -133,6 +136,20 @@
                         $("#Checkbox_Comment").attr("src", "/Content/icons/common/Kästchen-mit-Haken.svg");
                     } else {
                         $("#Checkbox_Comment").attr("src", "/Content/icons/common/Kästchen.svg");
+                    }
+                });
+
+                if ($("#Date").val().length > 0) {
+                    $("#Checkbox_Date").attr("src", "/Content/icons/common/Kästchen-mit-Haken.svg");
+                } else {
+                    $("#Checkbox_Date").attr("src", "/Content/icons/common/Kästchen.svg");
+                }
+
+                $("#Date").change(function () {
+                    if ($("#Date").val().length > 0) {
+                        $("#Checkbox_Date").attr("src", "/Content/icons/common/Kästchen-mit-Haken.svg");
+                    } else {
+                        $("#Checkbox_Date").attr("src", "/Content/icons/common/Kästchen.svg");
                     }
                 });
 
@@ -183,7 +200,20 @@
                     }
                 });
 
+                $('#Date').datepicker({
+                    autoclose: true,
+                    calendarWeeks: true,
+                    language: "de",
+                    todayHighlight: true
+                });
+
                 $('.observation-content').hide();
+
+                $(function () {
+                    $.validator.methods.date = function (value, element) {
+                        return this.optional(element) || moment(value, "DD.MM.YYYY", true).isValid();
+                    }
+                });
             });
     </script>
 }
