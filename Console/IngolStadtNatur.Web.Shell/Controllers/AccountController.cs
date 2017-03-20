@@ -140,11 +140,6 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             return View();
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
@@ -172,7 +167,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             }
 
             var userManager = new UserManager(new UserStore());
-            var user = await userManager.FindByNameAsync(model);
+            var user = await userManager.FindByNameAsync(model.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist

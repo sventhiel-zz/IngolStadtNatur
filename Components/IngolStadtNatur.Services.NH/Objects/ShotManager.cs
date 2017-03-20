@@ -16,14 +16,14 @@ namespace IngolStadtNatur.Services.NH.Objects
 
         public IQueryable<Shot> Shots => ShotRepository.Query();
 
-        public void Create(Shot entity)
+        public void Create(Shot shot)
         {
-            ShotRepository.Add(entity);
+            ShotRepository.Add(shot);
         }
 
-        public void Delete(Shot entity)
+        public void Delete(Shot shot)
         {
-            ShotRepository.Remove(entity);
+            ShotRepository.Remove(shot);
         }
 
         public Shot GetShot(long id)
@@ -31,9 +31,9 @@ namespace IngolStadtNatur.Services.NH.Objects
             return ShotRepository.Get(id);
         }
 
-        public void Update(Shot entity)
+        public void Update(Shot shot)
         {
-            ShotRepository.Update(entity);
+            ShotRepository.Update(shot);
         }
     }
 }

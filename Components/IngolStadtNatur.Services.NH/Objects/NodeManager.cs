@@ -21,14 +21,14 @@ namespace IngolStadtNatur.Services.NH.Objects
         public IQueryable<Node> Nodes => NodeRepository.Query();
         public IQueryable<Species> Species => SpeciesRepository.Query();
 
-        public void Create(Node entity)
+        public void Create(Node node)
         {
-            NodeRepository.Add(entity);
+            NodeRepository.Add(node);
         }
 
-        public void Delete(Node entity)
+        public void Delete(Node node)
         {
-            NodeRepository.Remove(entity);
+            NodeRepository.Remove(node);
         }
 
         public Category GetCategory(long id)
@@ -51,9 +51,9 @@ namespace IngolStadtNatur.Services.NH.Objects
             return SpeciesRepository.Get(id);
         }
 
-        public void Update(Node entity)
+        public void Update(Node node)
         {
-            NodeRepository.Update(entity);
+            NodeRepository.Update(node);
         }
     }
 }
