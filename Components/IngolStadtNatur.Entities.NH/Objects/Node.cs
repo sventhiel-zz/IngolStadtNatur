@@ -8,7 +8,6 @@ namespace IngolStadtNatur.Entities.NH.Objects
     public abstract class Node : BaseEntity
     {
         public virtual string Description { get; set; }
-        public virtual ICollection<Image> Images { get; set; }
         public virtual bool IsPreviewed { get; set; }
         public virtual bool IsValid { get; set; }
         public virtual ICollection<Observation> Observations { get; set; }
@@ -28,9 +27,6 @@ namespace IngolStadtNatur.Entities.NH.Objects
             Version(m => m.Version);
 
             Map(m => m.Description).Length(1024);
-            HasManyToMany(m => m.Images)
-                .Table("Images_Nodes")
-                .Cascade.All();
             Map(m => m.IsPreviewed);
             Map(m => m.IsValid);
             HasMany(m => m.Observations)

@@ -10,7 +10,7 @@ namespace IngolStadtNatur.Entities.NH.Objects
         public virtual string Description { get; set; }
         public virtual string License { get; set; }
         public virtual string Name { get; set; }
-        public virtual ICollection<Node> Nodes { get; set; }
+        public virtual ICollection<Species> Species { get; set; }
         public virtual string Path { get; set; }
         public virtual string Source { get; set; }
     }
@@ -28,8 +28,8 @@ namespace IngolStadtNatur.Entities.NH.Objects
             Map(m => m.Description);
             Map(m => m.License);
             Map(m => m.Name);
-            HasManyToMany(m => m.Nodes)
-                .Table("Images_Nodes")
+            HasManyToMany(m => m.Species)
+                .Table("Images_Species")
                 .Cascade.All()
                 .Inverse();
             Map(m => m.Path);

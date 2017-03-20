@@ -1,11 +1,9 @@
-﻿using System;
+﻿using IngolStadtNatur.Entities.NH.Objects;
+using IngolStadtNatur.Services.NH.Objects;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
-using IngolStadtNatur.Entities.NH.Objects;
-using IngolStadtNatur.Services.NH.Objects;
 
 namespace IngolStadtNatur.Web.Shell.Controllers
 {
@@ -21,11 +19,16 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             int position;
 
             // IMAGES
-            var images = System.IO.File.ReadAllLines(Server.MapPath("~/App_Data/images.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
+            var enumerableOfImages = System.IO.File.ReadAllLines(Server.MapPath("~/App_Data/images.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
 
-            foreach (var line in images)
+            foreach (var line in enumerableOfImages)
             {
-                imageManager.CreateImage(line[0], line[1], line[2], line[3], line[4], line[5]);
+                Image image = new Image()
+                {
+
+                };
+
+                imageManager.Create(image);
             }
 
             // CATEGORIES
