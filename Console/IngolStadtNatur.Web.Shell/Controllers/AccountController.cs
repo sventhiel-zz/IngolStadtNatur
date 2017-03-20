@@ -172,7 +172,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             }
 
             var userManager = new UserManager(new UserStore());
-            var user = await userManager.FindByNameAsync(model.);
+            var user = await userManager.FindByNameAsync(model);
             if (user == null)
             {
                 // Don't reveal that the user does not exist
