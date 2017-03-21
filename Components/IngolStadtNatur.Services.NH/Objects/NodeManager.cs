@@ -31,25 +31,45 @@ namespace IngolStadtNatur.Services.NH.Objects
             NodeRepository.Remove(node);
         }
 
-        public Category GetCategory(long id)
-        {
-            return CategoryRepository.Get(id);
-        }
-
-        public Node GetNode(long id)
+        public Node Get(long id)
         {
             return NodeRepository.Get(id);
         }
+
+        public Node Get(string name)
+        {
+            return Nodes.FirstOrDefault(m => m.CommonName.ToUpper() == name.ToUpper());
+        }
+
+        //public Category GetCategory(long id)
+        //{
+        //    return CategoryRepository.Get(id);
+        //}
+
+        //public Category GetCategory(string name)
+        //{
+        //    return Categories.FirstOrDefault(m => m.CommonName.ToUpper() == name.ToUpper());
+        //}
+
+        //public Node GetNode(long id)
+        //{
+        //    return NodeRepository.Get(id);
+        //}
 
         public Category GetRoot()
         {
             return Categories.FirstOrDefault(m => m.Parent == null);
         }
 
-        public Species GetSpecies(long id)
-        {
-            return SpeciesRepository.Get(id);
-        }
+        //public Species GetSpecies(long id)
+        //{
+        //    return SpeciesRepository.Get(id);
+        //}
+
+        //public Species GetSpecies(string name)
+        //{
+        //    return Species.FirstOrDefault(m => m.CommonName.ToUpper() == name.ToUpper());
+        //}
 
         public void Update(Node node)
         {

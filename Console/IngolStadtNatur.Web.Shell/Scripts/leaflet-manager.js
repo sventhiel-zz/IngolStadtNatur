@@ -59,7 +59,7 @@
 
     addMarker: function (latlng) {
         $("#Coordinates").val(latlng.lat + "," + latlng.lng);
-        $("#Checkbox_Map").attr("src", "/Content/icons/common/Kästchen-mit-Haken.svg");
+        $("#Checkbox_Map").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
         this.marker = new L.Marker(latlng, { draggable: true });
         this.marker.addTo(this.map);
     },

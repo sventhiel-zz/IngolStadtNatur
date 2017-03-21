@@ -5,10 +5,10 @@
         @foreach (var image in Model.Images)
         {
             <picture>
-                <source srcset=@($"{@image.Path}?width=192&quality=90") media="(min-width: 1200px)">
-                <source srcset=@($"{@image.Path}?width=128&quality=90") media="(min-width: 768px) and (max-width: 1199px)">
-                <source srcset=@($"{@image.Path}?width=64&quality=90") media="(max-width: 767px)">
-                <img class="media-object aadi-img-responsive" srcset=@($"{@image.Path}?width=128&quality=90")>
+                <source srcset=@($"/Images/Species/{@image.Name}?width=192&quality=90") media="(min-width: 1200px)">
+                <source srcset=@($"/Images/Species/{@image.Name}?width=128&quality=90") media="(min-width: 768px) and (max-width: 1199px)">
+                <source srcset=@($"/Images/Species/{@image.Name}?width=64&quality=90") media="(max-width: 767px)">
+                <img class="media-object aadi-img-responsive" srcset=@($"/Images/Species/{@image.Name}?width=128&quality=90")>
             </picture>
         }
     </div>
@@ -39,7 +39,7 @@
 </div>
     </div>
     <div class="media col-xs-1">
-        <img class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Pfeil_Rechts.svg">
+        <img class="media-object aadi-img-responsive pull-right" src="~/Images/Common/Pfeil_Rechts.svg">
     </div>
     <div class="clearfix"></div>
 </a>

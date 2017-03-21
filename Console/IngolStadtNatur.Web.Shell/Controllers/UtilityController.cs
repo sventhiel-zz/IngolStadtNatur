@@ -32,15 +32,23 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             }
 
             // CATEGORIES
-            nodeManager.CreateCategory("Tiere", "Animalium", "", "", "", "ein unbekanntes Tier melden", "Sie wissen nicht weiter? Kein Problem! Melden Sie hier ein Ihnen unbekanntes Tier.");
+            var root = new Category()
+            {
+
+            };
+
+            nodeManager.Create(root);
 
             var categories = System.IO.File.ReadAllLines(Server.MapPath("~/App_Data/categories.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
 
             foreach (var line in categories)
             {
-                parent = nodeManager.GetCategoryByCommonName(line[7]);
+                var category = new Category()
+                {
+                    Parent = (Category)nodeManager.Get(line[7])
+                };
 
-                nodeManager.CreateCategory(line[0], line[1], line[2], line[3], line[4], line[5], line[6], parent);
+                //nodeManager.CreateCategory(line[0], line[1], line[2], line[3], line[4], line[5], line[6], parent);
             }
 
             // SPECIES
@@ -48,10 +56,13 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
             foreach (var line in species)
             {
-                parent = nodeManager.GetCategoryByCommonName(line[4]);
-                pictures = imageManager.GetImagesByNames(line[5]);
+                var x = new Species()
+                {
+                    Parent = (Category)nodeManager.Get(line[4]),
+                    Images = imageManager.Get(line[5].Split(','))
+                };
 
-                nodeManager.CreateSpecies(line[0], line[1], line[2], line[3], pictures, parent);
+                //nodeManager.CreateSpecies(line[0], line[1], line[2], line[3], pictures, parent);
             }
 
             return View("Index");

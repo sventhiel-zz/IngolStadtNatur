@@ -29,15 +29,13 @@ namespace IngolStadtNatur.Web.Shell.Models
     {
         public string Description { get; set; }
         public string Name { get; set; }
-        public string Path { get; set; }
 
         public static ImageListGroupItemModel Convert(Image image)
         {
             return new ImageListGroupItemModel()
             {
                 Description = image.Description,
-                Name = image.Name,
-                Path = image.Path
+                Name = image.Name
             };
         }
     }

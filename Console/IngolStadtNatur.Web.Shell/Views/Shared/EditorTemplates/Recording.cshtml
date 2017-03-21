@@ -2,7 +2,7 @@
 
 <a id="Header_Recording" href="#Header_Recording" onclick="$('#Content_Recording').toggle();" class="list-group-item list-group-item-action">
     <div class="media col-xs-2">
-        <img class="media-object aadi-img-responsive" src="~/Content/icons/common/Micro.svg">
+        <img class="media-object aadi-img-responsive" src="~/Images/Common/Micro.svg">
     </div>
     <div class="col-xs-9">
         <div class="text-common">
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="media col-xs-1">
-        <img id="Checkbox_Recording" class="media-object aadi-img-responsive pull-right" src="~/Content/icons/common/Kästchen.svg">
+        <img id="Checkbox_Recording" class="media-object aadi-img-responsive pull-right" src="~/Images/Common/Kästchen.svg">
     </div>
     <div id="Content_Recording" class="col-xs-9 col-xs-offset-2 observation-content">
         @Html.TextBoxFor(m => m, new { type = "file", accept = "audio/*", capture = "microphone", style = "width: 100%" })
