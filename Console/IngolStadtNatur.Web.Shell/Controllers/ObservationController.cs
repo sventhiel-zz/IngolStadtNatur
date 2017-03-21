@@ -24,7 +24,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         public ActionResult GetCategoryChild(long id)
         {
             var nodeManager = new NodeManager();
-            var node = nodeManager.GetNode(id);
+            var node = nodeManager.Get(id);
 
             if (node is Category)
             {
@@ -39,7 +39,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         public ActionResult Category(long id)
         {
             NodeManager nodeManager = new NodeManager();
-            return View("CategoryGroupList", CategoryListGroupModel.Convert(nodeManager.GetCategory(id)));
+            return View("CategoryGroupList", CategoryListGroupModel.Convert(nodeManager.Get(id) as Category));
         }
 
 
@@ -52,7 +52,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         public ActionResult CreateCategoryObservation(long id)
         {
             NodeManager nodeManager = new NodeManager();
-            return View("CreateCategoryObservation", CreateCategoryObservationModel.Convert(nodeManager.GetCategory(id)));
+            return View("CreateCategoryObservation", CreateCategoryObservationModel.Convert(nodeManager.Get(id) as Category));
         }
 
         [HttpPost]
@@ -70,7 +70,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     Coordinates = model.Coordinates,
                     CreationDate = DateTime.Now,
                     MeasurementDate = model.Date,
-                    Node = nodeManager.GetNode(model.Category.Id),
+                    Node = nodeManager.Get(model.Category.Id),
                 };
 
                 observationManager.Create(observation);
@@ -93,7 +93,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 return RedirectToAction("Thanks", "Observation");
             }
 
-            model.Category = CategoryModel.Convert(nodeManager.GetCategory(model.Category.Id));
+            model.Category = CategoryModel.Convert(nodeManager.Get(model.Category.Id) as Category);
             return View("CreateCategoryObservation", model);
         }
 
@@ -145,7 +145,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         public ActionResult CreateSpeciesObservation(long id)
         {
             NodeManager nodeManager = new NodeManager();
-            return View("CreateSpeciesObservation", CreateSpeciesObservationModel.Convert(nodeManager.GetSpecies(id)));
+            return View("CreateSpeciesObservation", CreateSpeciesObservationModel.Convert(nodeManager.Get(id) as Species));
         }
 
         [HttpPost]
@@ -163,7 +163,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     Coordinates = model.Coordinates,
                     CreationDate = DateTime.Now,
                     MeasurementDate = model.Date,
-                    Node = nodeManager.GetNode(model.Species.Id)
+                    Node = nodeManager.Get(model.Species.Id)
                 };
 
                 observationManager.Create(observation);
@@ -186,7 +186,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 return RedirectToAction("Thanks", "Observation");
             }
 
-            model.Species = SpeciesModel.Convert(nodeManager.GetSpecies(model.Species.Id));
+            model.Species = SpeciesModel.Convert(nodeManager.Get(model.Species.Id) as Species);
             return View("CreateSpeciesObservation", model);
         }
 

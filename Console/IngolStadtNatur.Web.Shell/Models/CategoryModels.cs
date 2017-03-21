@@ -30,7 +30,6 @@ namespace IngolStadtNatur.Web.Shell.Models
                 CommonName = category.CommonName,
                 Description = category.Description,
                 Id = category.Id,
-                Images = category.Images.Select(ImageModel.Convert).ToList(),
                 ParentId = category.Parent?.Id ?? 0,
                 Preview = category.Preview,
                 ScientificName = category.ScientificName,
@@ -55,7 +54,6 @@ namespace IngolStadtNatur.Web.Shell.Models
             {
                 Description = category.Description,
                 Id = category.Id,
-                Images = category.Images.Select(ImageListGroupItemModel.Convert).ToList(),
                 CommonName = category.CommonName,
                 Preview = category.Preview,
                 ScientificName = category.ScientificName
@@ -79,7 +77,6 @@ namespace IngolStadtNatur.Web.Shell.Models
                 CommonName = category.CommonName,
                 Description = category.Description,
                 Id = category.Id,
-                Images = category.Images.Select(ImageModel.Convert).ToList(),
                 Reference = category.Reference,
                 ScientificName = category.ScientificName,
             };
