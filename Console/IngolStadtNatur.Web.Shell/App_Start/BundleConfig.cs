@@ -22,7 +22,6 @@ namespace IngolStadtNatur.Web.Shell
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.min.js",
                 "~/Scripts/bootstrap-datetimepicker.min.js",
-                "~/Scripts/locales/bootstrap-datepicker.de.min.js",
                 "~/Scripts/lightslider.min.js",
                 "~/Scripts/bootstrap3-typeahead.min.js",
                 "~/Scripts/respond.min.js"));
@@ -34,7 +33,7 @@ namespace IngolStadtNatur.Web.Shell
                 "~/Scripts/habitats.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/moment").Include(
-                "~/Scripts/moment.min.js"));
+                "~/Scripts/moment-with-locales.min.js"));
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
