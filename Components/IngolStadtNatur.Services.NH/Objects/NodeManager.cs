@@ -13,6 +13,7 @@ namespace IngolStadtNatur.Services.NH.Objects
 
         public NodeManager()
         {
+            CategoryRepository = new Repository<Category>();
             NodeRepository = new Repository<Node>();
             SpeciesRepository = new Repository<Species>();
         }
