@@ -1,6 +1,5 @@
 ﻿using IngolStadtNatur.Entities.NH.Objects;
 using IngolStadtNatur.Services.NH.Objects;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
@@ -14,18 +13,18 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             var imageManager = new ImageManager();
             var nodeManager = new NodeManager();
 
-            Category parent;
-            List<Image> pictures;
-            int position;
-
             // IMAGES
-            var enumerableOfImages = System.IO.File.ReadAllLines(Server.MapPath("~Documents/Images.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
+            var enumerableOfImages = System.IO.File.ReadAllLines(Server.MapPath("/Documents/Images.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
 
             foreach (var line in enumerableOfImages)
             {
                 Image image = new Image()
                 {
-
+                    Author = line[3],
+                    Description = line[1],
+                    License = line[4],
+                    Name = line[0],
+                    Source = line[2]
                 };
 
                 imageManager.Create(image);
@@ -34,38 +33,59 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             // CATEGORIES
             var root = new Category()
             {
-
+                CommonName = "Tiere",
+                IsPreviewed = true,
+                IsValid = true,
+                Parent = null,
+                ScientificName = "Animalium",
+                UncertaintyHeader = "Ein unbekanntes Tier melden",
+                UncertaintyText = "Sie wissen nicht weiter? Kein Problem! Melden Sie hier ein Ihnen unbekanntes Tier."
             };
 
             nodeManager.Create(root);
 
-            var categories = System.IO.File.ReadAllLines(Server.MapPath("~/Documents/Categories.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
+            var categories = System.IO.File.ReadAllLines(Server.MapPath("/Documents/Categories.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
 
             foreach (var line in categories)
             {
                 var category = new Category()
                 {
-                    Parent = (Category)nodeManager.Get(line[7])
+                    CommonName = line[0],
+                    Description = line[2],
+                    IsPreviewed = true,
+                    IsValid = true,
+                    Parent = (Category)nodeManager.Get(line[7]),
+                    Preview = line[3],
+                    Reference = line[4],
+                    ScientificName = line[1],
+                    UncertaintyHeader = line[5],
+                    UncertaintyText = line[6]
                 };
 
-                //nodeManager.CreateCategory(line[0], line[1], line[2], line[3], line[4], line[5], line[6], parent);
+                nodeManager.Create(category);
             }
 
             // SPECIES
-            var species = System.IO.File.ReadAllLines(Server.MapPath("~/Documents/Species.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
+            var animals = System.IO.File.ReadAllLines(Server.MapPath("/Documents/Species.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
 
-            foreach (var line in species)
+            foreach (var line in animals)
             {
-                var x = new Species()
+                var species = new Species()
                 {
+                    CommonName = line[0],
+                    Description = line[2],
+                    Images = imageManager.Get(line[5].Split(',')),
+                    IsPreviewed = true,
+                    IsValid = true,
                     Parent = (Category)nodeManager.Get(line[4]),
-                    Images = imageManager.Get(line[5].Split(','))
+                    Reference = line[3],
+                    ScientificName = line[1]
                 };
 
-                //nodeManager.CreateSpecies(line[0], line[1], line[2], line[3], pictures, parent);
+                nodeManager.Create(species);
             }
 
-            return View("Index");
+            return View();
         }
     }
 }

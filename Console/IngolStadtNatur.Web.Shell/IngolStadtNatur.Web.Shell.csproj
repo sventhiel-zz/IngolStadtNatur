@@ -209,8 +209,12 @@
     <Compile Include="Models\ObservationModels.cs" />
     <Compile Include="Models\SpeciesModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Documents\Categories.txt" />
+    <Content Include="Documents\Images.txt" />
+    <Content Include="Documents\Species.txt" />
     <Content Include="Images\Categories\Ameisen.svg" />
     <Content Include="Images\Categories\Ameisen_AAD.svg" />
     <Content Include="Images\Categories\Ammern.svg" />
@@ -816,13 +820,22 @@
     <Content Include="Views\Shared\EditorTemplates\Shot.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Species.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\TermsAndConditions.cshtml" />
+    <Content Include="Views\Utility\CreateSeedData.cshtml" />
+    <Content Include="Views\Home\How.cshtml" />
+    <Content Include="Views\Home\Impressum.cshtml" />
+    <Content Include="Views\Home\IngolstadtNatur.cshtml" />
+    <Content Include="Views\Home\Why.cshtml" />
+    <Content Include="Views\Observation\CategoryGroupList.cshtml" />
+    <Content Include="Views\Observation\CreateCategoryObservation.cshtml" />
+    <Content Include="Views\Observation\CreateQuickObservation.cshtml" />
+    <Content Include="Views\Observation\CreateSpeciesObservation.cshtml" />
+    <Content Include="Views\Observation\Thanks.cshtml" />
+    <Content Include="Views\Observation\_CategoryGroupListItem.cshtml" />
+    <Content Include="Views\Observation\_SpeciesGroupListItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Documents\" />
     <Folder Include="Views\Help\" />
-    <Folder Include="Views\Observation\" />
-    <Folder Include="Views\Utility\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
