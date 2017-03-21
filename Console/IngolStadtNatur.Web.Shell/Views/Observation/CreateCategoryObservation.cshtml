@@ -139,20 +139,6 @@
                     }
                 });
 
-                if ($("#Date").val().length > 0) {
-                    $("#Checkbox_Date").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
-                } else {
-                    $("#Checkbox_Date").attr("src", "/Images/Common/Kästchen.svg");
-                }
-
-                $("#Date").change(function () {
-                    if ($("#Date").val().length > 0) {
-                        $("#Checkbox_Date").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
-                    } else {
-                        $("#Checkbox_Date").attr("src", "/Images/Common/Kästchen.svg");
-                    }
-                });
-
                 if ($("#Shot").val().length > 0) {
                     $("#Checkbox_Shot").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
                 } else {
@@ -200,20 +186,12 @@
                     }
                 });
 
-                $('#Date').datepicker({
-                    autoclose: true,
-                    calendarWeeks: true,
-                    language: "de",
-                    todayHighlight: true
+                $('#DateTimePicker_Date').datetimepicker({
+                    inline: true,
+                    locale: 'de'
                 });
 
                 $('.observation-content').hide();
-
-                $(function () {
-                    $.validator.methods.date = function (value, element) {
-                        return this.optional(element) || moment(value, "DD.MM.YYYY", true).isValid();
-                    }
-                });
             });
     </script>
 }

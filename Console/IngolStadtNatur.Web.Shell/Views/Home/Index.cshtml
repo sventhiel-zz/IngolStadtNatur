@@ -1,31 +1,77 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+﻿<!-- Top -->
+<div class="row background-aad" style="text-align: justify;">
+    <div class="col-xs-12">
+        <h3>
+            Willkommen in der IngolstadtNatur!
+        </h3>
+        <p>
+            Mit der IngolstadtNatur-App und Deiner Hilfe wird eine Bestandsaufnahme der Tiere erstellt, die im Bereich der Donau in Ingolstadt leben. Das Ziel ist es sie dadurch in Zukunft besser schützen zu können. Für weitere Infos über unser Projekt und die Verwendung der App, klicke Dich einfach durch unser Menü.
+        </p>
+        <p>
+            Welches Tier hast Du gesehen?
+            <br/>
+            Unser Bestimmungsschlüssel hilft Dir nicht nur, ein gesichtetes Tier einzuordnen, sondern hält auch die wichtigsten Informationen über viele an Land lebende Tierarten bereit.
+        </p>
+        <p>
+            Für Tiere, die Du mit Sicherheit bestimmen kannst, verwende die Soforteingabe. Du kannst uns auch ein Foto schicken. Nutz- und Haustiere können nicht gemeldet werden.
+        </p>
+        <p>
+            Wir danken für Deine Unterstützung und wünschen viel Spaß beim Mitforschen!
+        </p>
+    </div>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="list-group">
+        <a href="@Url.Action("CreateQuickObservation", "Observation")" class="list-group-item list-group-item-action aadi-lgi-common">
+            <div class="media col-xs-2">
+                <img class="svg media-object aadi-img-responsive" src="~/Images/Common/Ausrufezeichen.svg">
+            </div>
+            <div class="col-xs-9 text-common">
+                Soforteingabe
+            </div>
+            <div class="media col-xs-1">
+                <img class="svg media-object aadi-img-responsive pull-right" src="~/Images/Common/Pfeil_Rechts.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
+
+        <a href="@Url.Action("Index", "Observation")" class="list-group-item list-group-item-action aadi-lgi-common">
+            <div class="media col-xs-2">
+                <img class="svg media-object aadi-img-responsive test" src="~/Images/Common/Fragezeichen.svg">
+            </div>
+            <div class="col-xs-9 text-common">
+                Bestimmungsschlüssel
+            </div>
+            <div class="media col-xs-1">
+                <img class="svg media-object aadi-img-responsive pull-right" src="~/Images/Common/Pfeil_Rechts.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
+        
+        <a href="/Content/documents/Why.pdf" target="_blank" class="list-group-item list-group-item-action aadi-lgi-common">
+            <div class="media col-xs-2">
+                <img class="svg aad media-object aadi-img-responsive" src="~/Images/Common/Info_AAD.svg">
+            </div>
+            <div class="col-xs-9 text-common text-aad">
+                Warum machen wir das?
+            </div>
+            <div class="media col-xs-1">
+                <img class="media-object aadi-img-responsive pull-right" src="~/Images/Common/Pfeil_Rechts_AAD.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
+        <a href="/Content/documents/How.pdf" target="_blank" class="list-group-item list-group-item-action aadi-lgi-common">
+            <div class="media col-xs-2">
+                <img class="svg aad media-object aadi-img-responsive" src="~/Images/Common/Info_AAD.svg">
+            </div>
+            <div class="col-xs-9 text-common text-aad">
+                Wie funktioniert es?
+            </div>
+            <div class="media col-xs-1">
+                <img class="media-object aadi-img-responsive pull-right" src="~/Images/Common/Pfeil_Rechts_AAD.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
     </div>
 </div>
