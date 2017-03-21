@@ -19,7 +19,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             int position;
 
             // IMAGES
-            var enumerableOfImages = System.IO.File.ReadAllLines(Server.MapPath("~/App_Data/images.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
+            var enumerableOfImages = System.IO.File.ReadAllLines(Server.MapPath("~Documents/Images.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
 
             foreach (var line in enumerableOfImages)
             {
@@ -39,7 +39,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
             nodeManager.Create(root);
 
-            var categories = System.IO.File.ReadAllLines(Server.MapPath("~/App_Data/categories.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
+            var categories = System.IO.File.ReadAllLines(Server.MapPath("~/Documents/Categories.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
 
             foreach (var line in categories)
             {
@@ -52,7 +52,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             }
 
             // SPECIES
-            var species = System.IO.File.ReadAllLines(Server.MapPath("~/App_Data/species.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
+            var species = System.IO.File.ReadAllLines(Server.MapPath("~/Documents/Species.txt"), Encoding.UTF8).Select(a => a.Split('\t'));
 
             foreach (var line in species)
             {
