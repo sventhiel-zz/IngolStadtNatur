@@ -153,6 +153,14 @@
                 }
             });
 
+            if ($('#Coordinates').val().length > 0) {
+                var latlng = L.latLng($("#Coordinates").val().split(",").map(parseFloat));
+                leafletManager.createMap('Leaflet_Map', latlng);
+                leafletManager.addMarker(latlng);
+            } else {
+                leafletManager.createMap('Leaflet_Map');
+            }
+
             if ($("#Shot").val().length > 0) {
                 $("#Checkbox_Shot").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
             } else {
@@ -166,14 +174,6 @@
                     $("#Checkbox_Shot").attr("src", "/Images/Common/Kästchen.svg");
                 }
             });
-
-            if ($('#Coordinates').val().length > 0) {
-                var latlng = L.latLng($("#Coordinates").val().split(",").map(parseFloat));
-                leafletManager.createMap('Leaflet_Map', latlng);
-                leafletManager.addMarker(latlng);
-            } else {
-                leafletManager.createMap('Leaflet_Map');
-            }
 
             $("#light-slider").lightSlider({
                 item: 1

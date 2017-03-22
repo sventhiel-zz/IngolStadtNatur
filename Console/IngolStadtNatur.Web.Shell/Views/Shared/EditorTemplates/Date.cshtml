@@ -1,4 +1,4 @@
-﻿@model DateTime?
+﻿@model DateTime
 
 <a id="Header_Date" href="#Header_Date" onclick="$('#Content_Date').toggle();" class="list-group-item list-group-item-action">
     <div class="media col-xs-2">
@@ -21,7 +21,9 @@
     <div id="Content_Date" class="col-xs-9 col-xs-offset-2 observation-content">
         <div class="form-group">
             <div class="row">
-                <div id="DateTimePicker_Date"></div>
+                <div id="DateTimePicker_Date">
+                    @Html.HiddenFor(m => m)
+                </div>
             </div>
         </div>
     </div>

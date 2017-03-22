@@ -94,11 +94,25 @@
                     }
                 });
 
+
+                if ($('#Coordinates').val().length > 0) {
+                    var latlng = L.latLng($("#Coordinates").val().split(",").map(parseFloat));
+                    leafletManager.createMap('Leaflet_Map', latlng);
+                    leafletManager.addMarker(latlng);
+                } else {
+                    leafletManager.createMap('Leaflet_Map');
+                }
+
                 if ($("#Shot").val().length > 0) {
                     $("#Checkbox_Shot").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
                 } else {
                     $("#Checkbox_Shot").attr("src", "/Images/Common/Kästchen.svg");
                 }
+
+                $('#DateTimePicker_Date').datetimepicker({
+                    inline: true,
+                    locale: 'de'
+                });
 
                 $("#Shot").change(function () {
                     if ($("#Shot").val().length > 0) {
@@ -122,14 +136,6 @@
                     }
                 });
 
-                if ($('#Coordinates').val().length > 0) {
-                    var latlng = L.latLng($("#Coordinates").val().split(",").map(parseFloat));
-                    leafletManager.createMap('Leaflet_Map', latlng);
-                    leafletManager.addMarker(latlng);
-                } else {
-                    leafletManager.createMap('Leaflet_Map');
-                }
-
                 $("#Species").typeahead({
                     minLength: 3,
                     source: function (query, process) {
@@ -139,11 +145,6 @@
                                 return process(data);
                             });
                     }
-                });
-
-                $('#DateTimePicker_Date').datetimepicker({
-                    inline: true,
-                    locale: 'de'
                 });
 
                 $('.observation-content').hide();

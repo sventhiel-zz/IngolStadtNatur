@@ -4,6 +4,7 @@ using IngolStadtNatur.Utilities.Filters;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
+using System.Web.Mvc;
 
 namespace IngolStadtNatur.Web.Shell.Models
 {
@@ -56,9 +57,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string Coordinates { get; set; }
 
         [Display(Name = "Datum")]
-        [RequiredIfEmpty("Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [HiddenInput]
         public DateTime Date { get; set; }
 
         [Display(Name = "Foto")]
@@ -72,6 +71,11 @@ namespace IngolStadtNatur.Web.Shell.Models
         [Display(Name = "Ich stimme den Nutzungsbedingungen zu.")]
         [RequiredToBeTrue]
         public bool TermsAndConditions { get; set; }
+
+        public CreateQuickObservationModel()
+        {
+            Date = DateTime.Now;
+        }
     }
 
     public class CreateSpeciesObservationModel

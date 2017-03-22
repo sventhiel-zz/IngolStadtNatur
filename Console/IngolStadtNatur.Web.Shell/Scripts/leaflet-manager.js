@@ -1,25 +1,28 @@
 ﻿var leafletManager = {
     marker: null,
-    map: null,
 
-    createMap: function(div, latlng) {
-        var gps = false;
-        if (latlng == null) {
+    createMap: function (div, latlng) {
+        var coordinates, gps;
+
+        if (typeof latlng === "undefined" || latlng === null) {
+            coordinates = [48.764789, 11.424408];
             gps = true;
-            latlng = [48.764789, 11.424408];
+        } else {
+            coordinates = latlng;
+            gps = false;
         }
 
-        var bayernAtlas = L.tileLayer.wms('http://www.geodaten.bayern.de/ogc/ogc_dop80_oa.cgi?',
+        var bayernAtlas = L.tileLayer.wms("http://www.geodaten.bayern.de/ogc/ogc_dop80_oa.cgi?",
         {
-            layers: 'by_dop80c',
-            version: '1.1.1',
-            format: 'image/jpeg',
+            layers: "by_dop80c",
+            version: "1.1.1",
+            format: "image/jpeg",
             crs: L.CRS.EPSG4326,
             transparent: true,
-            styles: ''
+            styles: ""
         });
 
-        var openStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        var openStreetMap = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         });
@@ -29,22 +32,30 @@
             "OpenStreetMap": openStreetMap
         };
 
-        this.map = L.map(div,
+        var map = L.map(div,
         {
             maxBounds: [[48.728209, 11.376253], [48.799446, 11.471378]],
-            center: latlng,
+            center: coordinates,
             minZoom: 14,
             zoom: 16,
             crs: L.CRS.EPSG900913,
             layers: [bayernAtlas]
         });
 
-        this.map.locate({ setView: gps, enableHighAccuracy: true, timeout: 5000 });
-        this.map.on('locationerror',
-            function(e) {
-                map.setView(latlng, 16);
+        map.locate({ setView: gps, enableHighAccuracy: true, timeout: 5000 });
+        map.on("locationerror",
+            function (e) {
+                map.setView(coordinates, 16);
             });
-        this.map.on('click',
+        map.on("locationfound",
+            function (e) {
+                if (!map.getBounds().contains(e.latlng)) {
+                    alert("NOOOO");
+                    map.setView(coordinates, 16);
+
+                }
+            });
+        map.on("click",
             function(e) {
                 if (leafletManager.existsMarker()) {
                     leafletManager.editMarker(e.latlng);
@@ -53,15 +64,15 @@
                 }
             });
 
-        L.control.layers(baseMaps).addTo(this.map);
-        L.geoJson.css(habitats).addTo(this.map);
+        L.control.layers(baseMaps).addTo(map);
+        L.geoJson.css(habitats).addTo(map);
     },
 
     addMarker: function (latlng) {
         $("#Coordinates").val(latlng.lat + "," + latlng.lng);
         $("#Checkbox_Map").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
         this.marker = new L.Marker(latlng, { draggable: true });
-        this.marker.addTo(this.map);
+        this.marker.addTo(map);
     },
 
     editMarker: function(latlng) {
