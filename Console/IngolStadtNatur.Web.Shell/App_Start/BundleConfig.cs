@@ -28,7 +28,7 @@ namespace IngolStadtNatur.Web.Shell
 
             bundles.Add(new ScriptBundle("~/bundles/leaflet").Include(
                 "~/Scripts/leaflet.js",
-                "~/Scripts/leaflet-manager.js",
+                "~/Scripts/leaflet.manager.js",
                 "~/Scripts/leaflet.geojsoncss.min.js",
                 "~/Scripts/habitats.js"));
 

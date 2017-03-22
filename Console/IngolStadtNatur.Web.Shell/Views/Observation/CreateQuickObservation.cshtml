@@ -97,10 +97,10 @@
 
                 if ($('#Coordinates').val().length > 0) {
                     var latlng = L.latLng($("#Coordinates").val().split(",").map(parseFloat));
-                    leafletManager.createMap('Leaflet_Map', latlng);
-                    leafletManager.addMarker(latlng);
+                    createMap('Leaflet_Map', latlng);
+                    addMarker(latlng);
                 } else {
-                    leafletManager.createMap('Leaflet_Map');
+                    createMap('Leaflet_Map');
                 }
 
                 if ($("#Shot").val().length > 0) {

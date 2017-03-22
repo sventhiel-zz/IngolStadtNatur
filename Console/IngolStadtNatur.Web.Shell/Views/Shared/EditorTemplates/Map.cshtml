@@ -20,8 +20,9 @@
 
 <div style="padding-left: 15px; padding-right: 15px">
     <div id="Content_Map" class="col-xs-9 col-xs-offset-2 observation-content">
-        @Html.HiddenFor(m => m, new { @Value = Model })
-        <div id="Leaflet_Map"></div>
+        <div id="Leaflet_Map">
+            @Html.HiddenFor(m => m)
+        </div>
     </div>
     <div class="clearfix"></div>
 </div>

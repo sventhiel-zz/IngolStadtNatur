@@ -53,6 +53,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string Comment { get; set; }
 
         [Display(Name = "Koordinaten")]
+        [HiddenInput]
         [RequiredIfEmpty("Coordinates")]
         public string Coordinates { get; set; }
 
