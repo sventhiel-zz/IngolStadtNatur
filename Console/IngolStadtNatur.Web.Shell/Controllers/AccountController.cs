@@ -310,7 +310,15 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             }
 
             var userManager = new UserManager(new UserStore());
-            var user = new User { UserName = model.UserName, Email = model.Email };
+            var user = new User()
+            {
+                City = model.City,
+                Email = model.Email,
+                FullName = model.FullName,
+                Street = model.Street,
+                UserName = model.UserName,
+                ZipCode = model.ZipCode
+            };
             var result = await userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {

@@ -68,23 +68,40 @@ namespace IngolStadtNatur.Web.Shell.Models
 
     public class SignUpModel
     {
+        [Display(Name = "Stadt")]
         [Required]
-        [Display(Name = "Username")]
-        public string UserName { get; set; }
+        public string City { get; set; }
+
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Kennwort betätigen")]
+        public string ConfirmPassword { get; set; }
 
         [Required]
+        [Display(Name = "E-Mail")]
         public string Email { get; set; }
 
+        [Display(Name = "Name")]
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
+        public string FullName { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm Password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
+        [Display(Name = "Kennwort")]
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        public string Password { get; set; }
+
+        [Display(Name = "Strasse")]
+        [Required]
+        public string Street { get; set; }
+
+        [Required]
+        [Display(Name = "Nutzername")]
+        public string UserName { get; set; }
+
+        [Display(Name = "PLZ")]
+        [Required]
+        public string ZipCode { get; set; }
     }
 
     public class VerifyCodeModel
