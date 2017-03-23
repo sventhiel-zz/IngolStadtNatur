@@ -229,7 +229,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             var userManager = new UserManager(new UserStore());
             var code = await userManager.GenerateEmailConfirmationTokenAsync(userId);
             var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = userId, code = code }, protocol: Request.Url.Scheme);
-            await userManager.SendEmailAsync(userId, subject, "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+            await userManager.SendEmailAsync(userId, subject, "Bitte bestätige deinen Account indem du <a href=\"" + callbackUrl + "\">hier</a> klickst.");
 
             return callbackUrl;
         }
@@ -270,7 +270,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var signInManager = new SignInManager(userManager, AuthenticationManager);
-            var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, false, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -278,7 +278,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
@@ -325,11 +325,11 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 //  Comment the following line to prevent log in until the user is confirmed.
                 //  await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
-                var callbackUrl = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account");
+                var callbackUrl = await SendEmailConfirmationTokenAsync(user.Id, "Bestätige deinen Account");
 
 
-                ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
-                                  + "before you can log in.";
+                ViewBag.Message = "Bitte überprüfe deine E-Mails und bestätige deinen Account."
+                                  + "Erst dann kannst du dich anmelden.";
 
                 // For local debug only
                 ViewBag.Link = callbackUrl;
