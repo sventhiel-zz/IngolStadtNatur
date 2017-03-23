@@ -4,7 +4,7 @@
     <div id="Content_TermsAndConditions" class="col-xs-11">
         <div>
             @Html.CheckBoxFor(m => m)
-            @Html.LabelFor(m => m)
+            @Html.Raw(HttpUtility.HtmlDecode(Html.LabelFor(m => m).ToString()))
         </div>
     </div>
     <div class="clearfix"></div>

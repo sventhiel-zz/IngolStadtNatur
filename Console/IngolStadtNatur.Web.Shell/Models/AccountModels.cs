@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using IngolStadtNatur.Utilities.Filters;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IngolStadtNatur.Web.Shell.Models
@@ -99,6 +100,10 @@ namespace IngolStadtNatur.Web.Shell.Models
         [Display(Name = "PLZ")]
         [Required]
         public string ZipCode { get; set; }
+
+        [Display(Name = @"Ich stimme den <a href=""/Documents/Datenschutzerklärung.pdf"" target=""_blank"">Datenschutzerklärung</a> zu.")]
+        [RequiredToBeTrue(ErrorMessage = "Akzeptieren der Datenschutzerklärung ist erforderlich.")]
+        public bool TermsAndConditions { get; set; }
     }
 
     public class VerifyCodeModel

@@ -749,6 +749,8 @@
     <Content Include="Connections.config" />
     <Content Include="Documents\How.pdf" />
     <Content Include="Documents\Why.pdf" />
+    <Content Include="Documents\Datenschutzerklärung.pdf" />
+    <Content Include="Documents\Impressum.pdf" />
     <None Include="Properties\PublishProfiles\ISN.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap3-typeahead.js" />

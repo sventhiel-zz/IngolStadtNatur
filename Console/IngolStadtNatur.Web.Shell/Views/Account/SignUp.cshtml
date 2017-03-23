@@ -7,7 +7,7 @@
 @using (Html.BeginForm("SignUp", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(false)
 
     <div class="col-xs-10 col-xs-offset-1">
         <div class="form-group">
@@ -47,6 +47,12 @@
     <div class="col-xs-10 col-xs-offset-1">
         <div class="form-group">
             @Html.TextBoxFor(m => m.City, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.City) })
+        </div>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1">
+        <div class="form-group">
+            @Html.CheckBoxFor(m => m.TermsAndConditions)
+            @Html.Raw(HttpUtility.HtmlDecode(Html.LabelFor(m => m.TermsAndConditions).ToString()))
         </div>
     </div>
     <div class="form-group">

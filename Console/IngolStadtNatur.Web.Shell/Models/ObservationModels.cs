@@ -33,7 +33,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string Species { get; set; }
 
 
-        [Display(Name = "Ich stimme den Nutzungsbedingungen zu.")]
+        [Display(Name = @"Ich stimme den <a href=""/Documents/Impressum.pdf"" target=""_blank"">Nutzungsbedingungen</a> zu.")]
         [RequiredToBeTrue]
         public bool TermsAndConditions { get; set; }
 
@@ -69,7 +69,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         [RequiredIfEmpty("Shot")]
         public string Species { get; set; }
 
-        [Display(Name = "Ich stimme den Nutzungsbedingungen zu.")]
+        [Display(Name = @"Ich stimme den <a href=""/Documents/Impressum.pdf"" target=""_blank"">Nutzungsbedingungen</a> zu.")]
         [RequiredToBeTrue]
         public bool TermsAndConditions { get; set; }
 
@@ -101,7 +101,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         [Display(Name = "Tiername")]
         public SpeciesModel Species { get; set; }
 
-        [Display(Name = "Ich stimme den Nutzungsbedingungen zu.")]
+        [Display(Name = @"Ich stimme den <a href=""/Documents/Impressum.pdf"" target=""_blank"">Nutzungsbedingungen</a> zu.")]
         [RequiredToBeTrue]
         public bool TermsAndConditions { get; set; }
 
