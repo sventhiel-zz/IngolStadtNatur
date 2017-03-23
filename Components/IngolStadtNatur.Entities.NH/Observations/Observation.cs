@@ -1,4 +1,5 @@
 ﻿using FluentNHibernate.Mapping;
+using IngolStadtNatur.Entities.NH.Authentication;
 using IngolStadtNatur.Entities.NH.Common;
 using IngolStadtNatur.Entities.NH.Objects;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 
 namespace IngolStadtNatur.Entities.NH.Observations
 {
-    public abstract class Observation : BaseEntity
+    public class Observation : BaseEntity
     {
         public virtual string Comment { get; set; }
         public virtual DateTime CreationDate { get; set; }
@@ -14,7 +15,9 @@ namespace IngolStadtNatur.Entities.NH.Observations
         public virtual DateTime MeasurementDate { get; set; }
         public virtual Node Node { get; set; }
         public virtual ICollection<Shot> Shots { get; set; }
+        public virtual string Species { get; set; }
         public virtual Status Status { get; set; }
+        public virtual User User { get; set; }
 
         public Observation()
         {
@@ -47,7 +50,11 @@ namespace IngolStadtNatur.Entities.NH.Observations
             HasMany(m => m.Shots)
                 .Inverse()
                 .Cascade.All();
+            Map(m => m.Species);
             Map(m => m.Status);
+            References(m => m.User)
+                .Column("UserRef")
+                .Cascade.All();
         }
     }
 }

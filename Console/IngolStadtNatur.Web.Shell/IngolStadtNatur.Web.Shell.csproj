@@ -747,6 +747,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Application.config" />
     <Content Include="Connections.config" />
+    <None Include="Properties\PublishProfiles\ISN.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap3-typeahead.js" />
     <Content Include="Scripts\bootstrap3-typeahead.min.js" />

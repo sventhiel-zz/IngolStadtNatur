@@ -93,9 +93,7 @@
     <Compile Include="Objects\Node.cs" />
     <Compile Include="Objects\Shot.cs" />
     <Compile Include="Objects\Species.cs" />
-    <Compile Include="Observations\CategoryObservation.cs" />
     <Compile Include="Observations\Observation.cs" />
-    <Compile Include="Observations\SpeciesObservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

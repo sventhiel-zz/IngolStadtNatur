@@ -1,8 +1,11 @@
 ﻿using IngolStadtNatur.Entities.NH.Objects;
 using IngolStadtNatur.Entities.NH.Observations;
+using IngolStadtNatur.Services.NH.Authentication;
 using IngolStadtNatur.Services.NH.Objects;
 using IngolStadtNatur.Services.NH.Observations;
+using IngolStadtNatur.Utilities.Extensions;
 using IngolStadtNatur.Web.Shell.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -58,26 +61,29 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         [HttpPost]
         public ActionResult CreateCategoryObservation(CreateCategoryObservationModel model)
         {
-            NodeManager nodeManager = new NodeManager();
+            var nodeManager = new NodeManager();
+            var userManager = new UserManager(new UserStore());
 
             if (ModelState.IsValid)
             {
-                ObservationManager observationManager = new ObservationManager();
+                var observationManager = new ObservationManager();
 
-                var observation = new CategoryObservation()
+                var observation = new Observation()
                 {
                     Comment = model.Comment,
                     Coordinates = model.Coordinates,
                     CreationDate = DateTime.Now,
                     MeasurementDate = model.Date,
                     Node = nodeManager.Get(model.Category.Id),
+                    Species = model.Species,
+                    User = userManager.FindById(System.Web.HttpContext.Current.User.Identity.GetUserId().ToLong())
                 };
 
                 observationManager.Create(observation);
 
                 if (model.Shot != null)
                 {
-                    ShotManager shotManager = new ShotManager();
+                    var shotManager = new ShotManager();
 
                     var shot = new Shot()
                     {
@@ -107,23 +113,26 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         {
             if (ModelState.IsValid)
             {
-                NodeManager nodeManager = new NodeManager();
-                ObservationManager observationManager = new ObservationManager();
+                var nodeManager = new NodeManager();
+                var observationManager = new ObservationManager();
+                var userManager = new UserManager(new UserStore());
 
-                var observation = new CategoryObservation()
+                var observation = new Observation()
                 {
                     Comment = model.Comment,
                     Coordinates = model.Coordinates,
                     CreationDate = DateTime.Now,
                     MeasurementDate = model.Date,
-                    Node = nodeManager.GetRoot()
+                    Node = nodeManager.GetRoot(),
+                    Species = model.Species,
+                    User = userManager.FindById(System.Web.HttpContext.Current.User.Identity.GetUserId().ToLong())
                 };
 
                 observationManager.Create(observation);
 
                 if (model.Shot != null)
                 {
-                    ShotManager shotManager = new ShotManager();
+                    var shotManager = new ShotManager();
 
                     var shot = new Shot()
                     {
@@ -151,26 +160,29 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         [HttpPost]
         public ActionResult CreateSpeciesObservation(CreateSpeciesObservationModel model)
         {
-            NodeManager nodeManager = new NodeManager();
+            var nodeManager = new NodeManager();
 
             if (ModelState.IsValid)
             {
-                ObservationManager observationManager = new ObservationManager();
+                var observationManager = new ObservationManager();
+                var userManager = new UserManager(new UserStore());
 
-                var observation = new SpeciesObservation()
+                var observation = new Observation()
                 {
                     Comment = model.Comment,
                     Coordinates = model.Coordinates,
                     CreationDate = DateTime.Now,
                     MeasurementDate = model.Date,
-                    Node = nodeManager.Get(model.Species.Id)
+                    Node = nodeManager.Get(model.Species.Id),
+                    Species = model.Species.ScientificName,
+                    User = userManager.FindById(System.Web.HttpContext.Current.User.Identity.GetUserId().ToLong())
                 };
 
                 observationManager.Create(observation);
 
                 if (model.Shot != null)
                 {
-                    ShotManager shotManager = new ShotManager();
+                    var shotManager = new ShotManager();
 
                     var shot = new Shot()
                     {
