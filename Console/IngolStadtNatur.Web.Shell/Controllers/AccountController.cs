@@ -328,8 +328,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 var callbackUrl = await SendEmailConfirmationTokenAsync(user.Id, "Bestätige deinen Account");
 
 
-                ViewBag.Message = "Bitte überprüfe deine E-Mails und bestätige deinen Account."
-                                  + "Erst dann kannst du dich anmelden.";
+                ViewBag.Message = "Bitte überprüfe deine E-Mails und bestätige deinen Account. Erst dann kannst du dich anmelden.";
 
                 // For local debug only
                 ViewBag.Link = callbackUrl;
