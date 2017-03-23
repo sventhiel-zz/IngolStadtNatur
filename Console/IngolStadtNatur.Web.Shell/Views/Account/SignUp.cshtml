@@ -1,13 +1,12 @@
 ﻿@model IngolStadtNatur.Web.Shell.Models.SignUpModel
+    
+<h3>
+    Registrierung
+</h3>
 
 @using (Html.BeginForm("SignUp", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-
-    <h4>Create a new account.</h4>
-
-    <hr />
-   
     @Html.ValidationSummary(true)
 
     <div class="col-xs-10 col-xs-offset-1">
@@ -51,9 +50,10 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-xs-offset-2 col-xs-10">
+        <div class="col-xs-10 col-xs-offset-1 text-description">
             <input type="submit" class="btn btn-default" value="Register" />
-            @Html.ActionLink("Sign In", "SignIn") if you have an account.
+            @Html.ActionLink("Anmelden", "SignIn"), falls du einen Account hast.
+
         </div>
     </div>
 }

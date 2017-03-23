@@ -18,7 +18,7 @@ namespace IngolStadtNatur.Web.Shell.Models
     public class ForgotPasswordModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Nutzername")]
         public string UserName { get; set; }
     }
 
@@ -32,11 +32,11 @@ namespace IngolStadtNatur.Web.Shell.Models
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Passwort")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Passwort bestätigen")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
@@ -54,16 +54,13 @@ namespace IngolStadtNatur.Web.Shell.Models
     public class SignInModel
     {
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Nutzername")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Passwort")]
         public string Password { get; set; }
-
-        [Display(Name = "Remember me?")]
-        public bool RememberMe { get; set; }
     }
 
     public class SignUpModel
@@ -72,9 +69,9 @@ namespace IngolStadtNatur.Web.Shell.Models
         [Required]
         public string City { get; set; }
 
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Passwort", ErrorMessage = "Die beiden Passwörter stimmen nicht überein.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Kennwort betätigen")]
+        [Display(Name = "Passwort betätigen")]
         public string ConfirmPassword { get; set; }
 
         [Required]
@@ -86,9 +83,9 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string FullName { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Kennwort")]
+        [Display(Name = "Passwort")]
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Das {0} muss mindestens {2} Zeichen haben.", MinimumLength = 6)]
         public string Password { get; set; }
 
         [Display(Name = "Strasse")]

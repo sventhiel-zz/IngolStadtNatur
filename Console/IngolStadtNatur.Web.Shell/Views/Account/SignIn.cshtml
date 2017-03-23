@@ -1,13 +1,13 @@
 ﻿@using IngolStadtNatur.Web.Shell.Models
 @model IngolStadtNatur.Web.Shell.Models.SignInModel
 
+<h3>
+    Anmeldung
+</h3>
+
 @using (Html.BeginForm("SignIn", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Use a local account to log in.</h4>
-
-    <hr />
-
     @Html.ValidationSummary(true)
 
     <div class="row">
@@ -23,14 +23,10 @@
         </div>
         <div class="col-xs-10 col-xs-offset-1">
             <div class="form-group">
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe)
-            </div>
-        </div>
-        <div class="col-xs-10 col-xs-offset-1">
-            <div class="form-group">
                 <input type="submit" value="Sign in" class="btn btn-default" />
-                @Html.ActionLink("Sign Up", "SignUp") if you don't have a local account.
+                <div class="text-description">
+                    @Html.ActionLink("Registriere", "SignUp") dich, falls du keinen Account hast.
+                </div>
             </div>
         </div>
     </div>
