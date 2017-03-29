@@ -72,7 +72,7 @@ namespace IngolStadtNatur.Web.Shell.Models
 
         [Compare("Password", ErrorMessage = "Die beiden Passwörter stimmen nicht überein.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Passwort betätigen")]
+        [Display(Name = "Passwort bestätigen")]
         public string ConfirmPassword { get; set; }
 
         [Required]

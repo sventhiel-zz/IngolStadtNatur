@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\DoubleExtensions.cs" />
+    <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Filters\ValidationAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

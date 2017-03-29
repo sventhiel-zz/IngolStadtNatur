@@ -1,4 +1,5 @@
-﻿@model IngolStadtNatur.Web.Shell.Models.SignUpModel
+﻿@using IngolStadtNatur.Utilities.Extensions
+@model IngolStadtNatur.Web.Shell.Models.SignUpModel
     
 <h3>
     Registrierung
@@ -26,7 +27,7 @@
     </div>
     <div class="col-xs-10 col-xs-offset-1">
         <div class="form-group">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.ConfirmPassword) })
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = @Html.DisplayPlaceHolderFor(m => m.ConfirmPassword) })
         </div>
     </div>
     <div class="col-xs-10 col-xs-offset-1">
