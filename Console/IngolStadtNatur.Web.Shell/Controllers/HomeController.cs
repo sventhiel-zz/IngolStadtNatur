@@ -13,5 +13,10 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         {
             return View();
         }
+
+        public ActionResult IngolStadtNatur()
+        {
+            return View();
+        }
     }
 }
