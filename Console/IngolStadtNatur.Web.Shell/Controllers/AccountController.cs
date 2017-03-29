@@ -286,7 +286,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             }
         }
 
-        [HttpPost]
+        //[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SignOut()
         {
