@@ -229,7 +229,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             var userManager = new UserManager(new UserStore());
             var code = await userManager.GenerateEmailConfirmationTokenAsync(userId);
             var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = userId, code = code }, protocol: Request.Url.Scheme);
-            await userManager.SendEmailAsync(userId, subject, "Bitte bestätige deinen Account indem du <a href=\"" + callbackUrl + "\">hier</a> klickst.");
+            await userManager.SendEmailAsync(userId, subject, "Bitte bestätigen Sie ihren Account indem Sie <a href=\"" + callbackUrl + "\">hier</a> klicken.");
 
             return callbackUrl;
         }

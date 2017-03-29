@@ -18,13 +18,13 @@
         </div>
         <div class="form-group">
             <div class="col-xs-10 col-xs-offset-1">
-                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Password) })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Password) })
             </div>
         </div>
         <div class="form-group">
             <div class="col-xs-10 col-xs-offset-1 text-description">
                 <input type="submit" value="Sign in" class="btn btn-default" />
-                @Html.ActionLink("Registriere", "SignUp") dich, falls du keinen Account hast.
+                @Html.ActionLink("Registrieren", "SignUp"), falls Sie keinen Account haben.
 
                 <div class="text-description">
                 </div>

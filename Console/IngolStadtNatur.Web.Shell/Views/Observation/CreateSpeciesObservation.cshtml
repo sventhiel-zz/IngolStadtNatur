@@ -49,10 +49,10 @@
                         {
                             <li>
                                 <picture>
-                                    <source srcset=@($"{@image.Path}?width=900&quality=90") media="(min-width: 1200px)">
-                                    <source srcset=@($"{@image.Path}?width=600&quality=90") media="(min-width: 768px) and (max-width: 1199px)">
-                                    <source srcset=@($"{@image.Path}?width=300&quality=90") media="(max-width: 767px)">
-                                    <img class="media-object aadi-img-responsive" srcset=@($"{@image.Path}?width=600&quality=90")>
+                                    <source srcset=@($"/Images/Species/{@image.Name}?width=900&quality=90") media="(min-width: 1200px)">
+                                    <source srcset=@($"/Images/Species/{@image.Name}?width=600&quality=90") media="(min-width: 768px) and (max-width: 1199px)">
+                                    <source srcset=@($"/Images/Species/{@image.Name}?width=300&quality=90") media="(max-width: 767px)">
+                                    <img class="media-object aadi-img-responsive" srcset=@($"/Images/Species/{@image.Name}?width=600&quality=90")>
                                 </picture>
                                 <div class="text-description text-aad">
                                     Bildquelle: @image.Source
@@ -155,10 +155,10 @@
 
             if ($('#Coordinates').val().length > 0) {
                 var latlng = L.latLng($("#Coordinates").val().split(",").map(parseFloat));
-                leafletManager.createMap('Leaflet_Map', latlng);
-                leafletManager.addMarker(latlng);
+                createMap('Leaflet_Map', latlng);
+                addMarker(latlng);
             } else {
-                leafletManager.createMap('Leaflet_Map');
+                createMap('Leaflet_Map');
             }
 
             if ($("#Shot").val().length > 0) {

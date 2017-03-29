@@ -40,7 +40,14 @@ namespace IngolStadtNatur.Services.NH.Objects
 
         public List<Image> Get(string[] names)
         {
-            return null;
+            List<Image> results = new List<Image>();
+
+            foreach (var name in names)
+            {
+                results.Add(Get(name));
+            }
+
+            return results;
         }
 
         public void Update(Image image)

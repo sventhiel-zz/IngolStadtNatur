@@ -212,6 +212,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\controls.png" />
+    <Content Include="Content\lightslider.css" />
+    <Content Include="Content\lightslider.min.css" />
     <Content Include="Documents\Categories.txt" />
     <Content Include="Documents\Images.txt" />
     <Content Include="Documents\Species.txt" />
@@ -704,6 +707,8 @@
     <Content Include="Images\Species\Zwergsumpfhuhn.jpg" />
     <Content Include="Images\Species\Zwergtaucher-Prachtkleid.jpg" />
     <Content Include="Images\Species\Zwergtaucher-Schlichtkleid.jpg" />
+    <Content Include="Scripts\lightslider.js" />
+    <Content Include="Scripts\lightslider.min.js" />
     <Content Include="Scripts\mvcfoolproof.unobtrusive.js" />
     <Content Include="Scripts\mvcfoolproof.unobtrusive.min.js" />
     <Content Include="Scripts\MvcFoolproofJQueryValidation.js" />
