@@ -40,7 +40,7 @@
     {
         maxBounds: [[48.728209, 11.376253], [48.799446, 11.471378]],
         center: coordinates,
-        minZoom: 14,
+        minZoom: 12,
         zoom: 14,
         crs: L.CRS.EPSG900913,
         layers: [bayernAtlas]
