@@ -41,7 +41,7 @@
         maxBounds: [[48.728209, 11.376253], [48.799446, 11.471378]],
         center: coordinates,
         minZoom: 14,
-        zoom: 16,
+        zoom: 14,
         crs: L.CRS.EPSG900913,
         layers: [bayernAtlas]
     });
@@ -78,12 +78,12 @@ function onClick(e) {
 }
 
 function onLocationError(e) {
-    map.setView(coordinates, 16);
+    map.setView(coordinates, 14);
 }
 
 function onLocationFound(e) {
     if (!map.getBounds().contains(e.latlng)) {
-        map.setView(coordinates, 16);
+        map.setView(coordinates, 14);
 
     }
 }

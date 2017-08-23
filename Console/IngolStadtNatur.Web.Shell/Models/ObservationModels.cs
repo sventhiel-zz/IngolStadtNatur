@@ -21,9 +21,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string Coordinates { get; set; }
 
         [Display(Name = "Datum")]
-        [RequiredIfEmpty("Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [HiddenInput]
         public DateTime Date { get; set; }
 
         [Display(Name = "Foto")]
@@ -90,9 +88,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string Comment { get; set; }
 
         [Display(Name = "Datum")]
-        [RequiredIfEmpty("Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [HiddenInput]
         public DateTime Date { get; set; }
 
         [Display(Name = "Foto")]

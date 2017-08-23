@@ -10,34 +10,58 @@ namespace IngolStadtNatur.Services.NH.Utilities
 {
     public class EmailService : IIdentityMessageService
     {
-        public async Task SendAsync(IdentityMessage message)
+        private readonly SmtpClient _smtp;
+
+        public EmailService()
         {
-            var smtp = new SmtpClient
+            _smtp = new SmtpClient()
             {
-                Host = "smtp.sparkpostmail.com",
+                Host = "smtp.uni-jena.de",
                 Port = 587,
                 EnableSsl = true,
                 Credentials =
                     new NetworkCredential(ConfigurationManager.AppSettings["EmailAccount"],
                         ConfigurationManager.AppSettings["EmailPassword"])
             };
+        }
 
-            // You will need an API Key with 'Send via SMTP' permissions.
-            // Create one here: https://app.sparkpost.com/account/credentials
-
-            var from = new MailAddress("testing@sparkpostbox.com");
+        public void Send(IdentityMessage message)
+        {
+            var from = new MailAddress("bexis2@uni-jena.de");
 
             var to = new MailAddress(message.Destination);
             var mail = new MailMessage(from, to)
             {
-                Subject = message.Subject,
-                Body = message.Body
+                Body = message.Body,
+                IsBodyHtml = true,
+                Subject = message.Subject
             };
-
 
             try
             {
-                await smtp.SendMailAsync(mail);
+                _smtp.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError(ex.Message + " SparkPost probably not configured correctly.");
+            }
+        }
+
+        public async Task SendAsync(IdentityMessage message)
+        {
+            var from = new MailAddress("bexis2@uni-jena.de");
+
+            var to = new MailAddress(message.Destination);
+            var mail = new MailMessage(from, to)
+            {
+                Body = message.Body,
+                IsBodyHtml = true,
+                Subject = message.Subject
+            };
+
+            try
+            {
+                await _smtp.SendMailAsync(mail);
             }
             catch (Exception ex)
             {

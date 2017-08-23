@@ -48,43 +48,6 @@
             </div>
             <div class="clearfix"></div>
         </a>
-        
-        @if (!Request.IsAuthenticated)
-        {
-            <a href="@Url.Action("SignIn", "Account")" class="list-group-item list-group-item-action aadi-lgi-common">
-                <div class="media col-xs-2">
-                    <img class="svg aad media-object aadi-img-responsive" src="~/Images/Common/Ausrufezeichen_AAD.svg">
-                </div>
-                <div class="col-xs-9 text-common text-aad">
-                    Registrieren / Anmelden
-                </div>
-                <div class="media col-xs-1">
-                    <img class="media-object aadi-img-responsive pull-right" src="~/Images/Common/Pfeil_Rechts_AAD.svg">
-                </div>
-                <div class="clearfix"></div>
-            </a>
-        }
-        else
-        {
-            using (Html.BeginForm("SignOut", "Account", FormMethod.Post, new { id = "logoutForm" }))
-            {
-                @Html.AntiForgeryToken()
-
-                <a href="javascript:document.getElementById('logoutForm').submit()" class="list-group-item list-group-item-action aadi-lgi-common">
-                    <div class="media col-xs-2">
-                        <img class="svg aad media-object aadi-img-responsive" src="~/Images/Common/Ausrufezeichen_AAD.svg">
-                    </div>
-                    <div class="col-xs-9 text-common text-aad">
-                        Abmelden
-                    </div>
-                    <div class="media col-xs-1">
-                        <img class="media-object aadi-img-responsive pull-right" src="~/Images/Common/Pfeil_Rechts_AAD.svg">
-                    </div>
-                    <div class="clearfix"></div>
-                </a>
-            }
-        }
-
         <a href="/Documents/Why.pdf" target="_blank" class="list-group-item list-group-item-action aadi-lgi-common">
             <div class="media col-xs-2">
                 <img class="svg aad media-object aadi-img-responsive" src="~/Images/Common/Info_AAD.svg">

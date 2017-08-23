@@ -12,9 +12,25 @@
     <div class="container" style="background-color: #00AC9F; color: white; padding-top: 5px; padding-bottom: 5px;">
         <div class="row">
             <div class="col-xs-12">
-                <div class="pull-right">
+                <div class="pull-left">
                     @Html.ActionLink("IngolstadtNatur", "IngolstadtNatur", "Home", null, new { style = "text-decoration:none;color:white" })
                 </div>
+                @if (!Request.IsAuthenticated)
+                {
+                    <div class="pull-right">
+                        <a href='@Url.Action("SignIn", "Account")' role='button'><i class='fa fa-sign-in' style='color:white'></i></a>
+                    </div>
+                }
+                else
+                {<div class="pull-right">
+                    @using (Html.BeginForm("SignOut", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                    @Html.AntiForgeryToken()
+
+                    <a href="javascript:document.getElementById('logoutForm').submit()" role='button'><i class='fa fa-sign-out' style='color:white'></i></a>
+                    }
+                </div>
+                }
             </div>
         </div>
     </div>
@@ -42,6 +58,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/leaflet")
 
-    @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", false)
 </body>
 </html>
