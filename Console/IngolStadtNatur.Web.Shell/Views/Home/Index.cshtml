@@ -4,20 +4,28 @@
         <h3>
             Willkommen in der IngolstadtNatur!
         </h3>
-        <p>
-            Mit der IngolstadtNatur-App und Deiner Hilfe wird eine Bestandsaufnahme der Tiere erstellt, die im Bereich der Donau in Ingolstadt leben. Das Ziel ist es sie dadurch in Zukunft besser schützen zu können. Für weitere Infos über unser Projekt und die Verwendung der App, klicke Dich einfach durch unser Menü.
-        </p>
-        <p>
-            Welches Tier hast Du gesehen?
-            <br/>
-            Unser Bestimmungsschlüssel hilft Dir nicht nur, ein gesichtetes Tier einzuordnen, sondern hält auch die wichtigsten Informationen über viele an Land lebende Tierarten bereit.
-        </p>
-        <p>
-            Für Tiere, die Du mit Sicherheit bestimmen kannst, verwende die Soforteingabe. Du kannst uns auch ein Foto schicken. Nutz- und Haustiere können nicht gemeldet werden.
-        </p>
-        <p>
-            Wir danken für Deine Unterstützung und wünschen viel Spaß beim Mitforschen!
-        </p>
+        
+        <div>
+            <p>
+                Mit der IngolstadtNatur-App und Deiner Hilfe wird eine Bestandsaufnahme der Tiere erstellt, die im Bereich der Donau in Ingolstadt leben. Das Ziel ist es sie dadurch in Zukunft besser schützen zu können. Für weitere Infos über unser Projekt und die Verwendung der App, klicke Dich einfach durch unser Menü.
+            </p>
+
+            <div class="collapse" id="information">
+                <p>
+                    Welches Tier hast Du gesehen?
+                    <br />
+                    Unser Bestimmungsschlüssel hilft Dir nicht nur, ein gesichtetes Tier einzuordnen, sondern hält auch die wichtigsten Informationen über viele an Land lebende Tierarten bereit.
+                </p>
+                <p>
+                    Für Tiere, die Du mit Sicherheit bestimmen kannst, verwende die Soforteingabe. Du kannst uns auch ein Foto schicken. Nutz- und Haustiere können nicht gemeldet werden.
+                </p>
+                <p>
+                    Wir danken für Deine Unterstützung und wünschen viel Spaß beim Mitforschen!
+                </p>
+            </div>
+            
+            <a href="#" id="abc"><i class="fa fa-angle-double-down" data-toggle="collapse" href="#information"></i></a>
+        </div>
     </div>
 </div>
 
@@ -74,3 +82,12 @@
         </a>
     </div>
 </div>
+
+@section Scripts
+{
+    <script>
+        $('#abc').click(function () {
+            $(this).find('i').toggleClass('fa-angle-double-down fa-angle-double-up');
+        });
+    </script>    
+}
