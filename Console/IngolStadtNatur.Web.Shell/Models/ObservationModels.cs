@@ -30,7 +30,6 @@ namespace IngolStadtNatur.Web.Shell.Models
         [Display(Name = "Tiername")]
         public string Species { get; set; }
 
-
         [Display(Name = @"Ich stimme den <a href=""/Documents/Impressum.pdf"" target=""_blank"">Nutzungsbedingungen</a> zu.")]
         [RequiredToBeTrue]
         public bool TermsAndConditions { get; set; }
@@ -39,7 +38,8 @@ namespace IngolStadtNatur.Web.Shell.Models
         {
             return new CreateCategoryObservationModel()
             {
-                Category = CategoryModel.Convert(category)
+                Category = CategoryModel.Convert(category),
+                Date = DateTime.Now
             };
         }
     }
@@ -105,6 +105,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         {
             return new CreateSpeciesObservationModel()
             {
+                Date = DateTime.Now,
                 Species = SpeciesModel.Convert(species)
             };
         }
