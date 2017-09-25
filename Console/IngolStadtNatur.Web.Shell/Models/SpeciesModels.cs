@@ -7,16 +7,16 @@ namespace IngolStadtNatur.Web.Shell.Models
 {
     public class SpeciesListGroupItemModel
     {
-        public string Description { get; set; }
-        public long Id { get; set; }
-        public List<ImageListGroupItemModel> Images { get; set; }
-        public string ScientificName { get; set; }
-        public string CommonName { get; set; }
-
         public SpeciesListGroupItemModel()
         {
             Images = new List<ImageListGroupItemModel>();
         }
+
+        public string CommonName { get; set; }
+        public string Description { get; set; }
+        public long Id { get; set; }
+        public List<ImageListGroupItemModel> Images { get; set; }
+        public string ScientificName { get; set; }
 
         public static SpeciesListGroupItemModel Convert(Species species)
         {
@@ -33,18 +33,18 @@ namespace IngolStadtNatur.Web.Shell.Models
 
     public class SpeciesModel
     {
+        public SpeciesModel()
+        {
+            Images = new List<ImageModel>();
+        }
+
+        public string CommonName { get; set; }
         public string Description { get; set; }
         public long Id { get; set; }
         public List<ImageModel> Images { get; set; }
         public long ParentId { get; set; }
         public string Reference { get; set; }
         public string ScientificName { get; set; }
-        public string CommonName { get; set; }
-
-        public SpeciesModel()
-        {
-            Images = new List<ImageModel>();
-        }
 
         public static SpeciesModel Convert(Species species)
         {
