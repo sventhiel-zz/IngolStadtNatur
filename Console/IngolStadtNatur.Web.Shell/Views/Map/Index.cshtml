@@ -1,0 +1,68 @@
+﻿<div class="row">
+    <div class="list-group">
+        <a href="@(Url.Action("Index", "Home"))" class="list-group-item list-group-item-action aadi-lgi-common background-aad">
+            <div class="media col-xs-2">
+                <img class="media-object aadi-img-responsive" src="~/Images/Common/Return_AAD.svg">
+            </div>
+            <div class="col-xs-9 text-aad">
+                Zurück
+            </div>
+            <div class="media col-xs-1">
+                <img class="media-object aadi-img-responsive pull-right" src="~/Images/Common/Pfeil_Links_AAD.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="list-group">
+        <a id="Header_Species" href="#Header_Species" onclick="$('#Content_Species').toggle();" class="list-group-item list-group-item-action">
+            <div class="media col-xs-2">
+                <img class="media-object aadi-img-responsive" src="~/Images/Common/Ausrufezeichen.svg">
+            </div>
+            <div class="col-xs-9">
+                <div class="text-common">
+                    Tierarten
+                </div>
+            </div>
+            <div class="media col-xs-1">
+                <img id="Checkbox_Species" class="media-object aadi-img-responsive pull-right" src="~/Images/Common/Kästchen.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
+        <div style="padding-left: 15px; padding-right: 15px">
+            <div id="Content_Species" class="col-xs-9 col-xs-offset-2 observation-content">
+                <div class="form-group">
+                    @Html.Label("Tierarten")
+                    @Html.DropDownList()(m => m, new { @class = "form-control", data_provide = "typeahead", placeholder = "Tierart" })
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="list-group">
+        <a id="Header_Map" href="#Header_Map" onclick="$('#Content_Map').toggle();" class="list-group-item list-group-item-action">
+            <div class="media col-xs-2">
+                <img class="media-object aadi-img-responsive" src="~/Images/Common/Position.svg">
+            </div>
+            <div class="col-xs-9">
+                <div class="text-common">
+                    Ort der Sichtung(en)
+                </div>
+            </div>
+            <div class="media col-xs-1">
+                <img id="Checkbox_Map" class="media-object aadi-img-responsive pull-right" src="~/Images/Common/Kästchen.svg">
+            </div>
+            <div class="clearfix"></div>
+        </a>
+        <div style="padding-left: 15px; padding-right: 15px">
+            <div id="Content_Map" class="col-xs-9 col-xs-offset-2 observation-content">
+                <div id="Leaflet_Map">
+                    @Html.HiddenFor(m => m)
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

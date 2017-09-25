@@ -1,6 +1,8 @@
-﻿using IngolStadtNatur.Entities.NH.Objects;
+﻿using IngolStadtNatur.Entities.NH.Media;
+using IngolStadtNatur.Entities.NH.Objects;
 using IngolStadtNatur.Entities.NH.Observations;
 using IngolStadtNatur.Services.NH.Authentication;
+using IngolStadtNatur.Services.NH.Media;
 using IngolStadtNatur.Services.NH.Objects;
 using IngolStadtNatur.Services.NH.Observations;
 using IngolStadtNatur.Utilities.Extensions;
@@ -17,45 +19,16 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 {
     public class ObservationController : Controller
     {
-        public ActionResult Index()
-        {
-            var nodeManager = new NodeManager();
-            return View("CategoryGroupList", CategoryListGroupModel.Convert(nodeManager.GetRoot()));
-        }
-
-        [ChildActionOnly]
-        public ActionResult GetCategoryChild(long id)
-        {
-            var nodeManager = new NodeManager();
-            var node = nodeManager.Get(id);
-
-            if (node is Category)
-            {
-                return PartialView("_CategoryGroupListItem", CategoryListGroupItemModel.Convert((Category)node));
-            }
-            else
-            {
-                return PartialView("_SpeciesGroupListItem", SpeciesListGroupItemModel.Convert((Species)node));
-            }
-        }
-
         public ActionResult Category(long id)
         {
             NodeManager nodeManager = new NodeManager();
-            return View("CategoryGroupList", CategoryListGroupModel.Convert(nodeManager.Get(id) as Category));
-        }
-
-
-
-        public ActionResult Thanks()
-        {
-            return View();
+            return View("CategoryGroupList", CategoryListGroupModel.Convert(nodeManager.FindById(id) as Category));
         }
 
         public ActionResult CreateCategoryObservation(long id)
         {
             NodeManager nodeManager = new NodeManager();
-            return View("CreateCategoryObservation", CreateCategoryObservationModel.Convert(nodeManager.Get(id) as Category));
+            return View("CreateCategoryObservation", CreateCategoryObservationModel.Convert(nodeManager.FindById(id) as Category));
         }
 
         [HttpPost]
@@ -74,7 +47,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     Coordinates = model.Coordinates,
                     CreationDate = DateTime.Now,
                     MeasurementDate = model.Date,
-                    Node = nodeManager.Get(model.Category.Id),
+                    Node = nodeManager.FindById(model.Category.Id),
                     Species = model.Species,
                     User = userManager.FindById(System.Web.HttpContext.Current.User.Identity.GetUserId().ToLong())
                 };
@@ -99,7 +72,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 return RedirectToAction("Thanks", "Observation");
             }
 
-            model.Category = CategoryModel.Convert(nodeManager.Get(model.Category.Id) as Category);
+            model.Category = CategoryModel.Convert(nodeManager.FindById(model.Category.Id) as Category);
             return View("CreateCategoryObservation", model);
         }
 
@@ -123,7 +96,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     Coordinates = model.Coordinates,
                     CreationDate = DateTime.Now,
                     MeasurementDate = model.Date,
-                    Node = nodeManager.GetRoot(),
+                    Node = nodeManager.FindRoot(),
                     Species = model.Species,
                     User = userManager.FindById(System.Web.HttpContext.Current.User.Identity.GetUserId().ToLong())
                 };
@@ -150,11 +123,10 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             return View("CreateQuickObservation", model);
         }
 
-
         public ActionResult CreateSpeciesObservation(long id)
         {
             NodeManager nodeManager = new NodeManager();
-            return View("CreateSpeciesObservation", CreateSpeciesObservationModel.Convert(nodeManager.Get(id) as Species));
+            return View("CreateSpeciesObservation", CreateSpeciesObservationModel.Convert(nodeManager.FindById(id) as Species));
         }
 
         [HttpPost]
@@ -173,7 +145,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     Coordinates = model.Coordinates,
                     CreationDate = DateTime.Now,
                     MeasurementDate = model.Date,
-                    Node = nodeManager.Get(model.Species.Id),
+                    Node = nodeManager.FindById(model.Species.Id),
                     Species = model.Species.ScientificName,
                     User = userManager.FindById(System.Web.HttpContext.Current.User.Identity.GetUserId().ToLong())
                 };
@@ -198,8 +170,24 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 return RedirectToAction("Thanks", "Observation");
             }
 
-            model.Species = SpeciesModel.Convert(nodeManager.Get(model.Species.Id) as Species);
+            model.Species = SpeciesModel.Convert(nodeManager.FindById(model.Species.Id) as Species);
             return View("CreateSpeciesObservation", model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult GetCategoryChild(long id)
+        {
+            var nodeManager = new NodeManager();
+            var node = nodeManager.FindById(id);
+
+            if (node is Category)
+            {
+                return PartialView("_CategoryGroupListItem", CategoryListGroupItemModel.Convert((Category)node));
+            }
+            else
+            {
+                return PartialView("_SpeciesGroupListItem", SpeciesListGroupItemModel.Convert((Species)node));
+            }
         }
 
         public JsonResult GetSpeciesNames(string query)
@@ -209,6 +197,17 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             List<string> commonNames = nodeManager.SpeciesRepository.Query(m => m.CommonName.ToLower().Contains(query.ToLower())).Select(m => m.CommonName).ToList();
             List<string> scientificNames = nodeManager.SpeciesRepository.Query(m => m.ScientificName.ToLower().Contains(query.ToLower())).Select(m => m.ScientificName).ToList();
             return this.Json(commonNames.Union(scientificNames), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Index()
+        {
+            var nodeManager = new NodeManager();
+            return View("CategoryGroupList", CategoryListGroupModel.Convert(nodeManager.FindRoot()));
+        }
+
+        public ActionResult Thanks()
+        {
+            return View();
         }
     }
 }

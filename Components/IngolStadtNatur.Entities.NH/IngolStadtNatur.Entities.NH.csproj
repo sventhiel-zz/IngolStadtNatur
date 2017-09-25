@@ -88,10 +88,12 @@
     <Compile Include="Authentication\Login.cs" />
     <Compile Include="Authentication\User.cs" />
     <Compile Include="Common\BaseEntity.cs" />
+    <Compile Include="Media\Recording.cs" />
+    <Compile Include="Media\Sound.cs" />
     <Compile Include="Objects\Category.cs" />
-    <Compile Include="Objects\Image.cs" />
+    <Compile Include="Media\Image.cs" />
+    <Compile Include="Media\Shot.cs" />
     <Compile Include="Objects\Node.cs" />
-    <Compile Include="Objects\Shot.cs" />
     <Compile Include="Objects\Species.cs" />
     <Compile Include="Observations\Observation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

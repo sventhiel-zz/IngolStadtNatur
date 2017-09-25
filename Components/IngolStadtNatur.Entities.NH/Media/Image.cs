@@ -1,8 +1,9 @@
 ﻿using FluentNHibernate.Mapping;
 using IngolStadtNatur.Entities.NH.Common;
+using IngolStadtNatur.Entities.NH.Objects;
 using System.Collections.Generic;
 
-namespace IngolStadtNatur.Entities.NH.Objects
+namespace IngolStadtNatur.Entities.NH.Media
 {
     public class Image : BaseEntity
     {
@@ -10,7 +11,7 @@ namespace IngolStadtNatur.Entities.NH.Objects
         public virtual string Description { get; set; }
         public virtual string License { get; set; }
         public virtual string Name { get; set; }
-        public virtual ICollection<Species> Species { get; set; }
+        public virtual ICollection<Node> Nodes { get; set; }
         public virtual string Path { get; set; }
         public virtual string Source { get; set; }
     }
@@ -28,8 +29,8 @@ namespace IngolStadtNatur.Entities.NH.Objects
             Map(m => m.Description);
             Map(m => m.License);
             Map(m => m.Name);
-            HasManyToMany(m => m.Species)
-                .Table("Images_Species")
+            HasManyToMany(m => m.Nodes)
+                .Table("Nodes_Images")
                 .Cascade.All()
                 .Inverse();
             Map(m => m.Path);

@@ -1,4 +1,5 @@
-﻿using IngolStadtNatur.Entities.NH.Objects;
+﻿using IngolStadtNatur.Entities.NH.Media;
+using IngolStadtNatur.Entities.NH.Objects;
 
 namespace IngolStadtNatur.Web.Shell.Models
 {

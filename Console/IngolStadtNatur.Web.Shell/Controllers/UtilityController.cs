@@ -1,4 +1,6 @@
-﻿using IngolStadtNatur.Entities.NH.Objects;
+﻿using IngolStadtNatur.Entities.NH.Media;
+using IngolStadtNatur.Entities.NH.Objects;
+using IngolStadtNatur.Services.NH.Media;
 using IngolStadtNatur.Services.NH.Objects;
 using System.Linq;
 using System.Text;
@@ -54,7 +56,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     Description = line[2],
                     IsPreviewed = true,
                     IsValid = true,
-                    Parent = (Category)nodeManager.Get(line[7]),
+                    Parent = (Category)nodeManager.FindByName(line[7]),
                     Preview = line[3],
                     Reference = line[4],
                     ScientificName = line[1],
@@ -77,7 +79,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     Images = imageManager.Get(line[5].Split(',')),
                     IsPreviewed = true,
                     IsValid = true,
-                    Parent = (Category)nodeManager.Get(line[4]),
+                    Parent = (Category)nodeManager.FindByName(line[4]),
                     Reference = line[3],
                     ScientificName = line[1]
                 };
