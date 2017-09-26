@@ -28,13 +28,13 @@ namespace IngolStadtNatur.Web.Shell
 
             bundles.Add(new ScriptBundle("~/bundles/leaflet").Include(
                 "~/Scripts/leaflet.js",
-                "~/Scripts/leaflet.manager.js",
+                "~/Scripts/leaflet.interactive.js",
+                "~/Scripts/leaflet.observational.js",
                 "~/Scripts/leaflet.geojsoncss.min.js",
                 "~/Scripts/habitats.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/moment").Include(
                 "~/Scripts/moment-with-locales.min.js"));
-
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.min.css",

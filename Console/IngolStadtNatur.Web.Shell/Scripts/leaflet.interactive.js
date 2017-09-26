@@ -1,13 +1,13 @@
-﻿ var coordinates, gps, map, marker;
+﻿var coordinates, gps, map, marker;
 
- function addMarker(latlng) {
-     $("#Coordinates").val(latlng.lat + "," + latlng.lng);
-     $("#Checkbox_Map").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
-     marker = new L.Marker(latlng, { draggable: true });
-     marker.addTo(map);
- }
+function addInteractiveMarker(latlng) {
+    $("#Coordinates").val(latlng.lat + "," + latlng.lng);
+    $("#Checkbox_Map").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
+    marker = new L.Marker(latlng, { draggable: true });
+    marker.addTo(map);
+}
 
- function createMap(div, latlng) {
+function createInteractiveMap(div, latlng) {
     if (typeof latlng === "undefined" || latlng === null) {
         coordinates = [48.764789, 11.424408];
         gps = true;
@@ -54,26 +54,26 @@
 
     L.control.layers(baseMaps).addTo(map);
     L.geoJson.css(habitats).addTo(map);
- }
+}
 
- function editMarker(latlng) {
+function editInteractiveMarker(latlng) {
     $("#Coordinates").val(latlng.lat + "," + latlng.lng);
     marker.setLatLng(latlng);
 }
 
- function existsMarker() {
-     if (typeof marker === "undefined" || marker === null) {
-         return false;
-     } else {
-         return true;
-     }
- }
+function existsInteractiveMarker() {
+    if (typeof marker === "undefined" || marker === null) {
+        return false;
+    } else {
+        return true;
+    }
+}
 
 function onClick(e) {
-    if (existsMarker()) {
-        editMarker(e.latlng);
+    if (existsInteractiveMarker()) {
+        editInteractiveMarker(e.latlng);
     } else {
-        addMarker(e.latlng);
+        addInteractiveMarker(e.latlng);
     }
 }
 
@@ -84,6 +84,5 @@ function onLocationError(e) {
 function onLocationFound(e) {
     if (!map.getBounds().contains(e.latlng)) {
         map.setView(coordinates, 14);
-
     }
 }
