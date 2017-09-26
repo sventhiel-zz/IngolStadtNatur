@@ -18,13 +18,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("IngolstadtNatur", "IngolstadtNatur", "Home", null, new { style = "text-decoration:none;color:white" })
+                @Html.ActionLink("IngolstadtNatur", "IngolstadtNatur", "Home", null, new { style = "color:white" })
             </div>
 
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Gallerie", "Gallery", "Home", null, new { style = "text-decoration:none;color:white" })</li>
-                    <li>@Html.ActionLink("Karte", "Map", "Home", null, new { style = "text-decoration:none;color:white" })</li>
+                    <li>@Html.ActionLink("Gallerie", "Index", "Gallery", null, new { style = "color:white" })</li>
+                    <li>@Html.ActionLink("Karte", "Index", "Map", null, new { style = "color:white" })</li>
                 </ul>
 
                 @if (Request.IsAuthenticated)

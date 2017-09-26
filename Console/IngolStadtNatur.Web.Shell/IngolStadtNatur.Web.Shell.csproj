@@ -845,7 +845,7 @@
     <Content Include="Views\Home\How.cshtml" />
     <Content Include="Views\Home\Impressum.cshtml" />
     <Content Include="Views\Home\IngolstadtNatur.cshtml" />
-    <Content Include="Views\Home\Why.cshtml" />
+    <Content Include="Views\Home\What.cshtml" />
     <Content Include="Views\Observation\CategoryGroupList.cshtml" />
     <Content Include="Views\Observation\CreateCategoryObservation.cshtml" />
     <Content Include="Views\Observation\CreateQuickObservation.cshtml" />

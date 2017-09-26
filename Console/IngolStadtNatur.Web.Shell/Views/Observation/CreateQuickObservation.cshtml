@@ -43,6 +43,9 @@
 
     <div class="row">
         <div class="list-group">
+            @(Html.EditorFor(m => m.Species, "Species"))
+        </div>
+        <div class="list-group">
             @(Html.EditorFor(m => m.Coordinates, "Map"))
         </div>
         <div class="list-group">
@@ -52,16 +55,13 @@
             @(Html.EditorFor(m => m.Shot, "Shot"))
         </div>
         <div class="list-group">
-            @(Html.EditorFor(m => m.Species, "Species"))
-        </div>
-        <div class="list-group">
             @(Html.EditorFor(m => m.Comment, "Comment"))
         </div>
         <div class="list-group">
             @(Html.EditorFor(m => m.TermsAndConditions, "TermsAndConditions"))
         </div>
         <div class="list-group">
-            <a href="#" onclick="$('form#Form_QuickObservation').submit(); return false;" class="list-group-item list-group-item-action aadi-lgi-common">
+            <a href="#" onclick="$('form#Form_QuickObservation').submit();return false;" class="list-group-item list-group-item-action aadi-lgi-common">
                 <div class="media col-xs-2">
                     <img class="media-object aadi-img-responsive" src="~/Images/Common/Ausrufezeichen_AAD.svg">
                 </div>
