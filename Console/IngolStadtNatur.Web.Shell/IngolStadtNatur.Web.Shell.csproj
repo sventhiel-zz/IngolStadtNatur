@@ -222,9 +222,6 @@
     <Content Include="Content\images\controls.png" />
     <Content Include="Content\lightslider.css" />
     <Content Include="Content\lightslider.min.css" />
-    <Content Include="Documents\Categories.txt" />
-    <Content Include="Documents\Images.txt" />
-    <Content Include="Documents\Species.txt" />
     <Content Include="Images\Categories\Ameisen.svg" />
     <Content Include="Images\Categories\Ameisen_AAD.svg" />
     <Content Include="Images\Categories\Ammern.svg" />
@@ -764,10 +761,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Application.config" />
     <Content Include="Connections.config" />
-    <Content Include="Documents\How.pdf" />
-    <Content Include="Documents\Why.pdf" />
-    <Content Include="Documents\Datenschutzerklärung.pdf" />
-    <Content Include="Documents\Impressum.pdf" />
     <None Include="Properties\PublishProfiles\ISN.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap3-typeahead.js" />

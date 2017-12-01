@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{08B51B40-DF45-43D1-9689-88738A1423EC}"
 EndProject
@@ -24,6 +24,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Web.Shell", "Console\IngolStadtNatur.Web.Shell\IngolStadtNatur.Web.Shell.csproj", "{7E3F3FAA-FF6D-4C9A-A29D-792DE5456AC2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{B8A73C94-AAE5-4C0C-A8B4-483356E90ABC}"
+	ProjectSection(SolutionItems) = preProject
+		..\Categories.txt = ..\Categories.txt
+		..\Datenschutzerklärung.pdf = ..\Datenschutzerklärung.pdf
+		..\How.pdf = ..\How.pdf
+		..\Images.txt = ..\Images.txt
+		..\Impressum.pdf = ..\Impressum.pdf
+		..\Species.txt = ..\Species.txt
+		..\Why.pdf = ..\Why.pdf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,5 +80,8 @@ Global
 		{C42DC5C6-8D75-4F0C-95B8-E24DD1CA6DCE} = {08B51B40-DF45-43D1-9689-88738A1423EC}
 		{875F5B44-CE48-406B-9B05-0486345B74D5} = {A8790197-37E8-43FF-B6EE-03FA22401347}
 		{7E3F3FAA-FF6D-4C9A-A29D-792DE5456AC2} = {192C8ABF-A67F-46F0-A2E5-02139D541AF0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2194CE30-A2B3-4245-B3A2-3269446C3820}
 	EndGlobalSection
 EndGlobal
