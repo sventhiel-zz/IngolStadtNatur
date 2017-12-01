@@ -14,7 +14,7 @@ namespace IngolStadtNatur.Services.NH.Utilities
         {
             var smtp = new SmtpClient
             {
-                Host = "smtp.sparkpostmail.com",
+                Host = "smtp.uni-jena.de",
                 Port = 587,
                 EnableSsl = true,
                 Credentials =
@@ -25,7 +25,7 @@ namespace IngolStadtNatur.Services.NH.Utilities
             // You will need an API Key with 'Send via SMTP' permissions.
             // Create one here: https://app.sparkpost.com/account/credentials
 
-            var from = new MailAddress("testing@sparkpostbox.com");
+            var from = new MailAddress("ingolstadtnatur@uni-jena.de");
 
             var to = new MailAddress(message.Destination);
             var mail = new MailMessage(from, to)
@@ -34,6 +34,7 @@ namespace IngolStadtNatur.Services.NH.Utilities
                 Body = message.Body
             };
 
+            mail.IsBodyHtml = true;
 
             try
             {
