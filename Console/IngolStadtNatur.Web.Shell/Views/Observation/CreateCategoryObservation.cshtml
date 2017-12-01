@@ -141,10 +141,10 @@
 
                 if ($('#Coordinates').val().length > 0) {
                     var latlng = L.latLng($("#Coordinates").val().split(",").map(parseFloat));
-                    createMap('Leaflet_Map', latlng);
-                    addMarker(latlng);
+                    createInteractiveMap('Leaflet_Map', latlng);
+                    addInteractiveMarker(latlng);
                 } else {
-                    createMap('Leaflet_Map');
+                    createInteractiveMap('Leaflet_Map');
                 }
 
                 if ($("#Shot").val().length > 0) {

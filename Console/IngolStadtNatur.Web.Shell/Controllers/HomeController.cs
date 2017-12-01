@@ -4,7 +4,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult How()
         {
             return View();
         }
@@ -14,7 +14,17 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             return View();
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult IngolStadtNatur()
+        {
+            return View();
+        }
+
+        public ActionResult What()
         {
             return View();
         }

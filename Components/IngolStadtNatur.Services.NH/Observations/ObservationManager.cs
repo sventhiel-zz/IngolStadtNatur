@@ -7,13 +7,12 @@ namespace IngolStadtNatur.Services.NH.Observations
 {
     public class ObservationManager : IObservationManager
     {
-        public Repository<Observation> ObservationRepository { get; set; }
-
         public ObservationManager()
         {
             ObservationRepository = new Repository<Observation>();
         }
 
+        public Repository<Observation> ObservationRepository { get; set; }
         public IQueryable<Observation> Observations => ObservationRepository.Query();
 
         public void Create(Observation observation)
@@ -26,7 +25,7 @@ namespace IngolStadtNatur.Services.NH.Observations
             ObservationRepository.Remove(observation);
         }
 
-        public Observation Get(long id)
+        public Observation FindById(long id)
         {
             return ObservationRepository.Get(id);
         }

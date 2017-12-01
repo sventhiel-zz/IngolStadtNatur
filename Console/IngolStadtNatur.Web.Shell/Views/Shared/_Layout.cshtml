@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="container">
+<div class="container">
         @RenderBody()
     </div>
 
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-xs-12 pull-right">
                     <div class="pull-right">
-                        @Html.ActionLink("Impressum", "Impressum", "Home", null, new { style="text-decoration:none;color:white" })
+                        @Html.ActionLink("Impressum", "Impressum", "Home", null, new { style = "text-decoration:none;color:white" })
                     </div>
                 </div>
             </div>
@@ -42,6 +42,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/leaflet")
 
-    @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", false)
 </body>
 </html>

@@ -1,22 +1,20 @@
-﻿using IngolStadtNatur.Entities.NH.Objects;
+﻿using IngolStadtNatur.Entities.NH.Media;
 using IngolStadtNatur.Persistence.NH;
 using IngolStadtNatur.Services.Api.Objects;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace IngolStadtNatur.Services.NH.Objects
+namespace IngolStadtNatur.Services.NH.Media
 {
     public class ImageManager : IImageManager
     {
-        public Repository<Image> ImageRepository { get; set; }
-
         public ImageManager()
         {
             ImageRepository = new Repository<Image>();
         }
 
+        public Repository<Image> ImageRepository { get; set; }
         public IQueryable<Image> Images => ImageRepository.Query();
-
 
         public void Create(Image image)
         {
@@ -28,26 +26,19 @@ namespace IngolStadtNatur.Services.NH.Objects
             ImageRepository.Remove(image);
         }
 
-        public Image Get(long id)
+        public Image FindById(long id)
         {
             return ImageRepository.Get(id);
         }
 
-        public Image Get(string name)
+        public Image FindByName(string name)
         {
             return Images.FirstOrDefault(m => m.Name.ToUpper() == name.ToUpper());
         }
 
         public List<Image> Get(string[] names)
         {
-            List<Image> results = new List<Image>();
-
-            foreach (var name in names)
-            {
-                results.Add(Get(name));
-            }
-
-            return results;
+            return names.Select(FindByName).ToList();
         }
 
         public void Update(Image image)

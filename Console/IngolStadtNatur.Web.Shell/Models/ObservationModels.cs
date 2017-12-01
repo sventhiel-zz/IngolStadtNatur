@@ -21,9 +21,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string Coordinates { get; set; }
 
         [Display(Name = "Datum")]
-        [RequiredIfEmpty("Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [HiddenInput]
         public DateTime Date { get; set; }
 
         [Display(Name = "Foto")]
@@ -31,7 +29,6 @@ namespace IngolStadtNatur.Web.Shell.Models
 
         [Display(Name = "Tiername")]
         public string Species { get; set; }
-
 
         [Display(Name = @"Ich stimme den <a href=""/Documents/Impressum.pdf"" target=""_blank"">Nutzungsbedingungen</a> zu.")]
         [RequiredToBeTrue]
@@ -41,7 +38,8 @@ namespace IngolStadtNatur.Web.Shell.Models
         {
             return new CreateCategoryObservationModel()
             {
-                Category = CategoryModel.Convert(category)
+                Category = CategoryModel.Convert(category),
+                Date = DateTime.Now
             };
         }
     }
@@ -90,9 +88,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string Comment { get; set; }
 
         [Display(Name = "Datum")]
-        [RequiredIfEmpty("Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [HiddenInput]
         public DateTime Date { get; set; }
 
         [Display(Name = "Foto")]
@@ -109,6 +105,7 @@ namespace IngolStadtNatur.Web.Shell.Models
         {
             return new CreateSpeciesObservationModel()
             {
+                Date = DateTime.Now,
                 Species = SpeciesModel.Convert(species)
             };
         }

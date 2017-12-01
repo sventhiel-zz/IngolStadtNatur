@@ -9,11 +9,6 @@ namespace IngolStadtNatur.Entities.NH.Objects
         public virtual string Preview { get; set; }
         public virtual string UncertaintyHeader { get; set; }
         public virtual string UncertaintyText { get; set; }
-
-        public Category()
-        {
-            Children = new List<Node>();
-        }
     }
 
     public class CategoryMap : SubclassMap<Category>

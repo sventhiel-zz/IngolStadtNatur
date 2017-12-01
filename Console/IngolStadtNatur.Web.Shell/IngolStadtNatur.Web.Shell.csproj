@@ -195,8 +195,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\ObservationController.cs" />
     <Compile Include="Controllers\UtilityController.cs" />
     <Compile Include="Global.asax.cs">
@@ -204,13 +206,19 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CategoryModels.cs" />
+    <Compile Include="Models\GalleryModels.cs" />
     <Compile Include="Models\ImageModels.cs" />
+    <Compile Include="Models\MapModels.cs" />
     <Compile Include="Models\ObservationModels.cs" />
     <Compile Include="Models\SpeciesModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\chosen.css" />
+    <Content Include="Content\chosen.min.css" />
+    <Content Include="Content\images\chosen-sprite%402x.png" />
+    <Content Include="Content\images\chosen-sprite.png" />
     <Content Include="Content\images\controls.png" />
     <Content Include="Content\lightslider.css" />
     <Content Include="Content\lightslider.min.css" />
@@ -706,7 +714,11 @@
     <Content Include="Images\Species\Zwergsumpfhuhn.jpg" />
     <Content Include="Images\Species\Zwergtaucher-Prachtkleid.jpg" />
     <Content Include="Images\Species\Zwergtaucher-Schlichtkleid.jpg" />
-    <Content Include="Scripts\habitats-colorful.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\chosen.proto.js" />
+    <Content Include="Scripts\chosen.proto.min.js" />
+    <Content Include="Scripts\leaflet.observational.js" />
     <Content Include="Scripts\lightslider.js" />
     <Content Include="Scripts\lightslider.min.js" />
     <Content Include="Scripts\mvcfoolproof.unobtrusive.js" />
@@ -787,7 +799,7 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
-    <Content Include="Scripts\leaflet.manager.js" />
+    <Content Include="Scripts\leaflet.interactive.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -834,7 +846,7 @@
     <Content Include="Views\Home\How.cshtml" />
     <Content Include="Views\Home\Impressum.cshtml" />
     <Content Include="Views\Home\IngolstadtNatur.cshtml" />
-    <Content Include="Views\Home\Why.cshtml" />
+    <Content Include="Views\Home\What.cshtml" />
     <Content Include="Views\Observation\CategoryGroupList.cshtml" />
     <Content Include="Views\Observation\CreateCategoryObservation.cshtml" />
     <Content Include="Views\Observation\CreateQuickObservation.cshtml" />
@@ -842,9 +854,11 @@
     <Content Include="Views\Observation\Thanks.cshtml" />
     <Content Include="Views\Observation\_CategoryGroupListItem.cshtml" />
     <Content Include="Views\Observation\_SpeciesGroupListItem.cshtml" />
+    <Content Include="Views\Map\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Gallery\" />
     <Folder Include="Views\Help\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>

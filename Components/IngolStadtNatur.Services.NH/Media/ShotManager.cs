@@ -1,19 +1,18 @@
-﻿using IngolStadtNatur.Entities.NH.Objects;
+﻿using IngolStadtNatur.Entities.NH.Media;
 using IngolStadtNatur.Persistence.NH;
 using IngolStadtNatur.Services.Api.Objects;
 using System.Linq;
 
-namespace IngolStadtNatur.Services.NH.Objects
+namespace IngolStadtNatur.Services.NH.Media
 {
     public class ShotManager : IShotManager
     {
-        public Repository<Shot> ShotRepository { get; set; }
-
         public ShotManager()
         {
             ShotRepository = new Repository<Shot>();
         }
 
+        public Repository<Shot> ShotRepository { get; set; }
         public IQueryable<Shot> Shots => ShotRepository.Query();
 
         public void Create(Shot shot)
@@ -26,7 +25,7 @@ namespace IngolStadtNatur.Services.NH.Objects
             ShotRepository.Remove(shot);
         }
 
-        public Shot GetShot(long id)
+        public Shot FindById(long id)
         {
             return ShotRepository.Get(id);
         }
