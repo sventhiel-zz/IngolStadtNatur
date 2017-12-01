@@ -24,6 +24,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Web.Shell", "Console\IngolStadtNatur.Web.Shell\IngolStadtNatur.Web.Shell.csproj", "{7E3F3FAA-FF6D-4C9A-A29D-792DE5456AC2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{B8A73C94-AAE5-4C0C-A8B4-483356E90ABC}"
+	ProjectSection(SolutionItems) = preProject
+		Console\IngolStadtNatur.Web.Shell\Documents\Categories.txt = Console\IngolStadtNatur.Web.Shell\Documents\Categories.txt
+		Console\IngolStadtNatur.Web.Shell\Documents\Datenschutzerklärung.pdf = Console\IngolStadtNatur.Web.Shell\Documents\Datenschutzerklärung.pdf
+		Console\IngolStadtNatur.Web.Shell\Documents\How.pdf = Console\IngolStadtNatur.Web.Shell\Documents\How.pdf
+		Console\IngolStadtNatur.Web.Shell\Documents\Images.txt = Console\IngolStadtNatur.Web.Shell\Documents\Images.txt
+		Console\IngolStadtNatur.Web.Shell\Documents\Impressum.pdf = Console\IngolStadtNatur.Web.Shell\Documents\Impressum.pdf
+		Console\IngolStadtNatur.Web.Shell\Documents\Species.txt = Console\IngolStadtNatur.Web.Shell\Documents\Species.txt
+		Console\IngolStadtNatur.Web.Shell\Documents\Why.pdf = Console\IngolStadtNatur.Web.Shell\Documents\Why.pdf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
