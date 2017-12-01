@@ -23,17 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Utilities",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngolStadtNatur.Web.Shell", "Console\IngolStadtNatur.Web.Shell\IngolStadtNatur.Web.Shell.csproj", "{7E3F3FAA-FF6D-4C9A-A29D-792DE5456AC2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{B8A73C94-AAE5-4C0C-A8B4-483356E90ABC}"
-	ProjectSection(SolutionItems) = preProject
-		..\Categories.txt = ..\Categories.txt
-		..\Datenschutzerklärung.pdf = ..\Datenschutzerklärung.pdf
-		..\How.pdf = ..\How.pdf
-		..\Images.txt = ..\Images.txt
-		..\Impressum.pdf = ..\Impressum.pdf
-		..\Species.txt = ..\Species.txt
-		..\Why.pdf = ..\Why.pdf
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
