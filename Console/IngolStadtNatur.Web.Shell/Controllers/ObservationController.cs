@@ -12,6 +12,8 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
+using IngolStadtNatur.Entities.NH.Media;
+using IngolStadtNatur.Services.NH.Media;
 
 namespace IngolStadtNatur.Web.Shell.Controllers
 {

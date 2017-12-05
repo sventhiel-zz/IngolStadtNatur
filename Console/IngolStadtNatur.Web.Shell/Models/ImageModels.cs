@@ -1,4 +1,6 @@
-﻿namespace IngolStadtNatur.Web.Shell.Models
+﻿using IngolStadtNatur.Entities.NH.Media;
+
+namespace IngolStadtNatur.Web.Shell.Models
 {
     public class ImageListGroupItemModel
     {

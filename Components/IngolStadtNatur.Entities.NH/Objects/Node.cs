@@ -2,6 +2,7 @@
 using IngolStadtNatur.Entities.NH.Common;
 using IngolStadtNatur.Entities.NH.Observations;
 using System.Collections.Generic;
+using IngolStadtNatur.Entities.NH.Media;
 
 namespace IngolStadtNatur.Entities.NH.Objects
 {
