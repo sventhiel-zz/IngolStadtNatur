@@ -46,6 +46,11 @@ namespace IngolStadtNatur.Web.Shell.Models
 
     public class CreateQuickObservationModel
     {
+        public CreateQuickObservationModel()
+        {
+            Date = DateTime.Now;
+        }
+
         [Display(Name = "Kommentar")]
         [MaxLength(500)]
         public string Comment { get; set; }
@@ -70,22 +75,17 @@ namespace IngolStadtNatur.Web.Shell.Models
         [Display(Name = @"Ich stimme den <a href=""/Documents/Impressum.pdf"" target=""_blank"">Nutzungsbedingungen</a> zu.")]
         [RequiredToBeTrue]
         public bool TermsAndConditions { get; set; }
-
-        public CreateQuickObservationModel()
-        {
-            Date = DateTime.Now;
-        }
     }
 
     public class CreateSpeciesObservationModel
     {
-        [Display(Name = "Koordinaten")]
-        [RequiredIfEmpty("Coordinates")]
-        public string Coordinates { get; set; }
-
         [Display(Name = "Kommentar")]
         [MaxLength(500)]
         public string Comment { get; set; }
+
+        [Display(Name = "Koordinaten")]
+        [RequiredIfEmpty("Coordinates")]
+        public string Coordinates { get; set; }
 
         [Display(Name = "Datum")]
         [HiddenInput]

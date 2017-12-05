@@ -13,9 +13,8 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 {
     public class AccountController : Controller
     {
-        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
-
         private const string XsrfKey = "XsrfId";
+        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 
         public async Task<ActionResult> ConfirmEmail(long userId, string code)
         {
@@ -51,10 +50,13 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
+
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
+
                 case SignInStatus.Failure:
                 default:
                     // If the user does not have an account, then prompt the user to create an account
@@ -68,7 +70,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalSignInConfirmation(ExternalSignInConfirmationModel model, string returnUrl)
         {
-            // TODO: Refactor 
+            // TODO: Refactor
             //if (User.Identity.IsAuthenticated)
             //{
             //    return RedirectToAction("Index", "Manage");
@@ -138,18 +140,6 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         {
             ViewBag.Link = TempData["ViewBagLink"];
             return View();
-        }
-
-        private ActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
         }
 
         public ActionResult ResetPassword(string code)
@@ -224,16 +214,6 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             });
         }
 
-        private async Task<string> SendEmailConfirmationTokenAsync(long userId, string subject)
-        {
-            var userManager = new UserManager(new UserStore());
-            var code = await userManager.GenerateEmailConfirmationTokenAsync(userId);
-            var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = userId, code = code }, protocol: Request.Url.Scheme);
-            await userManager.SendEmailAsync(userId, subject, "Bitte bestätigen Sie ihren Account indem Sie <a href=\"" + callbackUrl + "\">hier</a> klicken.");
-
-            return callbackUrl;
-        }
-
         public ActionResult SignIn(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -259,7 +239,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 {
                     var callbackUrl = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account-Resend");
 
-                    // Uncomment to debug locally  
+                    // Uncomment to debug locally
                     ViewBag.Link = callbackUrl;
                     ViewBag.errorMessage = "You must have a confirmed email to log on. "
                                          + "The confirmation token has been resent to your email account.";
@@ -275,10 +255,13 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
+
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = false });
+
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
@@ -293,7 +276,6 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }
-
 
         public ActionResult SignUp()
         {
@@ -326,7 +308,6 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 //  await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                 var callbackUrl = await SendEmailConfirmationTokenAsync(user.Id, "Bestätige deinen Account");
-
 
                 ViewBag.Message = "Bitte überprüfe deine E-Mails und bestätige deinen Account. Erst dann kannst du dich anmelden.";
 
@@ -370,9 +351,9 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                 return View(model);
             }
 
-            // The following code protects for brute force attacks against the two factor codes. 
-            // If a user enters incorrect codes for a specified amount of time then the user account 
-            // will be locked out for a specified amount of time. 
+            // The following code protects for brute force attacks against the two factor codes.
+            // If a user enters incorrect codes for a specified amount of time then the user account
+            // will be locked out for a specified amount of time.
             // You can configure the account lockout settings in IdentityConfig
             var signInManager = new SignInManager(new UserManager(new UserStore()), AuthenticationManager);
             var result = await signInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
@@ -380,13 +361,37 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(model.ReturnUrl);
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
+
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid code.");
                     return View(model);
             }
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        private async Task<string> SendEmailConfirmationTokenAsync(long userId, string subject)
+        {
+            var userManager = new UserManager(new UserStore());
+            var code = await userManager.GenerateEmailConfirmationTokenAsync(userId);
+            var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = userId, code = code }, protocol: Request.Url.Scheme);
+            await userManager.SendEmailAsync(userId, subject, "Bitte bestätigen Sie ihren Account indem Sie <a href=\"" + callbackUrl + "\">hier</a> klicken.");
+
+            return callbackUrl;
         }
 
         #region Helpers

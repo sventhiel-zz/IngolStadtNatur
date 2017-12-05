@@ -1,8 +1,20 @@
-﻿using IngolStadtNatur.Entities.NH.Media;
-using IngolStadtNatur.Entities.NH.Objects;
-
-namespace IngolStadtNatur.Web.Shell.Models
+﻿namespace IngolStadtNatur.Web.Shell.Models
 {
+    public class ImageListGroupItemModel
+    {
+        public string Description { get; set; }
+        public string Name { get; set; }
+
+        public static ImageListGroupItemModel Convert(Image image)
+        {
+            return new ImageListGroupItemModel()
+            {
+                Description = image.Description,
+                Name = image.Name
+            };
+        }
+    }
+
     public class ImageModel
     {
         public string Author { get; set; }
@@ -22,21 +34,6 @@ namespace IngolStadtNatur.Web.Shell.Models
                 Name = image.Name,
                 Path = image.Path,
                 Source = image.Source
-            };
-        }
-    }
-
-    public class ImageListGroupItemModel
-    {
-        public string Description { get; set; }
-        public string Name { get; set; }
-
-        public static ImageListGroupItemModel Convert(Image image)
-        {
-            return new ImageListGroupItemModel()
-            {
-                Description = image.Description,
-                Name = image.Name
             };
         }
     }

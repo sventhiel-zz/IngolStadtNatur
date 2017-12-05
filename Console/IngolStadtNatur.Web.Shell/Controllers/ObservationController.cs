@@ -1,8 +1,6 @@
-﻿using IngolStadtNatur.Entities.NH.Media;
-using IngolStadtNatur.Entities.NH.Objects;
+﻿using IngolStadtNatur.Entities.NH.Objects;
 using IngolStadtNatur.Entities.NH.Observations;
 using IngolStadtNatur.Services.NH.Authentication;
-using IngolStadtNatur.Services.NH.Media;
 using IngolStadtNatur.Services.NH.Objects;
 using IngolStadtNatur.Services.NH.Observations;
 using IngolStadtNatur.Utilities.Extensions;

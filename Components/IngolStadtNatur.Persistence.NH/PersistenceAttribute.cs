@@ -7,12 +7,6 @@ namespace IngolStadtNatur.Persistence.NH
     {
         protected ISession Session => SessionFactory.GetCurrentSession();
 
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            base.OnActionExecuting(filterContext);
-            Session.BeginTransaction();
-        }
-
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             var transaction = Session.Transaction;
@@ -29,6 +23,12 @@ namespace IngolStadtNatur.Persistence.NH
             }
 
             base.OnActionExecuted(filterContext);
+        }
+
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
+            Session.BeginTransaction();
         }
     }
 }

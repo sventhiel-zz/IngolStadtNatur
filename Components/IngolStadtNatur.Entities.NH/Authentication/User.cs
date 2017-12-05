@@ -9,6 +9,11 @@ namespace IngolStadtNatur.Entities.NH.Authentication
 {
     public class User : BaseEntity, IUser<long>
     {
+        public User()
+        {
+            Observations = new List<Observation>();
+        }
+
         public virtual int AccessFailedCount { get; set; }
         public virtual string City { get; set; }
         public virtual string Country { get; set; }
@@ -26,11 +31,6 @@ namespace IngolStadtNatur.Entities.NH.Authentication
         public virtual bool TwoFactorEnabled { get; set; }
         public virtual string UserName { get; set; }
         public virtual string ZipCode { get; set; }
-
-        public User()
-        {
-            Observations = new List<Observation>();
-        }
     }
 
     public class UserMap : ClassMap<User>

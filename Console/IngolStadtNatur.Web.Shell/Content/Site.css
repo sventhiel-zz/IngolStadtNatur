@@ -83,7 +83,7 @@
     align-items: flex-start;
 }
 
-.aadi-lgi-node > div:nth-child(3) {
+    .aadi-lgi-node > div:nth-child(3) {
         align-self: center;
     }
 
@@ -110,6 +110,7 @@
 h3 {
     font-size: 1em;
 }
+
 p {
     font-size: 0.7em;
 }

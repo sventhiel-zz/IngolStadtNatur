@@ -1,6 +1,4 @@
-﻿using IngolStadtNatur.Entities.NH.Objects;
-using System.Linq;
-using IngolStadtNatur.Entities.NH.Media;
+﻿using System.Linq;
 
 namespace IngolStadtNatur.Services.Api.Objects
 {
