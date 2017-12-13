@@ -217,13 +217,6 @@
     <Content Include="Content\images\chosen-sprite%402x.png" />
     <Content Include="Content\images\chosen-sprite.png" />
     <Content Include="Content\images\controls.png" />
-    <Content Include="Content\images\lightGallery\loading.gif" />
-    <Content Include="Content\images\lightGallery\video-play.png" />
-    <Content Include="Content\images\lightGallery\vimeo-play.png" />
-    <Content Include="Content\images\lightGallery\youtube-play.png" />
-    <Content Include="Content\lg-fb-comment-box.css" />
-    <Content Include="Content\lg-transitions.css" />
-    <Content Include="Content\lightgallery.css" />
     <Content Include="Content\lightslider.css" />
     <Content Include="Content\lightslider.min.css" />
     <Content Include="Documents\Categories.txt" />
@@ -723,9 +716,6 @@
     <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\chosen.proto.js" />
     <Content Include="Scripts\chosen.proto.min.js" />
-    <Content Include="Content\lg-fb-comment-box.css.map" />
-    <Content Include="Content\lg-transitions.css.map" />
-    <Content Include="Content\lightgallery.css.map" />
     <Content Include="fonts\lg.eot" />
     <Content Include="fonts\lg.ttf" />
     <Content Include="fonts\lg.woff" />
@@ -736,7 +726,6 @@
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
     <Content Include="Scripts\leaflet.observational.js" />
-    <Content Include="Scripts\lightgallery.js" />
     <Content Include="Scripts\lightslider.js" />
     <Content Include="Scripts\lightslider.min.js" />
     <Content Include="Scripts\moment-with-locales.js" />

@@ -26,9 +26,6 @@ namespace IngolStadtNatur.Web.Shell
                 "~/Scripts/bootstrap3-typeahead.min.js",
                 "~/Scripts/respond.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/lightgallery").Include(
-                "~/Scripts/lightgallery.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/leaflet").Include(
                 "~/Scripts/leaflet.js",
                 "~/Scripts/leaflet.interactive.js",
@@ -45,7 +42,6 @@ namespace IngolStadtNatur.Web.Shell
                 "~/Content/bootstrap-datetimepicker.min.css",
                 "~/Content/leaflet.css",
                 "~/Content/font-awesome.min.css",
-                "~/Content/lightgallery.css",
                 "~/Content/Site.css"));
 
             BundleTable.EnableOptimizations = true;
