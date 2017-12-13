@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Web.Hosting;
 using System.Web.Mvc;
 using IngolStadtNatur.Entities.NH.Media;
 using IngolStadtNatur.Services.NH.Media;
@@ -60,7 +61,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
                     var shot = new Shot()
                     {
-                        Name = observation.Id + Path.GetExtension(model.Shot.FileName),
+                        Name = Guid.NewGuid() + Path.GetExtension(model.Shot.FileName),
                         Observation = observation
                     };
 
@@ -109,7 +110,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
                     var shot = new Shot()
                     {
-                        Name = observation.Id + Path.GetExtension(model.Shot.FileName),
+                        Name = Guid.NewGuid() + Path.GetExtension(model.Shot.FileName),
                         Observation = observation
                     };
 
@@ -158,11 +159,11 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
                     var shot = new Shot()
                     {
-                        Name = observation.Id + Path.GetExtension(model.Shot.FileName),
+                        Name = Guid.NewGuid() + Path.GetExtension(model.Shot.FileName),
                         Observation = observation
                     };
 
-                    model.Shot.SaveAs(Path.Combine(ConfigurationManager.AppSettings["Shots"], shot.Name));
+                    model.Shot.SaveAs(Path.Combine(HostingEnvironment.MapPath(ConfigurationManager.AppSettings["Shots"]), shot.Name));
 
                     shotManager.Create(shot);
                 }
