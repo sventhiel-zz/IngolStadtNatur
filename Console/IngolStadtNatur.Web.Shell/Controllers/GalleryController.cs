@@ -18,7 +18,10 @@ namespace IngolStadtNatur.Web.Shell.Controllers
         [Authorize]
         public ActionResult Private()
         {
-            return View();
+            var shotManager = new ShotManager();
+            var shots = shotManager.Shots.Where(s => s.Observation.User.UserName.ToUpperInvariant() == HttpContext.User.Identity.Name.ToUpperInvariant());
+
+            return View(shots.AsEnumerable().Select(GalleryItemModel.Convert).ToList());
         }
 
         [AllowAnonymous]

@@ -886,6 +886,7 @@
     <Content Include="Views\Observation\_SpeciesGroupListItem.cshtml" />
     <Content Include="Views\Map\Index.cshtml" />
     <Content Include="Views\Gallery\Public.cshtml" />
+    <Content Include="Views\Gallery\Private.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
