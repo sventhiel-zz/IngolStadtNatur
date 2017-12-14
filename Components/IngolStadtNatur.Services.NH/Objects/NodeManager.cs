@@ -38,7 +38,7 @@ namespace IngolStadtNatur.Services.NH.Objects
 
         public Node FindByName(string name)
         {
-            return Nodes.FirstOrDefault(m => m.CommonName.ToUpper() == name.ToUpper());
+            return Nodes.FirstOrDefault(m => m.CommonName.ToUpperInvariant() == name.ToUpperInvariant());
         }
 
         public Category FindRoot()

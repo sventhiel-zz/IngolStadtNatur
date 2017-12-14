@@ -1,14 +1,14 @@
 ﻿@model List<IngolStadtNatur.Web.Shell.Models.GalleryItemModel>
 
 <div id="publicGallery">
-    @foreach (var shot in Model)
+    @for (int i = 0; i < 500; i++)
     {
-        <a href="@shot.Path">
+        <a href="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg" data-responsive="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90 375, /Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90 480, /Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90 757">
             <picture>
-                <source srcset=@($"/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90") media="(min-width: 1200px)">
-                <source srcset=@($"/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=128&quality=90") media="(min-width: 768px) and (max-width: 1199px)">
-                <source srcset=@($"/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=64&quality=90") media="(max-width: 767px)">
-                <img class="media-object aadi-img-responsive" srcset=@($"/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=128&quality=90") alt="">
+                <source srcset="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90" media="(min-width: 1200px)">
+                <source srcset="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=128&quality=90" media="(min-width: 768px) and (max-width: 1199px)">
+                <source srcset="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=64&quality=90" media="(max-width: 767px)">
+                <img class="media-object aadi-img-responsive" src="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=128&quality=90">
             </picture>
         </a>
     }
@@ -19,9 +19,7 @@
         $(document)
             .ready(function () {
                 $('#publicGallery').lightGallery({
-                    thumbnail: true,
-                    animateThumb: false,
-                    showThumbByDefault: false
+                    thumbnail: true
                 });
             });
     </script>
