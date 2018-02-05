@@ -25,8 +25,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Gallerie", "Index", "Gallery", null, new { style = "color:white" })</li>
-                    <li>@Html.ActionLink("Karte", "Index", "Map", null, new { style = "color:white" })</li>
+                    <li>@Html.ActionLink("Öffentliche Gallerie", "Public", "Gallery", null, new { style = "color:white" })</li>
                 </ul>
 
                 @if (Request.IsAuthenticated)
@@ -36,9 +35,8 @@
                         @Html.AntiForgeryToken()
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href='@Url.Action("Home", "Account")' role='button'><i class='fa fa-home' style='color: white'></i></a>
-                            </li>
+                            <li><a href='@Url.Action("Index", "Map")' role='button'><i class='fa fa-map' style='color: white'></i></a></li>
+                            <li><a href='@Url.Action("Private", "Gallery")' role='button'><i class='fa fa-photo' style='color: white'></i></a></li>
                             <li><a href="javascript:document.getElementById('logoutForm').submit()" role='button'><i class='fa fa-sign-out' style='color: white'></i></a></li>
                         </ul>
                     }

@@ -221,6 +221,8 @@
     <Content Include="Content\images\lightgallery\video-play.png" />
     <Content Include="Content\images\lightgallery\vimeo-play.png" />
     <Content Include="Content\images\lightgallery\youtube-play.png" />
+    <Content Include="Content\images\marker-icon-2x.png" />
+    <Content Include="Content\images\marker-icon.png" />
     <Content Include="Content\lg-fb-comment-box.css" />
     <Content Include="Content\lg-transitions.css" />
     <Content Include="Content\lightgallery.css" />
@@ -775,8 +777,6 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\layers-2x.png" />
     <Content Include="Content\images\layers.png" />
-    <Content Include="Content\images\marker-icon-2x.png" />
-    <Content Include="Content\images\marker-icon.png" />
     <Content Include="Content\images\marker-shadow.png" />
     <Content Include="Content\leaflet.css" />
     <Content Include="Content\normalize.css" />
