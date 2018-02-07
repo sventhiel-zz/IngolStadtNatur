@@ -70,7 +70,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     shotManager.Create(shot);
                 }
 
-                return RedirectToAction("Thanks", "Observation");
+                return RedirectToAction("Thanks", new List<string[]> { model.Coordinates.Split(',') });
             }
 
             model.Category = CategoryModel.Convert(nodeManager.FindById(model.Category.Id) as Category);
@@ -118,6 +118,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     shotManager.Create(shot);
                 }
 
+                TempData["Coordinates"] = new List<string[]> { model.Coordinates.Split(',') };
                 return RedirectToAction("Thanks", "Observation");
             }
 
@@ -168,7 +169,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     shotManager.Create(shot);
                 }
 
-                return RedirectToAction("Thanks", "Observation");
+                return RedirectToAction("Thanks", new List<string[]> { model.Coordinates.Split(',') });
             }
 
             model.Species = SpeciesModel.Convert(nodeManager.FindById(model.Species.Id) as Species);
@@ -208,7 +209,13 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
         public ActionResult Thanks()
         {
-            return View();
+            var coordinatesList = TempData["Coordinates"];
+
+            if (Request.IsAuthenticated)
+            {
+            }
+
+            return View(coordinatesList);
         }
     }
 }
