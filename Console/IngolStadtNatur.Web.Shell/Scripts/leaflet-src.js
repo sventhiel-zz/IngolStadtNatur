@@ -8083,7 +8083,7 @@
 
             // @option color: String = '#3388ff'
             // Stroke color
-            color: '#3388ff',
+            color: '#c0c0c0',
 
             // @option weight: Number = 3
             // Stroke width in pixels
