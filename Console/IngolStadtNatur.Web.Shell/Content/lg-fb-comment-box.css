@@ -1,3 +1,6 @@
+/*! lightgallery - v1.6.6 - 2017-12-20
+* http://sachinchoolur.github.io/lightGallery/
+* Copyright (c) 2017 Sachin N; Licensed GPLv3 */
 .lg-outer.fb-comments .lg-img-wrap, .lg-outer.fb-comments .lg-video-cont {
   padding-right: 400px !important;
 }
@@ -10,7 +13,7 @@
   top: 0;
   width: 420px;
   z-index: 99999;
-  background: #fff url("./images/lightGallery/loading.gif") no-repeat scroll center center;
+  background: #fff url("../img/loading.gif") no-repeat scroll center center;
 }
 
 .lg-outer.fb-comments .fb-comments.fb_iframe_widget {
@@ -18,7 +21,7 @@
 }
 
 .lg-outer.fb-comments .fb-comments.fb_iframe_widget.fb_iframe_widget_loader {
-  background: #fff url("./images/lightGallery/loading.gif") no-repeat scroll center center;
+  background: #fff url("../img/loading.gif") no-repeat scroll center center;
 }
 
 .lg-outer.fb-comments .lg-toolbar {
@@ -39,7 +42,7 @@
 }
 
 .lg-outer.fb-comments .lg-img-wrap, .lg-outer.fb-comments .lg-video-cont {
-  background: url("./images/lightGallery/loading.gif") no-repeat scroll transparent;
+  background: url("../img/loading.gif") no-repeat scroll transparent;
   background-position: center center;
   background-position: calc((100% - 400px) / 2) center;
 }
