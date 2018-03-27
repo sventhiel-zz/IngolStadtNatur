@@ -871,9 +871,10 @@
     <Content Include="Views\Observation\Thanks.cshtml" />
     <Content Include="Views\Observation\_CategoryGroupListItem.cshtml" />
     <Content Include="Views\Observation\_SpeciesGroupListItem.cshtml" />
-    <Content Include="Views\Map\Index.cshtml" />
+    <Content Include="Views\Map\Private.cshtml" />
     <Content Include="Views\Gallery\Public.cshtml" />
     <Content Include="Views\Gallery\Private.cshtml" />
+    <Content Include="Views\Map\Public.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

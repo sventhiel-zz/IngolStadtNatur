@@ -10,7 +10,12 @@ namespace IngolStadtNatur.Web.Shell.Controllers
     public class MapController : Controller
     {
         // GET: Map
-        public ActionResult Index()
+        public ActionResult Private()
+        {
+            return View();
+        }
+
+        public ActionResult Public()
         {
             return View();
         }
@@ -26,9 +31,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             if (!species.IsSearchable || species.IsThreatened) return Json(new List<string[]>(), JsonRequestBehavior.DenyGet);
 
             var observationManager = new ObservationManager();
-            var observations = observationManager.Observations.Where(x => x.Node.CommonName.ToLowerInvariant() == species.CommonName.ToLowerInvariant());
-
-            var data = observationManager.ObservationRepository.Query(x => x.Node.CommonName.ToLowerInvariant() == nodeName.ToLowerInvariant())
+            var data = observationManager.ObservationRepository.Query(x => x.Species.ToUpperInvariant() == species.CommonName.ToUpperInvariant())
                 .Select(x => x.Coordinates.Split(',')).ToList();
 
             return Json(data, JsonRequestBehavior.AllowGet);
