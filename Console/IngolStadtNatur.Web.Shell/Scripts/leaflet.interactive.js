@@ -3,6 +3,7 @@
 function addInteractiveMarker(latlng) {
     $("#Coordinates").val(latlng.lat + "," + latlng.lng);
     $("#Checkbox_Map").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
+
     marker = new L.Marker(latlng, { draggable: true });
     marker.addTo(map);
 }

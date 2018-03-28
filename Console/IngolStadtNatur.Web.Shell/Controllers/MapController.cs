@@ -10,6 +10,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
     public class MapController : Controller
     {
         // GET: Map
+        [Authorize]
         public ActionResult Private()
         {
             return View();
@@ -20,6 +21,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             return View();
         }
 
+        [Authorize]
         public JsonResult Select_Coordinates(string nodeName)
         {
             var nodeManager = new NodeManager();
@@ -37,6 +39,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
         }
 
+        [Authorize]
         public JsonResult Select_Species(string query)
         {
             var nodeManager = new NodeManager();

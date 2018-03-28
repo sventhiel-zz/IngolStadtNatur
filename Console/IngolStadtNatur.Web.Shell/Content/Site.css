@@ -17,6 +17,10 @@
     border-radius: 0;
 }
 
+body {
+    padding-bottom: 30px;
+}
+
 /* Large desktops and laptops */
 /*@media (min-width: 1200px) {
     body {

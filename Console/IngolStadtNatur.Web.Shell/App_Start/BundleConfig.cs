@@ -30,7 +30,7 @@ namespace IngolStadtNatur.Web.Shell
                 "~/Scripts/respond.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/leaflet").Include(
-                "~/Scripts/leaflet.js",
+                "~/Scripts/leaflet-src.js",
                 "~/Scripts/leaflet.interactive.js",
                 "~/Scripts/leaflet.observational.js",
                 "~/Scripts/leaflet.geojsoncss.min.js",

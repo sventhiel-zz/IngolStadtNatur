@@ -221,6 +221,7 @@
     <Content Include="Content\images\lightgallery\video-play.png" />
     <Content Include="Content\images\lightgallery\vimeo-play.png" />
     <Content Include="Content\images\lightgallery\youtube-play.png" />
+    <Content Include="Content\images\aad-marker_black.png" />
     <Content Include="Content\images\marker-icon-2x.png" />
     <Content Include="Content\images\marker-icon.png" />
     <Content Include="Content\lg-fb-comment-box.css" />
@@ -437,6 +438,8 @@
     <Content Include="Images\Common\Kamera_AAD.svg" />
     <Content Include="Images\Common\Kästchen-mit-Haken.svg" />
     <Content Include="Images\Common\Kästchen.svg" />
+    <Content Include="Images\Common\MAP_Position_Marker_1.svg" />
+    <Content Include="Images\Common\MAP_Position_Marker_2.svg" />
     <Content Include="Images\Common\Micro.svg" />
     <Content Include="Images\Common\Micro_AAD.svg" />
     <Content Include="Images\Common\Pfeil_Links.svg" />
