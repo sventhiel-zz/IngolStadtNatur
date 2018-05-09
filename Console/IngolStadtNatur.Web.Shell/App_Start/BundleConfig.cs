@@ -20,7 +20,11 @@ namespace IngolStadtNatur.Web.Shell
                 "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/lightgallery").Include(
-                "~/Scripts/lightgallery-all.min.js"));
+                "~/Scripts/lightgallery-all.min.js",
+                "~/Scripts/prettify.js",
+                "~/Scripts/transition.js",
+                "~/Scripts/jquery.justifiedGallery.min.js",
+                "~/Scripts/collapse.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.min.js",

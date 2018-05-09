@@ -104,11 +104,11 @@ body {
 
 .text-scientific {
     color: #00ac9f;
-    font-size: 0.85em;
+    font-size: 1em;
 }
 
 .text-description {
-    font-size: 0.7em;
+    font-size: 1em;
 }
 
 h3 {
@@ -116,7 +116,7 @@ h3 {
 }
 
 p {
-    font-size: 0.7em;
+    font-size: 1em;
 }
 
 .typeahead {

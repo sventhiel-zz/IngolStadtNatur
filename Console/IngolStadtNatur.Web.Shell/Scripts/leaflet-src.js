@@ -6117,8 +6117,8 @@
 
     L.Icon.Default = L.Icon.extend({
         options: {
-            iconUrl: 'aad-marker_black.png',
-            iconRetinaUrl: 'aad-marker_black.png',
+            iconUrl: 'aad-marker_black_colored.png',
+            iconRetinaUrl: 'aad-marker_black_colored.png',
             shadowUrl: 'marker-shadow.png',
             iconSize: [30, 41],
             iconAnchor: [15, 41],

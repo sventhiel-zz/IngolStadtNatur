@@ -214,6 +214,7 @@
   <ItemGroup>
     <Content Include="Content\chosen.css" />
     <Content Include="Content\chosen.min.css" />
+    <Content Include="Content\images\aad-marker_black_colored.png" />
     <Content Include="Content\images\chosen-sprite%402x.png" />
     <Content Include="Content\images\chosen-sprite.png" />
     <Content Include="Content\images\controls.png" />
@@ -232,9 +233,9 @@
     <Content Include="Content\lightgallery.min.css" />
     <Content Include="Content\lightslider.css" />
     <Content Include="Content\lightslider.min.css" />
-    <Content Include="Documents\Categories.txt" />
-    <Content Include="Documents\Images.txt" />
-    <Content Include="Documents\Species.txt" />
+    <Content Include="Models\Documents\Categories.txt" />
+    <Content Include="Models\Documents\Images.txt" />
+    <Content Include="Models\Documents\Species.txt" />
     <Content Include="fonts\lg.svg" />
     <Content Include="Images\Categories\Ameisen.svg" />
     <Content Include="Images\Categories\Ameisen_AAD.svg" />
@@ -735,11 +736,14 @@
     <Content Include="fonts\lg.ttf" />
     <Content Include="fonts\lg.woff" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\collapse.js" />
+    <Content Include="Scripts\demos.js" />
     <Content Include="Scripts\habitats-colorful.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery.justifiedGallery.min.js" />
     <Content Include="Scripts\leaflet.observational.js" />
     <Content Include="Scripts\lightgallery-all.js" />
     <Content Include="Scripts\lightgallery-all.min.js" />
@@ -792,10 +796,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Application.config" />
     <Content Include="Connections.config" />
-    <Content Include="Documents\Datenschutzerklärung.pdf" />
-    <Content Include="Documents\How.pdf" />
-    <Content Include="Documents\Impressum.pdf" />
-    <Content Include="Documents\Why.pdf" />
+    <Content Include="Models\Documents\Datenschutzerklärung.pdf" />
+    <Content Include="Models\Documents\How.pdf" />
+    <Content Include="Models\Documents\Impressum.pdf" />
+    <Content Include="Models\Documents\Why.pdf" />
     <None Include="Properties\PublishProfiles\ISN.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap3-typeahead.js" />
@@ -820,10 +824,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\leaflet.interactive.js" />
+    <Content Include="Scripts\prettify.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\transition.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
