@@ -4,7 +4,6 @@ using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartup(typeof(Startup))]
-
 namespace IngolStadtNatur.Web.Shell
 {
     public partial class Startup

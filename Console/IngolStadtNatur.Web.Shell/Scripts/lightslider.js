@@ -265,7 +265,7 @@
                                 }
                             }
                             if (tItem < $el.find('.clone.right').length) {
-                                for (var j = $children.length - 1; j > ($children.length - 1 - $el.find('.clone.right').length); j--) {
+                                for (var j = $children.length - 1; j > ($children.length - 1 - $el.find('.clone.right').length) ; j--) {
                                     scene--;
                                     $children.eq(j).remove();
                                 }
@@ -275,7 +275,7 @@
                                 $el.find('.lslide').eq(n).clone().removeClass('lslide').addClass('clone right').appendTo($el);
                                 scene++;
                             }
-                            for (var m = $el.find('.lslide').length - $el.find('.clone.left').length; m > ($el.find('.lslide').length - tItem); m--) {
+                            for (var m = $el.find('.lslide').length - $el.find('.clone.left').length; m > ($el.find('.lslide').length - tItem) ; m--) {
                                 $el.find('.lslide').eq(m - 1).clone().removeClass('lslide').addClass('clone left').prependTo($el);
                             }
                             $children = $el.children();

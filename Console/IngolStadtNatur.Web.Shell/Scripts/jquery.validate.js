@@ -433,7 +433,7 @@
 
             checkForm: function () {
                 this.prepareForm();
-                for (var i = 0, elements = (this.currentElements = this.elements()); elements[i]; i++) {
+                for (var i = 0, elements = (this.currentElements = this.elements()) ; elements[i]; i++) {
                     this.check(elements[i]);
                 }
                 return this.valid();
@@ -874,7 +874,7 @@
                     }
                 }
                 if (this.settings.unhighlight) {
-                    for (i = 0, elements = this.validElements(); elements[i]; i++) {
+                    for (i = 0, elements = this.validElements() ; elements[i]; i++) {
                         this.settings.unhighlight.call(this, elements[i], this.settings.errorClass, this.settings.validClass);
                     }
                 }

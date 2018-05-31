@@ -3403,23 +3403,23 @@
         switch (units) {
             case 'year':
                 this.month(0);
-            /* falls through */
+                /* falls through */
             case 'quarter':
             case 'month':
                 this.date(1);
-            /* falls through */
+                /* falls through */
             case 'week':
             case 'isoWeek':
             case 'day':
             case 'date':
                 this.hours(0);
-            /* falls through */
+                /* falls through */
             case 'hour':
                 this.minutes(0);
-            /* falls through */
+                /* falls through */
             case 'minute':
                 this.seconds(0);
-            /* falls through */
+                /* falls through */
             case 'second':
                 this.milliseconds(0);
         }
@@ -4198,7 +4198,7 @@
                 case 'hour': return days * 24 + milliseconds / 36e5;
                 case 'minute': return days * 1440 + milliseconds / 6e4;
                 case 'second': return days * 86400 + milliseconds / 1000;
-                // Math.floor prevents floating point math errors here
+                    // Math.floor prevents floating point math errors here
                 case 'millisecond': return Math.floor(days * 864e5) + milliseconds;
                 default: throw new Error('Unknown unit ' + units);
             }
@@ -7662,7 +7662,7 @@
                 case 'd':
                     return number + (number === 1 ? 'er' : 'e');
 
-                // Words with feminine grammatical gender: semaine
+                    // Words with feminine grammatical gender: semaine
                 case 'w':
                 case 'W':
                     return number + (number === 1 ? 're' : 'e');
@@ -7725,7 +7725,7 @@
                 case 'd':
                     return number + (number === 1 ? 'er' : 'e');
 
-                // Words with feminine grammatical gender: semaine
+                    // Words with feminine grammatical gender: semaine
                 case 'w':
                 case 'W':
                     return number + (number === 1 ? 're' : 'e');
@@ -7789,7 +7789,7 @@
                 case 'D':
                     return number + (number === 1 ? 'er' : '');
 
-                // Words with masculine grammatical gender: mois, trimestre, jour
+                    // Words with masculine grammatical gender: mois, trimestre, jour
                 default:
                 case 'M':
                 case 'Q':
@@ -7797,7 +7797,7 @@
                 case 'd':
                     return number + (number === 1 ? 'er' : 'e');
 
-                // Words with feminine grammatical gender: semaine
+                    // Words with feminine grammatical gender: semaine
                 case 'w':
                 case 'W':
                     return number + (number === 1 ? 're' : 'e');

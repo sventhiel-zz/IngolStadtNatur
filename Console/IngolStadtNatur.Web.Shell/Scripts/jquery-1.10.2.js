@@ -1887,7 +1887,7 @@
 
             if (!nodeType) {
                 // If no nodeType, this is expected to be an array
-                for (; (node = elem[i]); i++) {
+                for (; (node = elem[i]) ; i++) {
                     // Do not traverse comment nodes
                     ret += getText(node);
                 }
@@ -2574,7 +2574,7 @@
                             [] :
 
                             // ...otherwise use results directly
-                            results :
+                    results :
                         matcherIn;
 
                 // Find primary matches
@@ -4262,7 +4262,7 @@
                         values = one ? null : [],
                         max = one ? index + 1 : options.length,
                         i = index < 0 ?
-                            max :
+                        max :
                             one ? index : 0;
 
                     // Loop through all the selected options
@@ -4479,7 +4479,7 @@
             function (elem, name, isXML) {
                 var fn = jQuery.expr.attrHandle[name],
                     ret = isXML ?
-                        undefined :
+                    undefined :
                         /* jshint eqeqeq: false */
                         (jQuery.expr.attrHandle[name] = undefined) !=
                             getter(elem, name, isXML) ?
@@ -6513,7 +6513,7 @@
 
                                 // String was a bare <thead> or <tfoot>
                                 wrap[1] === "<table>" && !rtbody.test(elem) ?
-                                    tmp :
+                                tmp :
                                     0;
 
                             j = elem && elem.childNodes.length;

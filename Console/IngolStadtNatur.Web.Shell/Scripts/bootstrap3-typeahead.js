@@ -26,7 +26,7 @@
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = factory(require('jquery'));
     }
-    // AMD module is defined
+        // AMD module is defined
     else if (typeof define === 'function' && define.amd) {
         define(['jquery'], function ($) {
             return factory($);
