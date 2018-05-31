@@ -45,7 +45,6 @@ namespace IngolStadtNatur.Persistence.NH
         public void Update(T entity)
         {
             _session.Update(entity);
-
         }
     }
 }

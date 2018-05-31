@@ -62,10 +62,10 @@
                                 });
                         },
                         afterSelect: function (e) {
+                            alert(e);
                             jQuery.get('@Url.Action("Select_Coordinates", "Map")',
                                 { NodeName: e },
                                 function (data) {
-                                    alert(data.length);
                                     addObservationalMarkers(data);
                                 });
                         }

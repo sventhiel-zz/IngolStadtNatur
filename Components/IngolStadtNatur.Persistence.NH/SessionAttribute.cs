@@ -13,16 +13,16 @@ namespace IngolStadtNatur.Persistence.NH
 
         protected ISessionFactory SessionFactory => SessionFactoryManager.SessionFactory;
 
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var session = SessionFactory.OpenSession();
-            CurrentSessionContext.Bind(session);
-        }
-
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             var session = CurrentSessionContext.Unbind(SessionFactory);
             session.Close();
+        }
+
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var session = SessionFactory.OpenSession();
+            CurrentSessionContext.Bind(session);
         }
     }
 }

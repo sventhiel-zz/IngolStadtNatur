@@ -11,7 +11,7 @@ foolproof.is = function (value1, operator, value2, passOnNull) {
         if ((value1nullish && !value2nullish) || (value2nullish && !value1nullish))
             return true;
     }
-    
+
     var isNumeric = function (input) {
         return (input - 0) == input && input.length > 0;
     };
@@ -180,4 +180,3 @@ foolproof.getName = function (element, dependentPropety) {
         });
     });
 })();
-

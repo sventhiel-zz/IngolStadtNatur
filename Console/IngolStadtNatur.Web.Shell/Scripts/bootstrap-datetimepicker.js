@@ -1406,7 +1406,6 @@
                     });
                 });
 
-
                 parseFormats = options.extraFormats ? options.extraFormats.slice() : [];
                 if (parseFormats.indexOf(format) < 0 && parseFormats.indexOf(actualFormat) < 0) {
                     parseFormats.push(actualFormat);

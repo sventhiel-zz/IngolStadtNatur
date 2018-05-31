@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace IngolStadtNatur.Web.Shell.Controllers
@@ -60,7 +61,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
                     var shot = new Shot()
                     {
-                        Name = observation.Id + Path.GetExtension(model.Shot.FileName),
+                        Name = Guid.NewGuid() + Path.GetExtension(model.Shot.FileName),
                         Observation = observation
                     };
 
@@ -69,7 +70,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     shotManager.Create(shot);
                 }
 
-                return RedirectToAction("Thanks", "Observation");
+                return RedirectToAction("Thanks", new List<string[]> { model.Coordinates.Split(',') });
             }
 
             model.Category = CategoryModel.Convert(nodeManager.FindById(model.Category.Id) as Category);
@@ -109,7 +110,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
                     var shot = new Shot()
                     {
-                        Name = observation.Id + Path.GetExtension(model.Shot.FileName),
+                        Name = Guid.NewGuid() + Path.GetExtension(model.Shot.FileName),
                         Observation = observation
                     };
 
@@ -117,6 +118,7 @@ namespace IngolStadtNatur.Web.Shell.Controllers
                     shotManager.Create(shot);
                 }
 
+                TempData["Coordinates"] = new List<string[]> { model.Coordinates.Split(',') };
                 return RedirectToAction("Thanks", "Observation");
             }
 
@@ -158,16 +160,16 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
                     var shot = new Shot()
                     {
-                        Name = observation.Id + Path.GetExtension(model.Shot.FileName),
+                        Name = Guid.NewGuid() + Path.GetExtension(model.Shot.FileName),
                         Observation = observation
                     };
 
-                    model.Shot.SaveAs(Path.Combine(ConfigurationManager.AppSettings["Shots"], shot.Name));
+                    model.Shot.SaveAs(Path.Combine(HostingEnvironment.MapPath(ConfigurationManager.AppSettings["Shots"]), shot.Name));
 
                     shotManager.Create(shot);
                 }
 
-                return RedirectToAction("Thanks", "Observation");
+                return RedirectToAction("Thanks", new List<string[]> { model.Coordinates.Split(',') });
             }
 
             model.Species = SpeciesModel.Convert(nodeManager.FindById(model.Species.Id) as Species);
@@ -207,7 +209,13 @@ namespace IngolStadtNatur.Web.Shell.Controllers
 
         public ActionResult Thanks()
         {
-            return View();
+            var coordinatesList = TempData["Coordinates"];
+
+            if (Request.IsAuthenticated)
+            {
+            }
+
+            return View(coordinatesList);
         }
     }
 }

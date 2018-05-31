@@ -75,7 +75,7 @@ __MVC_ApplyValidator_Unknown = function (rules, type, params) {
 jQuery.validator.addMethod("is", function (value, element, params) {
     var dependentProperty = foolproof.getId(element, params["dependentproperty"]);
     var operator = params["operator"];
-    var passOnNull = params["passonnull"];    
+    var passOnNull = params["passonnull"];
     var dependentValue = document.getElementById(dependentProperty).value;
 
     if (foolproof.is(value, operator, dependentValue, passOnNull))

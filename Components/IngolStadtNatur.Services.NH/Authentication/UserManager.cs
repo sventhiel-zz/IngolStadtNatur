@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IngolStadtNatur.Entities.NH.Authentication;
+﻿using IngolStadtNatur.Entities.NH.Authentication;
 using IngolStadtNatur.Services.NH.Utilities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System;
 
 namespace IngolStadtNatur.Services.NH.Authentication
 {

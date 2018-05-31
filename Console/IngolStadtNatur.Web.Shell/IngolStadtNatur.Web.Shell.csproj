@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,11 +59,9 @@
     </Reference>
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\ImageResizer.4.2.0\lib\net45\ImageResizer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -72,9 +71,8 @@
       <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -102,16 +100,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="Npgsql, Version=3.1.9.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Npgsql.3.1.9\lib\net451\Npgsql.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Npgsql, Version=3.2.6.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Npgsql.3.2.6\lib\net451\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -127,6 +122,9 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -216,20 +214,40 @@
   <ItemGroup>
     <Content Include="Content\chosen.css" />
     <Content Include="Content\chosen.min.css" />
+    <Content Include="Content\images\aad-marker_black_colored.png" />
     <Content Include="Content\images\chosen-sprite%402x.png" />
     <Content Include="Content\images\chosen-sprite.png" />
     <Content Include="Content\images\controls.png" />
-    <Content Include="Content\lightslider.css" />
-    <Content Include="Content\lightslider.min.css" />
+    <Content Include="Content\images\lightgallery\loading.gif" />
+    <Content Include="Content\images\lightgallery\video-play.png" />
+    <Content Include="Content\images\lightgallery\vimeo-play.png" />
+    <Content Include="Content\images\lightgallery\youtube-play.png" />
+    <Content Include="Content\images\aad-marker_black.png" />
+    <Content Include="Content\images\marker-icon-2x.png" />
+    <Content Include="Content\images\marker-icon.png" />
+    <Content Include="Content\lg-fb-comment-box.css" />
+    <Content Include="Content\lg-fb-comment-box.min.css" />
+    <Content Include="Content\lg-transitions.css" />
+    <Content Include="Content\lg-transitions.min.css" />
+    <Content Include="Content\lightgallery.css" />
+    <Content Include="Content\lightgallery.min.css" />
+    <Content Include="Models\Documents\Categories.txt" />
+    <Content Include="Models\Documents\Images.txt" />
+    <Content Include="Models\Documents\Species.txt" />
+    <Content Include="fonts\lg.svg" />
     <Content Include="Images\Categories\Ameisen.svg" />
     <Content Include="Images\Categories\Ameisen_AAD.svg" />
     <Content Include="Images\Categories\Ammern.svg" />
     <Content Include="Images\Categories\Ammern_AAD.svg" />
-    <Content Include="Images\Categories\Amphibien.svg" />
+    <Content Include="Images\Categories\Amphibien.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Images\Categories\Amphibien_AAD.svg" />
     <Content Include="Images\Categories\Andere_Mäuse_und_Wühler.svg" />
     <Content Include="Images\Categories\Andere_Mäuse_und_Wühler_AAD.svg" />
-    <Content Include="Images\Categories\Asseln.svg" />
+    <Content Include="Images\Categories\Asseln.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Images\Categories\Asseln_AAD.svg" />
     <Content Include="Images\Categories\Baumläufer.svg" />
     <Content Include="Images\Categories\Baumläufer_AAD.svg" />
@@ -423,6 +441,8 @@
     <Content Include="Images\Common\Kamera_AAD.svg" />
     <Content Include="Images\Common\Kästchen-mit-Haken.svg" />
     <Content Include="Images\Common\Kästchen.svg" />
+    <Content Include="Images\Common\MAP_Position_Marker_1.svg" />
+    <Content Include="Images\Common\MAP_Position_Marker_2.svg" />
     <Content Include="Images\Common\Micro.svg" />
     <Content Include="Images\Common\Micro_AAD.svg" />
     <Content Include="Images\Common\Pfeil_Links.svg" />
@@ -430,8 +450,12 @@
     <Content Include="Images\Common\Pfeil_Rechts.svg" />
     <Content Include="Images\Common\Pfeil_Rechts_AAD.svg" />
     <Content Include="Images\Common\Position.svg" />
-    <Content Include="Images\Common\Position_AAD.svg" />
-    <Content Include="Images\Common\Return.svg" />
+    <Content Include="Images\Common\Position_AAD.svg">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Images\Common\Return.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Images\Common\Return_AAD.svg" />
     <Content Include="Images\Species\Amsel-Männchen.jpg" />
     <Content Include="Images\Species\Amsel-Weibchen.jpg" />
@@ -714,9 +738,27 @@
     <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\chosen.proto.js" />
     <Content Include="Scripts\chosen.proto.min.js" />
+    <Content Include="fonts\lg.eot" />
+    <Content Include="fonts\lg.ttf" />
+    <Content Include="fonts\lg.woff" />
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\demos.js" />
+    <Content Include="Scripts\habitats-colorful.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
     <Content Include="Scripts\leaflet.observational.js" />
+    <Content Include="Scripts\lightgallery-all.js" />
+    <Content Include="Scripts\lightgallery-all.min.js" />
+    <Content Include="Scripts\lightgallery.js" />
+    <Content Include="Scripts\lightgallery.min.js" />
     <Content Include="Scripts\lightslider.js" />
     <Content Include="Scripts\lightslider.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\mvcfoolproof.unobtrusive.js" />
     <Content Include="Scripts\mvcfoolproof.unobtrusive.min.js" />
     <Content Include="Scripts\MvcFoolproofJQueryValidation.js" />
@@ -733,8 +775,6 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\layers-2x.png" />
     <Content Include="Content\images\layers.png" />
-    <Content Include="Content\images\marker-icon-2x.png" />
-    <Content Include="Content\images\marker-icon.png" />
     <Content Include="Content\images\marker-shadow.png" />
     <Content Include="Content\leaflet.css" />
     <Content Include="Content\normalize.css" />
@@ -760,6 +800,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Application.config" />
     <Content Include="Connections.config" />
+    <Content Include="Models\Documents\Datenschutzerklärung.pdf" />
+    <Content Include="Models\Documents\How.pdf" />
+    <Content Include="Models\Documents\Impressum.pdf" />
+    <Content Include="Models\Documents\Why.pdf" />
     <None Include="Properties\PublishProfiles\ISN.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap3-typeahead.js" />
@@ -768,12 +812,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.1.js" />
-    <Content Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -787,10 +827,6 @@
     <Content Include="Scripts\leaflet.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\moment-with-locales.js" />
-    <Content Include="Scripts\moment-with-locales.min.js" />
-    <Content Include="Scripts\moment.js" />
-    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\leaflet.interactive.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -846,12 +882,16 @@
     <Content Include="Views\Observation\Thanks.cshtml" />
     <Content Include="Views\Observation\_CategoryGroupListItem.cshtml" />
     <Content Include="Views\Observation\_SpeciesGroupListItem.cshtml" />
-    <Content Include="Views\Map\Index.cshtml" />
+    <Content Include="Views\Map\Private.cshtml" />
+    <Content Include="Views\Gallery\Public.cshtml" />
+    <Content Include="Views\Gallery\Private.cshtml" />
+    <Content Include="Views\Map\Public.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Gallery\" />
+    <Folder Include="Shots\" />
     <Folder Include="Views\Help\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -919,7 +959,7 @@
       <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Verwenden Sie die Wiederherstellung von NuGet-Paketen, um die fehlenden Dateien herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

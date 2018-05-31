@@ -9,6 +9,7 @@ namespace IngolStadtNatur.Services.NH.Utilities
     public static class Auth
     {
         public static IDataProtectionProvider DataProtectionProvider { get; private set; }
+
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public static void Configure(IAppBuilder app)
         {

@@ -1,0 +1,37 @@
+﻿@model List<IngolStadtNatur.Web.Shell.Models.GalleryItemModel>
+
+@*<div id="aniimated-thumbnials" class="list-unstyled justified-gallery">
+        @for (int i = 0; i < 500; i++)
+        {
+            <a href="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg" data-responsive="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90 375, /Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90 480, /Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90 757">
+                <img class="img-responsive" src="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=128&quality=90">
+            </a>
+
+            <a class="" href="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg" data-sub-html="sdsdsd">
+                <img class="img-responsive" src="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg">
+                <div class="demo-gallery-poster">
+                    <img src="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=128&quality=90">
+                </div>
+            </a>
+        }
+    </div>*@
+
+<div id="aniimated-thumbnials">
+    <a href="img/img1.jpg">
+        <img src="img/thumb1.jpg" />
+    </a>
+    <a href="img/img2.jpg">
+        <img src="img/thumb2.jpg" />
+    </a>
+</div>
+
+@section Scripts{
+    <script>
+        $(document)
+            .ready(function () {
+                $('#aniimated-thumbnials').lightGallery({
+                    thumbnail: true
+                });
+            });
+    </script>
+}

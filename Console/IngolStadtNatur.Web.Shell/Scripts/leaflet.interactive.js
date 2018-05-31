@@ -3,6 +3,7 @@
 function addInteractiveMarker(latlng) {
     $("#Coordinates").val(latlng.lat + "," + latlng.lng);
     $("#Checkbox_Map").attr("src", "/Images/Common/Kästchen-mit-Haken.svg");
+
     marker = new L.Marker(latlng, { draggable: true });
     marker.addTo(map);
 }
@@ -17,19 +18,19 @@ function createInteractiveMap(div, latlng) {
     }
 
     var bayernAtlas = L.tileLayer.wms("http://www.geodaten.bayern.de/ogc/ogc_dop80_oa.cgi?",
-    {
-        layers: "by_dop80c",
-        version: "1.1.1",
-        format: "image/jpeg",
-        crs: L.CRS.EPSG4326,
-        transparent: true,
-        styles: ""
-    });
+        {
+            layers: "by_dop80c",
+            version: "1.1.1",
+            format: "image/jpeg",
+            crs: L.CRS.EPSG4326,
+            transparent: true,
+            styles: ""
+        });
 
     var openStreetMap = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    });
+        {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        });
 
     var baseMaps = {
         "BayernAtlas": bayernAtlas,
@@ -37,14 +38,14 @@ function createInteractiveMap(div, latlng) {
     };
 
     map = L.map(div,
-    {
-        maxBounds: [[48.728209, 11.376253], [48.799446, 11.471378]],
-        center: coordinates,
-        minZoom: 14,
-        zoom: 14,
-        crs: L.CRS.EPSG900913,
-        layers: [bayernAtlas]
-    });
+        {
+            maxBounds: [[48.728209, 11.376253], [48.799446, 11.471378]],
+            center: coordinates,
+            minZoom: 14,
+            zoom: 14,
+            crs: L.CRS.EPSG900913,
+            layers: [bayernAtlas]
+        });
 
     map.on("click", onClick);
     map.on("locationerror", onLocationError);

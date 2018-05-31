@@ -10,90 +10,15 @@ namespace IngolStadtNatur.Services.NH.Authentication
 {
     public class UserStore : IUserEmailStore<User, long>, IUserPasswordStore<User, long>, IUserLoginStore<User, long>, IUserSecurityStampStore<User, long>, IUserLockoutStore<User, long>, IUserTwoFactorStore<User, long>, IQueryableUserStore<User, long>
     {
-        public Repository<Login> LoginRepository { get; }
-        public Repository<User> UserRepository { get; }
-
         public UserStore()
         {
             LoginRepository = new Repository<Login>();
             UserRepository = new Repository<User>();
         }
 
-        public void Dispose()
-        {
-            // DO NOTHING!
-        }
-
-        public Task CreateAsync(User user)
-        {
-            UserRepository.Add(user);
-            return Task.FromResult(0);
-        }
-
-        public Task UpdateAsync(User user)
-        {
-            UserRepository.Update(user);
-            return Task.FromResult(0);
-        }
-
-        public Task DeleteAsync(User user)
-        {
-            UserRepository.Remove(user);
-            return Task.FromResult(0);
-        }
-
-        public Task<User> FindByIdAsync(long userId)
-        {
-            return Task.FromResult(UserRepository.Get(userId));
-        }
-
-        public Task<User> FindByNameAsync(string userName)
-        {
-            return Task.FromResult(UserRepository.Query().FirstOrDefault(u => u.UserName.ToUpperInvariant() == userName.ToUpperInvariant()));
-        }
-
-        public Task SetEmailAsync(User user, string email)
-        {
-            user.Email = email;
-            return Task.FromResult(0);
-        }
-
-        public Task<string> GetEmailAsync(User user)
-        {
-            return Task.FromResult(user.Email);
-        }
-
-        public Task<bool> GetEmailConfirmedAsync(User user)
-        {
-            return Task.FromResult(user.IsEmailConfirmed);
-        }
-
-        public Task SetEmailConfirmedAsync(User user, bool confirmed)
-        {
-            user.IsEmailConfirmed = confirmed;
-            return Task.FromResult(0);
-        }
-
-        public Task<User> FindByEmailAsync(string email)
-        {
-            return Task.FromResult(UserRepository.Query().FirstOrDefault(u => u.Email.ToUpperInvariant() == email.ToUpperInvariant()));
-        }
-
-        public Task SetPasswordHashAsync(User user, string passwordHash)
-        {
-            user.Password = passwordHash;
-            return Task.FromResult(0);
-        }
-
-        public Task<string> GetPasswordHashAsync(User user)
-        {
-            return Task.FromResult(user.Password);
-        }
-
-        public Task<bool> HasPasswordAsync(User user)
-        {
-            return Task.FromResult(user.Password != null);
-        }
+        public Repository<Login> LoginRepository { get; }
+        public Repository<User> UserRepository { get; }
+        public IQueryable<User> Users => UserRepository.Query();
 
         public Task AddLoginAsync(User user, UserLoginInfo login)
         {
@@ -107,21 +32,21 @@ namespace IngolStadtNatur.Services.NH.Authentication
             return Task.FromResult<int>(0);
         }
 
-        public Task RemoveLoginAsync(User user, UserLoginInfo login)
+        public Task CreateAsync(User user)
         {
-            var info = user.Logins.SingleOrDefault(x => x.LoginProvider == login.LoginProvider && x.ProviderKey == login.ProviderKey);
-            if (info != null)
-            {
-                user.Logins.Remove(info);
-                UpdateAsync(user);
-            }
-
+            UserRepository.Add(user);
             return Task.FromResult(0);
         }
 
-        public Task<IList<UserLoginInfo>> GetLoginsAsync(User user)
+        public Task DeleteAsync(User user)
         {
-            return Task.FromResult<IList<UserLoginInfo>>((user.Logins).Select(login => new UserLoginInfo(login.LoginProvider, login.ProviderKey)).ToList());
+            UserRepository.Remove(user);
+            return Task.FromResult(0);
+        }
+
+        public void Dispose()
+        {
+            // DO NOTHING!
         }
 
         public Task<User> FindAsync(UserLoginInfo login)
@@ -129,15 +54,39 @@ namespace IngolStadtNatur.Services.NH.Authentication
             return Task.FromResult(LoginRepository.Query(m => m.LoginProvider == login.LoginProvider && m.ProviderKey == login.ProviderKey).Select(m => m.User).FirstOrDefault());
         }
 
-        public Task SetSecurityStampAsync(User user, string stamp)
+        public Task<User> FindByEmailAsync(string email)
         {
-            user.SecurityStamp = stamp;
-            return Task.FromResult(0);
+            return Task.FromResult(UserRepository.Query().FirstOrDefault(u => u.Email.ToUpperInvariant() == email.ToUpperInvariant()));
         }
 
-        public Task<string> GetSecurityStampAsync(User user)
+        public Task<User> FindByIdAsync(long userId)
         {
-            return Task.FromResult(user.SecurityStamp);
+            return Task.FromResult(UserRepository.Get(userId));
+        }
+
+        public Task<User> FindByNameAsync(string userName)
+        {
+            return Task.FromResult(UserRepository.Query().FirstOrDefault(u => u.UserName.ToUpperInvariant() == userName.ToUpperInvariant()));
+        }
+
+        public Task<int> GetAccessFailedCountAsync(User user)
+        {
+            return Task.FromResult(user.AccessFailedCount);
+        }
+
+        public Task<string> GetEmailAsync(User user)
+        {
+            return Task.FromResult(user.Email);
+        }
+
+        public Task<bool> GetEmailConfirmedAsync(User user)
+        {
+            return Task.FromResult(user.IsEmailConfirmed);
+        }
+
+        public Task<bool> GetLockoutEnabledAsync(User user)
+        {
+            return Task.FromResult(user.LockedOutEnabled);
         }
 
         public Task<DateTimeOffset> GetLockoutEndDateAsync(User user)
@@ -156,6 +105,73 @@ namespace IngolStadtNatur.Services.NH.Authentication
             return Task.FromResult(dateTimeOffset);
         }
 
+        public Task<IList<UserLoginInfo>> GetLoginsAsync(User user)
+        {
+            return Task.FromResult<IList<UserLoginInfo>>((user.Logins).Select(login => new UserLoginInfo(login.LoginProvider, login.ProviderKey)).ToList());
+        }
+
+        public Task<string> GetPasswordHashAsync(User user)
+        {
+            return Task.FromResult(user.Password);
+        }
+
+        public Task<string> GetSecurityStampAsync(User user)
+        {
+            return Task.FromResult(user.SecurityStamp);
+        }
+
+        public Task<bool> GetTwoFactorEnabledAsync(User user)
+        {
+            return Task.FromResult(user.TwoFactorEnabled);
+        }
+
+        public Task<bool> HasPasswordAsync(User user)
+        {
+            return Task.FromResult(user.Password != null);
+        }
+
+        public Task<int> IncrementAccessFailedCountAsync(User user)
+        {
+            user.AccessFailedCount = user.AccessFailedCount + 1;
+            return Task.FromResult(user.AccessFailedCount);
+        }
+
+        public Task RemoveLoginAsync(User user, UserLoginInfo login)
+        {
+            var info = user.Logins.SingleOrDefault(x => x.LoginProvider == login.LoginProvider && x.ProviderKey == login.ProviderKey);
+            if (info != null)
+            {
+                user.Logins.Remove(info);
+                UpdateAsync(user);
+            }
+
+            return Task.FromResult(0);
+        }
+
+        public Task ResetAccessFailedCountAsync(User user)
+        {
+            user.AccessFailedCount = 0;
+            return Task.FromResult(0);
+        }
+
+        public Task SetEmailAsync(User user, string email)
+        {
+            user.Email = email;
+            return Task.FromResult(0);
+        }
+
+        public Task SetEmailConfirmedAsync(User user, bool confirmed)
+        {
+            user.IsEmailConfirmed = confirmed;
+            return Task.FromResult(0);
+        }
+
+        public Task SetLockoutEnabledAsync(User user, bool enabled)
+        {
+            user.LockedOutEnabled = enabled;
+            return Task.FromResult(0);
+        }
+
         public Task SetLockoutEndDateAsync(User user, DateTimeOffset lockoutEnd)
         {
             DateTime? nullable;
@@ -172,31 +188,15 @@ namespace IngolStadtNatur.Services.NH.Authentication
             return Task.FromResult(0);
         }
 
-        public Task<int> IncrementAccessFailedCountAsync(User user)
+        public Task SetPasswordHashAsync(User user, string passwordHash)
         {
-            user.AccessFailedCount = user.AccessFailedCount + 1;
-            return Task.FromResult(user.AccessFailedCount);
-        }
-
-        public Task ResetAccessFailedCountAsync(User user)
-        {
-            user.AccessFailedCount = 0;
+            user.Password = passwordHash;
             return Task.FromResult(0);
         }
 
-        public Task<int> GetAccessFailedCountAsync(User user)
+        public Task SetSecurityStampAsync(User user, string stamp)
         {
-            return Task.FromResult(user.AccessFailedCount);
-        }
-
-        public Task<bool> GetLockoutEnabledAsync(User user)
-        {
-            return Task.FromResult(user.LockedOutEnabled);
-        }
-
-        public Task SetLockoutEnabledAsync(User user, bool enabled)
-        {
-            user.LockedOutEnabled = enabled;
+            user.SecurityStamp = stamp;
             return Task.FromResult(0);
         }
 
@@ -206,11 +206,10 @@ namespace IngolStadtNatur.Services.NH.Authentication
             return Task.FromResult(0);
         }
 
-        public Task<bool> GetTwoFactorEnabledAsync(User user)
+        public Task UpdateAsync(User user)
         {
-            return Task.FromResult(user.TwoFactorEnabled);
+            UserRepository.Update(user);
+            return Task.FromResult(0);
         }
-
-        public IQueryable<User> Users => UserRepository.Query();
     }
 }

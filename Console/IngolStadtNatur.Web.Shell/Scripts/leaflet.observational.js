@@ -10,19 +10,19 @@ function addObservationalMarkers(coordinates) {
 
 function createObservationalMap(div) {
     var bayernAtlas = L.tileLayer.wms("http://www.geodaten.bayern.de/ogc/ogc_dop80_oa.cgi?",
-{
-    layers: "by_dop80c",
-    version: "1.1.1",
-    format: "image/jpeg",
-    crs: L.CRS.EPSG4326,
-    transparent: true,
-    styles: ""
-});
+        {
+            layers: "by_dop80c",
+            version: "1.1.1",
+            format: "image/jpeg",
+            crs: L.CRS.EPSG4326,
+            transparent: true,
+            styles: ""
+        });
 
     var openStreetMap = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-{
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
+        {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        });
 
     var baseMaps = {
         "BayernAtlas": bayernAtlas,
@@ -30,14 +30,14 @@ function createObservationalMap(div) {
     };
 
     observationalMap = L.map(div,
-{
-    maxBounds: [[48.728209, 11.376253], [48.799446, 11.471378]],
-    center: [48.764789, 11.424408],
-    minZoom: 14,
-    zoom: 14,
-    crs: L.CRS.EPSG900913,
-    layers: [bayernAtlas]
-});
+        {
+            maxBounds: [[48.728209, 11.376253], [48.799446, 11.471378]],
+            center: [48.764789, 11.424408],
+            minZoom: 14,
+            zoom: 14,
+            crs: L.CRS.EPSG900913,
+            layers: [bayernAtlas]
+        });
 
     observationalMarkers = L.layerGroup().addTo(observationalMap);
     L.control.layers(baseMaps).addTo(observationalMap);

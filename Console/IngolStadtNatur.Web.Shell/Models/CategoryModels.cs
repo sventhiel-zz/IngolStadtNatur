@@ -4,8 +4,35 @@ using System.Linq;
 
 namespace IngolStadtNatur.Web.Shell.Models
 {
+    public class CategoryListGroupItemModel
+    {
+        public string CommonName { get; set; }
+        public string Description { get; set; }
+        public long Id { get; set; }
+        public List<ImageListGroupItemModel> Images { get; set; }
+        public string Preview { get; set; }
+        public string ScientificName { get; set; }
+
+        public static CategoryListGroupItemModel Convert(Category category)
+        {
+            return new CategoryListGroupItemModel()
+            {
+                Description = category.Description,
+                Id = category.Id,
+                CommonName = category.CommonName,
+                Preview = category.Preview,
+                ScientificName = category.ScientificName
+            };
+        }
+    }
+
     public class CategoryListGroupModel
     {
+        public CategoryListGroupModel()
+        {
+            Children = new List<long>();
+        }
+
         public ICollection<long> Children { get; set; }
         public string CommonName { get; set; }
         public string Description { get; set; }
@@ -16,11 +43,6 @@ namespace IngolStadtNatur.Web.Shell.Models
         public string ScientificName { get; set; }
         public string UncertaintyHeader { get; set; }
         public string UncertaintyText { get; set; }
-
-        public CategoryListGroupModel()
-        {
-            Children = new List<long>();
-        }
 
         public static CategoryListGroupModel Convert(Category category)
         {
@@ -35,28 +57,6 @@ namespace IngolStadtNatur.Web.Shell.Models
                 ScientificName = category.ScientificName,
                 UncertaintyHeader = category.UncertaintyHeader,
                 UncertaintyText = category.UncertaintyText
-            };
-        }
-    }
-
-    public class CategoryListGroupItemModel
-    {
-        public string Description { get; set; }
-        public long Id { get; set; }
-        public List<ImageListGroupItemModel> Images { get; set; }
-        public string CommonName { get; set; }
-        public string Preview { get; set; }
-        public string ScientificName { get; set; }
-
-        public static CategoryListGroupItemModel Convert(Category category)
-        {
-            return new CategoryListGroupItemModel()
-            {
-                Description = category.Description,
-                Id = category.Id,
-                CommonName = category.CommonName,
-                Preview = category.Preview,
-                ScientificName = category.ScientificName
             };
         }
     }

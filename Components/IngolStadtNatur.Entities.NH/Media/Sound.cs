@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IngolStadtNatur.Entities.NH.Media
+﻿namespace IngolStadtNatur.Entities.NH.Media
 {
-    class Sound
+    internal class Sound
     {
     }
 }
