@@ -231,8 +231,6 @@
     <Content Include="Content\lg-transitions.min.css" />
     <Content Include="Content\lightgallery.css" />
     <Content Include="Content\lightgallery.min.css" />
-    <Content Include="Content\lightslider.css" />
-    <Content Include="Content\lightslider.min.css" />
     <Content Include="Models\Documents\Categories.txt" />
     <Content Include="Models\Documents\Images.txt" />
     <Content Include="Models\Documents\Species.txt" />
@@ -241,11 +239,15 @@
     <Content Include="Images\Categories\Ameisen_AAD.svg" />
     <Content Include="Images\Categories\Ammern.svg" />
     <Content Include="Images\Categories\Ammern_AAD.svg" />
-    <Content Include="Images\Categories\Amphibien.svg" />
+    <Content Include="Images\Categories\Amphibien.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Images\Categories\Amphibien_AAD.svg" />
     <Content Include="Images\Categories\Andere_Mäuse_und_Wühler.svg" />
     <Content Include="Images\Categories\Andere_Mäuse_und_Wühler_AAD.svg" />
-    <Content Include="Images\Categories\Asseln.svg" />
+    <Content Include="Images\Categories\Asseln.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Images\Categories\Asseln_AAD.svg" />
     <Content Include="Images\Categories\Baumläufer.svg" />
     <Content Include="Images\Categories\Baumläufer_AAD.svg" />
@@ -448,8 +450,12 @@
     <Content Include="Images\Common\Pfeil_Rechts.svg" />
     <Content Include="Images\Common\Pfeil_Rechts_AAD.svg" />
     <Content Include="Images\Common\Position.svg" />
-    <Content Include="Images\Common\Position_AAD.svg" />
-    <Content Include="Images\Common\Return.svg" />
+    <Content Include="Images\Common\Position_AAD.svg">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Images\Common\Return.svg">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Images\Common\Return_AAD.svg" />
     <Content Include="Images\Species\Amsel-Männchen.jpg" />
     <Content Include="Images\Species\Amsel-Weibchen.jpg" />
@@ -736,14 +742,12 @@
     <Content Include="fonts\lg.ttf" />
     <Content Include="fonts\lg.woff" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="Scripts\collapse.js" />
     <Content Include="Scripts\demos.js" />
     <Content Include="Scripts\habitats-colorful.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
-    <Content Include="Scripts\jquery.justifiedGallery.min.js" />
     <Content Include="Scripts\leaflet.observational.js" />
     <Content Include="Scripts\lightgallery-all.js" />
     <Content Include="Scripts\lightgallery-all.min.js" />
@@ -824,12 +828,10 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\leaflet.interactive.js" />
-    <Content Include="Scripts\prettify.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\transition.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

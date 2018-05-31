@@ -20,11 +20,7 @@ namespace IngolStadtNatur.Web.Shell
                 "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/lightgallery").Include(
-                "~/Scripts/lightgallery-all.min.js",
-                "~/Scripts/prettify.js",
-                "~/Scripts/transition.js",
-                "~/Scripts/jquery.justifiedGallery.min.js",
-                "~/Scripts/collapse.js"));
+                "~/Scripts/lightgallery-all.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.min.js",
@@ -51,8 +47,6 @@ namespace IngolStadtNatur.Web.Shell
                 "~/Content/font-awesome.min.css",
 
                 "~/Content/lightgallery.min.css",
-                "~/Content/lg-transitions.min.css",
-                "~/Content/lg-fb-comment-box.min.css",
 
                 "~/Content/Site.css"));
 

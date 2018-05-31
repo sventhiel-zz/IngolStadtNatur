@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using IngolStadtNatur.Entities.NH.Media;
 using System.Configuration;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Web;
-using IngolStadtNatur.Entities.NH.Media;
 
 namespace IngolStadtNatur.Web.Shell.Models
 {

@@ -401,10 +401,10 @@
 
                 $(this.currentForm)
                     .on("focusin.validate focusout.validate keyup.validate",
-                    ":text, [type='password'], [type='file'], select, textarea, [type='number'], [type='search'], " +
-                    "[type='tel'], [type='url'], [type='email'], [type='datetime'], [type='date'], [type='month'], " +
-                    "[type='week'], [type='time'], [type='datetime-local'], [type='range'], [type='color'], " +
-                    "[type='radio'], [type='checkbox'], [contenteditable], [type='button']", delegate)
+                        ":text, [type='password'], [type='file'], select, textarea, [type='number'], [type='search'], " +
+                        "[type='tel'], [type='url'], [type='email'], [type='datetime'], [type='date'], [type='month'], " +
+                        "[type='week'], [type='time'], [type='datetime-local'], [type='range'], [type='color'], " +
+                        "[type='radio'], [type='checkbox'], [contenteditable], [type='button']", delegate)
 
                     // Support: Chrome, oldIE
                     // "select" is provided as event.target when clicking a option
