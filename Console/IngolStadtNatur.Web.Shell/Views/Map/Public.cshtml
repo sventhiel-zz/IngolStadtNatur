@@ -35,11 +35,31 @@
 </div>
 
 @section Scripts{
-    <script>
+<script>
         $(document)
             .ready(function () {
 
                 createObservationalMap('Leaflet_Map');
+
+                $('#Species')
+                    .typeahead({
+                        minLength: 3,
+                        source: function (query, process) {
+                            return jQuery.get('@Url.Action("Select_Species", "Map")',
+                                { Query: query },
+                                function (data) {
+                                    return process(data);
+                                });
+                        },
+                        afterSelect: function (e) {
+                            alert(e);
+                            jQuery.get('@Url.Action("Select_Coordinates", "Map")',
+                                { NodeName: e },
+                                function (data) {
+                                    addObservationalMarkers(data);
+                                });
+                        }
+                    });
             });
-    </script>
+</script>
 }
