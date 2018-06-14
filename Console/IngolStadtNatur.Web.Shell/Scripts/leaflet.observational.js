@@ -1,14 +1,28 @@
-﻿var observationalMap, observationalMarkers;
+﻿var coordinates, gps, observationalMap, observationalMarkers;
 
-function addObservationalMarkers(coordinates) {
+function addObservationalMarkers(latlngs) {
     observationalMarkers.clearLayers();
 
-    for (var i = 0; i < coordinates.length; i++) {
-        new L.Marker([coordinates[i][0], coordinates[i][1]]).addTo(observationalMarkers);
+    for (var i = 0; i < latlngs.length; i++) {
+        new L.Marker([latlngs[i][0], latlngs[i][1]]).addTo(observationalMarkers);
     }
 }
 
-function createObservationalMap(div) {
+function addObservationalMarker(latlng) {
+    observationalMarkers.clearLayers();
+
+    new L.Marker(latlng).addTo(observationalMarkers);
+}
+
+function createObservationalMap(div, latlng) {
+    if (typeof latlng === "undefined" || latlng === null) {
+        coordinates = [48.659590, 11.465875];
+        gps = true;
+    } else {
+        coordinates = latlng;
+        gps = false;
+    }
+
     var bayernAtlas = L.tileLayer.wms("http://www.geodaten.bayern.de/ogc/ogc_dop80_oa.cgi?",
         {
             layers: "by_dop80c",
@@ -30,14 +44,14 @@ function createObservationalMap(div) {
     };
 
     observationalMap = L.map(div,
-        {
-            maxBounds: [[48.728209, 11.376253], [48.799446, 11.471378]],
-            center: [48.764789, 11.424408],
-            minZoom: 14,
-            zoom: 14,
-            crs: L.CRS.EPSG900913,
-            layers: [bayernAtlas]
-        });
+    {
+        maxBounds: [[48.817759, 11.341906], [48.631214, 11.520903]],
+        center: coordinates,
+        minZoom: 14,
+        zoom: 20,
+        crs: L.CRS.EPSG900913,
+        layers: [bayernAtlas]
+    });
 
     observationalMarkers = L.layerGroup().addTo(observationalMap);
     L.control.layers(baseMaps).addTo(observationalMap);

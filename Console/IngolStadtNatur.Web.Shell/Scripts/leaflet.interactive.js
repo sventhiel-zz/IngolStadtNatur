@@ -10,7 +10,7 @@ function addInteractiveMarker(latlng) {
 
 function createInteractiveMap(div, latlng) {
     if (typeof latlng === "undefined" || latlng === null) {
-        coordinates = [48.764789, 11.424408];
+        coordinates = [48.659590, 11.465875];
         gps = true;
     } else {
         coordinates = latlng;
@@ -38,14 +38,14 @@ function createInteractiveMap(div, latlng) {
     };
 
     map = L.map(div,
-        {
-            maxBounds: [[48.728209, 11.376253], [48.799446, 11.471378]],
-            center: coordinates,
-            minZoom: 14,
-            zoom: 14,
-            crs: L.CRS.EPSG900913,
-            layers: [bayernAtlas]
-        });
+    {
+        maxBounds: [[48.817759, 11.341906], [48.631214, 11.520903]],
+        center: coordinates,
+        minZoom: 14,
+        zoom: 20,
+        crs: L.CRS.EPSG900913,
+        layers: [bayernAtlas]
+    });
 
     map.on("click", onClick);
     map.on("locationerror", onLocationError);
