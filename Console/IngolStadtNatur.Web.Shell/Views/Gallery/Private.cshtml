@@ -1,26 +1,22 @@
 ﻿@model List<IngolStadtNatur.Web.Shell.Models.GalleryItemModel>
 
-<div id="publicGallery">
-    @for (int i = 0; i < 500; i++)
+
+<div id="aniimated-thumbnials" class="list-unstyled justified-gallery">
+    @foreach (var shot in Model)
     {
-        <a href="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg" data-responsive="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90 375, /Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90 480, /Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90 757">
-            <picture>
-                <source srcset="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=192&quality=90" media="(min-width: 1200px)">
-                <source srcset="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=128&quality=90" media="(min-width: 768px) and (max-width: 1199px)">
-                <source srcset="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=64&quality=90" media="(max-width: 767px)">
-                <img class="media-object aadi-img-responsive" src="/Shots/46d68906-3645-4727-a566-8e67aabf29ec.jpg?width=128&quality=90">
-            </picture>
+        <a href="@($"/Shots/{@shot.Name}")" data-responsive="@($"/Shots/{@shot.Name}?width=192&quality=90 375"), @($"/Shots/{@shot.Name}?width=192&quality=90 480"), @($"/Shots/{@shot.Name}?width=192&quality=90 757")">
+            <img class="col-lg-3 col-md-4 col-sm-6 col-xs-6 img-responsive" style="padding: 0" src="@($"/Shots/{@shot.Name}?width=192&quality=90")">
         </a>
     }
 </div>
 
 @section Scripts{
     <script>
-    $(document)
-        .ready(function () {
-            $('#publicGallery').lightGallery({
-                thumbnail: true
+        $(document)
+            .ready(function () {
+                $('#aniimated-thumbnials').lightGallery({
+                    thumbnail: true
+                });
             });
-        });
     </script>
 }
