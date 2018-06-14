@@ -1,4 +1,4 @@
-﻿@model List<string[]>
+﻿@model string
 
 <style>
     #Leaflet_Map {
@@ -42,13 +42,16 @@
     </div>
 </div>
 
+
 @section Scripts{
     <script>
         $(document)
             .ready(function () {
+                alert('@Model');
+                var latlng = L.latLng('@Model'.split(",").map(parseFloat));
 
-                createObservationalMap('Leaflet_Map');
-                addObservationalMarkers(@Html.Raw(Json.Encode(Model)));
+                createObservationalMap('Leaflet_Map', latlng);
+                addObservationalMarker(latlng);
             });
     </script>
 }
