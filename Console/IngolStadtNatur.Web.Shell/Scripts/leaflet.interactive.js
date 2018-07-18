@@ -10,14 +10,14 @@ function addInteractiveMarker(latlng) {
 
 function createInteractiveMap(div, latlng) {
     if (typeof latlng === "undefined" || latlng === null) {
-        coordinates = [48.659590, 11.465875];
+        coordinates = [48.765610, 11.423719];
         gps = true;
     } else {
         coordinates = latlng;
         gps = false;
     }
 
-    var bayernAtlas = L.tileLayer.wms("http://www.geodaten.bayern.de/ogc/ogc_dop80_oa.cgi?",
+    var bayernAtlas = L.tileLayer.wms("https://geoservices.bayern.de/wms/v1/ogc_dop80_oa.cgi?",
         {
             layers: "by_dop80c",
             version: "1.1.1",
@@ -27,9 +27,9 @@ function createInteractiveMap(div, latlng) {
             styles: ""
         });
 
-    var openStreetMap = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    var openStreetMap = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         });
 
     var baseMaps = {
@@ -39,7 +39,7 @@ function createInteractiveMap(div, latlng) {
 
     map = L.map(div,
     {
-        maxBounds: [[48.817759, 11.341906], [48.631214, 11.520903]],
+        maxBounds: [[48.778076, 11.397803], [48.750424, 11.453432]],
         center: coordinates,
         minZoom: 14,
         zoom: 20,
